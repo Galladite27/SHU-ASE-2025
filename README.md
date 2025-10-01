@@ -30,7 +30,7 @@ Team members:
 * Ryan
 
 Development process structure:
-* Agile (kanban)
+* Agile (scrum)
 
 Initial roles draft:
 * Documentation: Laurence
