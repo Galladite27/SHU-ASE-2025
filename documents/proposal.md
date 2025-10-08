@@ -7,6 +7,7 @@ Relevant deliverables:
 * 4 user stories, use case diagrams
 * C4 (?) model diagrams, interface designs, data design diagrams
 * Implementation notes (technology stack, setup instructions, repository link)
+* Testing documentation
 * Group work diary using provided template
 
 From presentation:
@@ -18,6 +19,8 @@ Relevant deliverables:
 * Backlog
 * Sprint backlogs
 * Increments
+
+All of this information is quite scattered, and so the "grading criteria" section of the assessment brief will be the main standard. Also, from the looks of things we can remove that horrible "about us" HTML document. No idea why he told us we had to have one in a previous lesson, only for it not to be mentioned anywhere in the assessment.
 
 # My proposal
 * Haris is team leader
