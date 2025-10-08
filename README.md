@@ -1,5 +1,9 @@
 # SHU Applied Software Engineering group project
-## Required Github practices
+To add here:
+* Introducing the master document as what ties together the documentation of our work
+* Instructions on using the software (website)
+
+## Required Github practices (for our reference)
 Branches:
 * `master` - approved, working code (merge into master on stable versions)
 * `dev` - integration branch for feature branches to be merged into
@@ -7,7 +11,6 @@ Branches:
 
 Files:
 * `README.md` - containing usage information, MUST have overview section, anything else as appropriate
-* `about-us.html` - must exist and contain bio for each team member in format specified in week 2.2 instructions
 
 PR review:
 * Clear, related changes (ideally one feature per merge)
@@ -21,7 +24,7 @@ Specifically what will be checked for by tutor:
 * Git history shows use of feature branches
 * Pull requests made into development, then finally merged into master
 
-## Initial plan
+## Initial plan (to be deleted from here soon)
 Team members:
 * Laurence
 * Alex
