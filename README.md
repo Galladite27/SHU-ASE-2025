@@ -1,4 +1,6 @@
 # SHU Applied Software Engineering group project
+Product goal: enable donors and charities to co-operate with sharing clothes and tracking carbon savings through a secure and performant web application
+
 To add here:
 * Introducing the master document as what ties together the documentation of our work
 * Instructions on using the software (website)
