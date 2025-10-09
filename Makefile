@@ -1,7 +1,9 @@
-FILES=README.md documents/backlog.md documents/master-document.odt src/
+FILES := README.md documents/backlog.md documents/master-document.odt src/
+DATE := `date +%F`
 
 doc:
 	git clean -fxd
-	zip -r "release-$(date +%F).zip" $(FILES)
+
+	zip -r "release-$(DATE).zip" $(FILES)
 
 .PHONY: doc
