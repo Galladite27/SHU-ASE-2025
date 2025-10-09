@@ -1,5 +1,5 @@
 # SHU Applied Software Engineering group project
-Product goal: enable donors and charities to co-operate with sharing clothes and tracking carbon savings through a secure and performant web application
+Product goal: enable donors and charities to co-operate with sharing clothes and tracking carbon savings & other metrics through a secure and performant web application, particularly integrating AI tools for automatic categorisation of donated clothing items
 
 To add here:
 * Introducing the master document as what ties together the documentation of our work
@@ -12,7 +12,7 @@ Branches:
 * feature branches - short-lived for making single additions and improvements
 
 Files:
-* `README.md` - containing usage information, MUST have overview section, anything else as appropriate
+* `README.md` - containing usage information, overview section, anything else as appropriate
 
 PR review:
 * Clear, related changes (ideally one feature per merge)

@@ -28,6 +28,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * LSEPI
 * GDPR
 * Video presentation
+* Integrate with AI image detection
+* Configure AI to detect category of clothing item uploaded
 
 # Ongoing (sprint todo)
 
