@@ -3,7 +3,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Todo
 * C4 documentation
-* Wireframe
 * Authentication - clerk
 * Login
 * Sign up (charities added by admin)
@@ -32,5 +31,11 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Configure AI to detect category of clothing item uploaded
 
 # Ongoing (sprint todo)
+* User stories
+* Entity relationship diagram
+* Use case diagram
+* Wireframe
+* Page routing
+* Landing page login
 
 # Done

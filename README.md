@@ -1,5 +1,12 @@
 # SHU Applied Software Engineering group project
 Product goal: enable donors and charities to co-operate with sharing clothes and tracking carbon savings & other metrics through a secure and performant web application, particularly integrating AI tools for automatic categorisation of donated clothing items
+Group number: 12
+Group members:
+* Haris Mahmood
+* Laurence Layland
+* Alex Jakeman
+* Theo Richards
+* Ryan Parsons
 
 To add here:
 * Introducing the master document as what ties together the documentation of our work
@@ -25,20 +32,3 @@ Specifically what will be checked for by tutor:
 * about-us.html with all team members added
 * Git history shows use of feature branches
 * Pull requests made into development, then finally merged into master
-
-## Initial plan (to be deleted from here soon)
-Team members:
-* Laurence
-* Alex
-* Theo
-* Haris
-* Ryan
-
-Development process structure:
-* Agile (scrum)
-
-Initial roles draft:
-* Documentation: Laurence
-* Frontend: Laurence, Alex, Ryan
-* Backend: Laurence, Haris, Theo, Ryan
-* Database: Haris, Theo
