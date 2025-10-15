@@ -31,11 +31,14 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Configure AI to detect category of clothing item uploaded
 
 # Ongoing (sprint todo)
-* User stories
-* Entity relationship diagram
-* Use case diagram
-* Wireframe
-* Page routing
-* Landing page login
+* User stories (Alex)
+* Entity relationship diagram (Ryan)
+* Use case diagram (Haris)
+* Wireframe (Alex)
+* Page routing (Laurence)
+* Landing page login (Haris)
+* Planning documentation review & logging (Laurence)
+* Dummy pages (Haris)
+* Clerk authentication (Haris)
 
 # Done
