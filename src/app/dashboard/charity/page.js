@@ -1,5 +1,3 @@
-// src/app/dashboard/charity/page.js
-
 import React from 'react';
 import DashboardCard from '../(components)/DashboardCard';
 
@@ -31,7 +29,6 @@ export default function CharityDashboardPage() {
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
       
-        {/* Header now reflects a specific branch */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Manchester Piccadilly Branch</h1>
           <p className="text-gray-600 mt-1">Monitor donations and manage inventory for this branch.</p>

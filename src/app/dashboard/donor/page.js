@@ -1,5 +1,3 @@
-// src/app/dashboard/donor/page.js
-
 import React from 'react';
 import DashboardCard from '../(components)/DashboardCard';
 
@@ -7,10 +5,9 @@ import DashboardCard from '../(components)/DashboardCard';
 const donorSummary = {
   totalDonations: 8,
   itemsDonated: 42,
-  co2Saved: 35.7, // in kg (from reusing clothes etc.)
+  co2Saved: 35.7, 
 };
 
-// This array now shows specific branch names instead of general charity names.
 const donationHistory = [
   { id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
   { id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },

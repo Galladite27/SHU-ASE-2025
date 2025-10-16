@@ -1,8 +1,5 @@
-// src/app/dashboard/(components)/DashboardCard.js
-
 import React from 'react';
 
-// This component now accepts `title` and `value` as props
 export default function DashboardCard({ title, value }) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">

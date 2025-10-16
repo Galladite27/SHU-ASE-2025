@@ -1,14 +1,12 @@
-// src/app/dashboard/admin/page.js
-
 import React from 'react';
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA ---
 const summaryMetrics = {
   totalUsers: 152,
-  activeBranches: 14, // Changed from charities to branches
+  activeBranches: 14,
   totalDonations: 789,
-  totalItems: 2150, // Changed from value to items
+  totalItems: 2150, 
 };
 
 const recentDonations = [
