@@ -1,4 +1,5 @@
 import React from 'react';
+import {getSummaryMetrics2} from "../../api/getSummaryMetrics";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA ---
@@ -25,6 +26,9 @@ const userActivity = [
 
 // --- ADMIN DASHBOARD COMPONENT ---
 export default function AdminDashboardPage() {
+
+  const summaryMetrics2 = getSummaryMetrics2()
+  console.log(summaryMetrics2)
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -33,7 +37,7 @@ export default function AdminDashboardPage() {
           <p className="text-gray-600 mt-1">System-wide data and platform monitoring.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <DashboardCard title="Total Users" value={summaryMetrics.totalUsers.toLocaleString()} />
+          <DashboardCard title="Total Users" value={summaryMetrics2[0].totalUsers} />
           <DashboardCard title="Active Branches" value={summaryMetrics.activeBranches.toLocaleString()} />
           <DashboardCard title="Total Donations" value={summaryMetrics.totalDonations.toLocaleString()} />
           <DashboardCard title="Total Items Donated" value={`${summaryMetrics.totalItems.toLocaleString()}`} />
