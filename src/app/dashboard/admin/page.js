@@ -1,22 +1,16 @@
 import React from 'react';
-import {getSummaryMetrics2} from "../../api/getSummaryMetrics";
+import {getUserCount,getBranchCount,getDonationCount,getItemsCount,getHistory} from "../../api/getSummaryMetrics";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA ---
-const summaryMetrics = {
-  totalUsers: 152,
-  activeBranches: 14,
-  totalDonations: 789,
-  totalItems: 2150, 
-};
 
-const recentDonations = [
-  { id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
-  { id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
-  { id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
-  { id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
-  { id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
-];
+//const recentDonations = [
+  //{ id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
+  //{ id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
+  //{ id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
+  //{ id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
+  //{ id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
+//];
 
 const userActivity = [
     { id: 'USR-010', name: 'Frank Castle', role: 'Donor', activity: 'Joined the platform', timestamp: '2 hours ago' },
@@ -27,8 +21,12 @@ const userActivity = [
 // --- ADMIN DASHBOARD COMPONENT ---
 export default function AdminDashboardPage() {
 
-  const summaryMetrics2 = getSummaryMetrics2()
-  console.log(summaryMetrics2)
+  const userCount = getUserCount()
+  const activeBranches = getBranchCount()
+  const totalDonations = getDonationCount()
+  const totalItems = getItemsCount()
+  const recentDonations = getHistory()
+
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -37,10 +35,10 @@ export default function AdminDashboardPage() {
           <p className="text-gray-600 mt-1">System-wide data and platform monitoring.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <DashboardCard title="Total Users" value={summaryMetrics2[0].totalUsers} />
-          <DashboardCard title="Active Branches" value={summaryMetrics.activeBranches.toLocaleString()} />
-          <DashboardCard title="Total Donations" value={summaryMetrics.totalDonations.toLocaleString()} />
-          <DashboardCard title="Total Items Donated" value={`${summaryMetrics.totalItems.toLocaleString()}`} />
+          <DashboardCard title="Total Users" value={userCount.totalUsers} />
+          <DashboardCard title="Active Branches" value={activeBranches.activeBranches} />
+          <DashboardCard title="Total Donations" value={totalDonations.totalDonations} />
+          <DashboardCard title="Total Items Donated" value={totalItems.totalItems} />
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md xl:col-span-2">
