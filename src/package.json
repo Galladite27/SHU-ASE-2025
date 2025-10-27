@@ -11,7 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.33.5",
     "better-sqlite3": "^12.4.1",
-    "chartjs": "^0.3.24",
+    "chart.js": "^4.5.1",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"

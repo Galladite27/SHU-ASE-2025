@@ -1,5 +1,7 @@
+"use client"
 import React from 'react';
 import DashboardCard from '../../(components)/DashboardCard';
+import BarChart from "../../(components)/BarChart";
 
 // --- DUMMY DATA FOR DONOR ---
 const donorSummary = {
@@ -16,15 +18,30 @@ const donationHistory = [
   { id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
 ];
 
+const data = [
+  { year: 2010, count: 10 },
+  { year: 2011, count: 20 },
+  { year: 2012, count: 15 },
+  { year: 2013, count: 25 },
+  { year: 2014, count: 22 },
+  { year: 2015, count: 30 },
+  { year: 2016, count: 28 },
+];
+
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
+
   return (
-    <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
+    <main className="p-6 sm:p-8 bg-gray-50 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Your Impact</h1>
+          <h1 className="text-3xl font-bold">Your Impact</h1>
           <p className="text-gray-600 mt-1">Here's a summary of your impact. Thank you for contributing!</p>
         </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+        <BarChart data={data} />
+        <p>Line chart for increasing donations over time, increasing carbon savings over time, a list of comparisons showing equivalent carbon savings (e.g. plastic cups saved)</p>
       </div>
     </main>
   );
