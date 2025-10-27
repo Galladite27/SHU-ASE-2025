@@ -33,7 +33,7 @@ export default function DashboardSidebar() {
     <aside className="w-64 bg-gray-100 p-4">
       <nav>
         {menuItems.map((menu) => (
-          <div key={menu.role} className="mb-4">
+          <div key={menu.role} className="text-gray-400 mb-4">
             <h3 className="font-bold">{menu.role}</h3>
             {menu.links.map((link) => (
               <Link 
