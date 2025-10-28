@@ -1,12 +1,13 @@
 import React from 'react';
 import DashboardCard from '../(components)/DashboardCard';
+import { getDonationCount } from '@/app/api/getDonorsInfo';
 
 // --- DUMMY DATA FOR DONOR ---
-const donorSummary = {
-  totalDonations: 8,
-  itemsDonated: 42,
-  co2Saved: 35.7, 
-};
+//const donorSummary = {
+//  totalDonations: 8,
+//  itemsDonated: 42,
+//  co2Saved: 35.7, 
+//};
 
 const donationHistory = [
   { id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
@@ -16,6 +17,7 @@ const donationHistory = [
   { id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
 ];
 
+const donorSummary = getDonationCount();
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
   return (
