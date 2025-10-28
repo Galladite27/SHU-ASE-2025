@@ -28,9 +28,9 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Ensure database is write-protected
 * Link analytics to database
 * Admin analytics - view stock intake & donation trends (for user story)
-* Admin (and donor) analytics - track sustainability metrics
 * Admin analytics - generate report trends
 * Admin analytics - monitor distribution performance
+* Admin (and donor) analytics - track sustainability metrics
 
 # Done
 * User stories (Alex)
