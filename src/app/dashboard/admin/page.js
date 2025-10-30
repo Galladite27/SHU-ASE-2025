@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUserCount,getBranchCount,getDonationCount,getItemsCount,getHistory} from "../../api/getSummaryMetrics";
+import {getUserCount,getBranchCount,getDonationCount,getItemsCount,getHistory, getSummaryMetrics} from "../../api/getSummaryMetrics";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA ---
@@ -21,10 +21,7 @@ const userActivity = [
 // --- ADMIN DASHBOARD COMPONENT ---
 export default function AdminDashboardPage() {
 
-  const userCount = getUserCount()
-  const activeBranches = getBranchCount()
-  const totalDonations = getDonationCount()
-  const totalItems = getItemsCount()
+  const summaryMetric = getSummaryMetrics() 
   const recentDonations = getHistory()
 
   return (
@@ -35,10 +32,10 @@ export default function AdminDashboardPage() {
           <p className="text-gray-600 mt-1">System-wide data and platform monitoring.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <DashboardCard title="Total Users" value={userCount.totalUsers} />
-          <DashboardCard title="Active Branches" value={activeBranches.activeBranches} />
-          <DashboardCard title="Total Donations" value={totalDonations.totalDonations} />
-          <DashboardCard title="Total Items Donated" value={totalItems.totalItems} />
+          <DashboardCard title="Total Users" value={summaryMetric.totalUsers} />
+          <DashboardCard title="Active Branches" value={summaryMetric.activeBranches} />
+          <DashboardCard title="Total Donations" value={summaryMetric.totalDonations} />
+          <DashboardCard title="Total Items Donated" value={summaryMetric.totalItems} />
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md xl:col-span-2">

@@ -1,40 +1,16 @@
-export function getUserCount() {
+export function getSummaryMetrics() {
 	
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db")
-    const [rows] = db.prepare("SELECT Count(all) as totalUsers FROM User").all()
+    const [users] = db.prepare("SELECT Count(all) as totalUsers FROM User").all()
+    const [branches] = db.prepare("SELECT Count(all) as activeBranches FROM Locations").all()
+    const [donations] = db.prepare("SELECT Count(all) as totalDonations FROM Donations").all()
+    const [items] = db.prepare("SELECT Count(all) as totalItems FROM Clothing").all()
+    const summaryMetrics = Object.assign({},users,branches,donations,items)
+
     db.close()
 
-	return rows
-}
-
-export function getBranchCount(){
-
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [rows] = db.prepare("SELECT Count(all) as activeBranches FROM Locations").all()
-    db.close()
-
-	return rows
-}
-
-export function getDonationCount(){
-
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [rows] = db.prepare("SELECT Count(all) as totalDonations FROM Donations").all()
-    db.close()
-
-	return rows
-}
-
-export function getItemsCount(){
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [rows] = db.prepare("SELECT Count(all) as totalItems FROM Clothing").all()
-    db.close()
-
-	return rows
+	return summaryMetrics
 }
 
 export function getHistory(){
