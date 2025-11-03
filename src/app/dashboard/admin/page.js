@@ -1,156 +1,159 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 import DashboardCard from "../(components)/DashboardCard";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-// --- Dummy data ---
-const fallbackMetrics = {
-  totalUsers: 152,
-  activeBranches: 14,
-  totalDonations: 789,
-  totalItems: 2150,
-};
-
-const recentDonations = [
-  { id: "DON-001", donorName: "Steve Johnson", charityName: "Manchester Piccadilly Branch", items: "2 bags of clothes", status: "Completed", date: "2025-10-15" },
-  { id: "DON-002", donorName: "Penny Longing", charityName: "London Oxford Street Branch", items: "Box of children's books", status: "Completed", date: "2025-10-15" },
-  { id: "DON-003", donorName: "Ben Dover", charityName: "Sheffield City Centre Branch", items: "Used toys", status: "Processing", date: "2025-10-14" },
-  { id: "DON-004", donorName: "Bruce Wayne", charityName: "Manchester Piccadilly Branch", items: "3 winter coats", status: "Completed", date: "2025-10-13" },
-  { id: "DON-005", donorName: "Ethan Hunt", charityName: "Birmingham Bullring Branch", items: "Board games", status: "Failed", date: "2025-10-12" },
-];
-
-const userActivity = [
-  { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
-  { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
-  { id: "USR-002", name: "Bob Williams", role: "Donor", activity: "Made a new donation", timestamp: "Yesterday" },
-];
-
-// --- Component ---
 export default function AdminDashboardPage() {
-  const [metrics, setMetrics] = useState(null);
+  const [metrics, setMetrics] = useState({
+    totalUsers: 150,
+    activeBranches: 12,
+    totalDonations: 800,
+    totalItems: 2000,
+  });
 
   useEffect(() => {
-    async function loadMetrics() {
-      try {
-        const res = await fetch("/api/summary");
-        if (!res.ok) throw new Error("Failed to fetch summary metrics");
-        const data = await res.json();
-        setMetrics(data[0]);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    loadMetrics();
+    fetch("/api/summary")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.[0]) setMetrics(data[0]);
+      })
+      .catch(() => {
+        console.log("Using local fallback metrics");
+      });
   }, []);
 
-  // --- Chart Data (dummy data) ---
-  const chartData = {
-    labels: ["Oct 10", "Oct 11", "Oct 12", "Oct 13", "Oct 14", "Oct 15"],
+  const lineData = {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     datasets: [
       {
-        label: "Donations Received",
-        data: [100, 120, 90, 140, 160, 180],
-        backgroundColor: "rgba(59,130,246,0.6)",
-        borderColor: "rgb(59,130,246)",
-        borderWidth: 1,
-        borderRadius: 6,
+        label: "Donations",
+        data: [100, 110, 95, 130, 170, 160],
+        borderColor: "#3B82F6",
+        backgroundColor: "rgba(59,130,246,0.2)",
+        tension: 0.25,
+        fill: true,
       },
     ],
   };
 
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: { position: "top" },
-      title: { display: true, text: "Donations per Day" },
-    },
-    scales: { y: { beginAtZero: true, ticks: { stepSize: 20 } } },
+  const doughnutData = {
+    labels: ["Completed", "In Progress", "Failed"],
+    datasets: [
+      {
+        data: [70, 20, 10],
+        backgroundColor: [
+          "rgba(34,197,94,0.7)",
+          "rgba(250,204,21,0.7)",
+          "rgba(239,68,68,0.7)",
+        ],
+        borderWidth: 1,
+      },
+    ],
   };
 
-  const summary = metrics || fallbackMetrics;
+  const summary = [
+    { title: "Users", value: metrics.totalUsers },
+    { title: "Branches", value: metrics.activeBranches },
+    { title: "Donations", value: metrics.totalDonations },
+    { title: "Items", value: metrics.totalItems },
+  ];
+
+  const donationsData = [
+    { id: "D001", donor: "Steve Johnson", branch: "Manchester", items: "Clothes", status: "Completed" },
+    { id: "D002", donor: "Penny Longing", branch: "London", items: "Books", status: "Completed" },
+    { id: "D003", donor: "Ben Dover", branch: "Sheffield", items: "Toys", status: "Processing" },
+    { id: "D004", donor: "Bruce Wayne", branch: "Manchester", items: "Coats", status: "Completed" },
+    { id: "D005", donor: "Ethan Hunt", branch: "Birmingham", items: "Games", status: "Failed" },
+  ];
+
+  const activity = [
+    { id: 1, name: "Frank Castle", role: "Donor", action: "Signed up", time: "2h ago" },
+    { id: 2, name: "Manchester Branch", role: "Charity", action: "Updated stock", time: "5h ago" },
+    { id: 3, name: "Bob Williams", role: "Donor", action: "Made a donation", time: "Yesterday" },
+  ];
 
   return (
-    <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Administrator Dashboard</h1>
-          <p className="text-gray-600 mt-1">System-wide data and platform monitoring.</p>
+    <main className="p-6 sm:p-8 bg-gray-100 min-h-screen">
+      <div className="max-w-6xl mx-auto space-y-10">
+        <header>
+          <h1 className="text-3xl font-semibold text-gray-900">Admin Dashboard</h1>
+          <p className="text-gray-700 text-sm mt-1">Overview of platform stats</p>
+        </header>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {summary.map((s) => (
+            <DashboardCard key={s.title} title={s.title} value={s.value.toLocaleString()} />
+          ))}
         </div>
 
-        {/* SUMMARY CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <DashboardCard title="Total Users" value={summary.totalUsers.toLocaleString()} />
-          <DashboardCard title="Active Branches" value={summary.activeBranches.toLocaleString()} />
-          <DashboardCard title="Total Donations" value={summary.totalDonations.toLocaleString()} />
-          <DashboardCard title="Total Items Donated" value={summary.totalItems.toLocaleString()} />
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl shadow p-5">
+            <Line data={lineData} options={{ responsive: true, plugins: { legend: { display: false } } }} />
+          </div>
+
+          <div className="bg-white rounded-xl shadow p-5 flex justify-center items-center">
+            <div className="w-64">
+              <Doughnut data={doughnutData} options={{ plugins: { legend: { position: "bottom" } } }} />
+            </div>
+          </div>
         </div>
 
-        {/* Bar Chart TESTER */}
-        <div className="bg-white p-6 rounded-lg shadow-md xl:col-span-1 mb-8">
-  <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">
-    Donations Overview
-  </h2>
-
-  {/* The Chart container */}
-  <div className="w-full h-96 sm:h-[28rem] lg:h-[32rem] flex justify-center items-center">
-    <div className="w-full max-w-2xl h-full">
-      <Bar
-        data={chartData}
-        options={{
-          ...chartOptions,
-          maintainAspectRatio: false,
-        }}
-      />
-    </div>
-  </div>
-</div>
-        {/* DONATION + ACTIVITY TABLES */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-          {/* Donations */}
-          <div className="bg-white p-6 rounded-lg shadow-md xl:col-span-2">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Recent Donations Report</h2>
+        <div className="grid xl:grid-cols-3 gap-8">
+          {/* Recent Donations */}
+          <div className="bg-white p-5 rounded-xl shadow xl:col-span-2">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Donations</h2>
             <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-gray-200">
-                  <tr>
-                    <th className="py-3 px-4 text-gray-600 font-semibold">ID</th>
-                    <th className="py-3 px-4 text-gray-600 font-semibold">Donor</th>
-                    <th className="py-3 px-4 text-gray-600 font-semibold">Branch</th>
-                    <th className="py-3 px-4 text-gray-600 font-semibold">Items</th>
-                    <th className="py-3 px-4 text-gray-600 font-semibold">Status</th>
+              <table className="w-full text-sm text-left">
+                <thead>
+                  <tr className="border-b">
+                    <th className="py-2 px-3 text-gray-800">ID</th>
+                    <th className="py-2 px-3 text-gray-800">Donor</th>
+                    <th className="py-2 px-3 text-gray-800">Branch</th>
+                    <th className="py-2 px-3 text-gray-800">Items</th>
+                    <th className="py-2 px-3 text-gray-800">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {recentDonations.map((donation) => (
-                    <tr key={donation.id}>
-                      <td className="py-3 px-4 text-gray-600">{donation.id}</td>
-                      <td className="py-3 px-4 text-gray-800 font-medium">{donation.donorName}</td>
-                      <td className="py-3 px-4 text-gray-600">{donation.charityName}</td>
-                      <td className="py-3 px-4 text-gray-800">{donation.items}</td>
-                      <td className="py-3 px-4">
+                <tbody>
+                  {donationsData.map((d) => (
+                    <tr key={d.id} className="border-b last:border-none hover:bg-gray-50">
+                      <td className="py-2 px-3 text-gray-900">{d.id}</td>
+                      <td className="py-2 px-3 font-medium text-gray-900">{d.donor}</td>
+                      <td className="py-2 px-3 text-gray-900">{d.branch}</td>
+                      <td className="py-2 px-3 text-gray-900">{d.items}</td>
+                      <td className="py-2 px-3">
                         <span
-                          className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                            donation.status === "Completed"
-                              ? "bg-green-100 text-green-800"
-                              : donation.status === "Processing"
+                          className={`px-2 py-1 text-xs font-medium rounded-full ${
+                            d.status === "Completed"
+                              ? "bg-green-100 text-green-700"
+                              : d.status === "Processing"
                               ? "bg-yellow-100 text-yellow-800"
-                              : "bg-red-100 text-red-800"
+                              : "bg-red-100 text-red-700"
                           }`}
                         >
-                          {donation.status}
+                          {d.status}
                         </span>
                       </td>
                     </tr>
@@ -161,20 +164,20 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* User Activity */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Recent User Activity</h2>
+          <div className="bg-white p-5 rounded-xl shadow">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">User Activity</h2>
             <ul className="space-y-4">
-              {userActivity.map((activity) => (
-                <li key={activity.id} className="flex items-start">
+              {activity.map((a) => (
+                <li key={a.id} className="flex items-start">
                   <div
-                    className={`w-3 h-3 rounded-full mt-1.5 mr-3 ${
-                      activity.role === "Donor" ? "bg-blue-500" : "bg-indigo-500"
+                    className={`w-3 h-3 rounded-full mt-1 mr-3 ${
+                      a.role === "Donor" ? "bg-blue-500" : "bg-indigo-500"
                     }`}
                   ></div>
-                  <div className="flex-1">
-                    <p className="font-medium text-gray-800">{activity.name}</p>
-                    <p className="text-sm text-gray-500">{activity.activity}</p>
-                    <p className="text-xs text-gray-400">{activity.timestamp}</p>
+                  <div>
+                    <p className="font-medium text-gray-900">{a.name}</p>
+                    <p className="text-sm text-gray-800">{a.action}</p>
+                    <p className="text-xs text-gray-700">{a.time}</p>
                   </div>
                 </li>
               ))}
