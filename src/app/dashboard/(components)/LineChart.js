@@ -12,7 +12,7 @@ export default function BarChart({ data, label }) {
     const ctx = canvasRef.current.getContext("2d");
 
     const chart = new Chart(ctx, {
-      type: "bar",
+      type: "line",
       data: {
         labels: data.map((row) => row.x),
         datasets: [

@@ -1,7 +1,10 @@
 "use client"
 import React from 'react';
 import DashboardCard from '../../(components)/DashboardCard';
+
 import BarChart from "../../(components)/BarChart";
+import LineChart from "../../(components)/LineChart";
+import PieChart from "../../(components)/PieChart";
 
 // --- DUMMY DATA FOR DONOR ---
 const donorSummary = {
@@ -19,13 +22,19 @@ const donationHistory = [
 ];
 
 const data = [
-  { year: 2010, count: 10 },
-  { year: 2011, count: 20 },
-  { year: 2012, count: 15 },
-  { year: 2013, count: 25 },
-  { year: 2014, count: 22 },
-  { year: 2015, count: 30 },
-  { year: 2016, count: 28 },
+  { x: 2010, y: 10 },
+  { x: 2011, y: 20 },
+  { x: 2012, y: 15 },
+  { x: 2013, y: 25 },
+  { x: 2014, y: 22 },
+  { x: 2015, y: 30 },
+  { x: 2016, y: 28 },
+];
+
+const pieData = [
+  { name: "Bob", val: 12 },
+  { name: "Billy", val: 20 },
+  { name: "Brian", val: 7 },
 ];
 
 // --- DONOR DASHBOARD COMPONENT ---
@@ -40,8 +49,10 @@ export default function DonorDashboardPage() {
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
-        <BarChart data={data} />
+        <BarChart data={data} label="Discreet things" />
         <p>Line chart for increasing donations over time, increasing carbon savings over time, a list of comparisons showing equivalent carbon savings (e.g. plastic cups saved)</p>
+        <LineChart data={data} label="Continuous things" />
+        <PieChart data={pieData} label="Age" />
       </div>
     </main>
   );
