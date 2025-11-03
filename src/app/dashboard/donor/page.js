@@ -1,6 +1,6 @@
 import React from 'react';
 import DashboardCard from '../(components)/DashboardCard';
-import { getDonationCount } from '@/app/api/getDonorsInfo';
+import { getDonationCount,getDonorsHistory } from '@/app/api/getDonorsInfo';
 
 // --- DUMMY DATA FOR DONOR ---
 //const donorSummary = {
@@ -9,15 +9,17 @@ import { getDonationCount } from '@/app/api/getDonorsInfo';
 //  co2Saved: 35.7, 
 //};
 
-const donationHistory = [
-  { id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
-  { id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },
-  { id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
-  { id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
-  { id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
+/*const donationHistory = [
+  { donation_id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
+  { donation_id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },
+  { donation_id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
+  { donation_id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
+  { donation_id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
 ];
+*/
 
 const donorSummary = getDonationCount();
+const donationHistory = getDonorsHistory()
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
   return (
@@ -47,16 +49,16 @@ export default function DonorDashboardPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {donationHistory.map((donation) => (
-                  <tr key={donation.id}>
-                    <td className="py-3 px-4 text-gray-600">{donation.date}</td>
+                  <tr key={donation.Donation_ID}>
+                    <td className="py-3 px-4 text-gray-600">{donation.Date_Donated}</td>
                     <td className="py-3 px-4 text-gray-800 font-medium">{donation.charityName}</td>
                     <td className="py-3 px-4 text-gray-600">{donation.items}</td>
                     <td className="py-3 px-4 text-gray-600">{donation.impact}</td>
                     <td className="py-3 px-4">
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                        donation.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                        donation.Status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
                       }`}>
-                        {donation.status}
+                        {donation.Status}
                       </span>
                     </td>
                   </tr>
