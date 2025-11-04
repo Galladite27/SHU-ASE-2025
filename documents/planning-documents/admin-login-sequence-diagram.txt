@@ -1,0 +1,20 @@
+title Admin access dashboard
+
+actor Admin
+participant Website
+participant Web server
+participant Database
+
+Admin->Website:Enter credentials
+Website->Web server:Login request
+Web server->Database:Query database with details
+
+alt Credentials incorrect
+Database-->Web server:Report incorrect credentials
+Web server--xWebsite:Report access denied
+else Credentials correct
+Database-->Web server:Report correct credentials
+Web server-->Website:Report access granted
+Website->Web server:Request dashboard page
+Web server-->Website:Send dashboard page
+end
