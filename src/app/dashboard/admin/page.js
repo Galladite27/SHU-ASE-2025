@@ -1,30 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Line, Doughnut } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import DashboardCard from "../(components)/DashboardCard";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 export default function AdminDashboardPage() {
   const [metrics, setMetrics] = useState({
@@ -111,13 +88,11 @@ export default function AdminDashboardPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow p-5">
-            <Line data={lineData} options={{ responsive: true, plugins: { legend: { display: false } } }} />
+            <p className="text-black">Line data</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow p-5 flex justify-center items-center">
-            <div className="w-64">
-              <Doughnut data={doughnutData} options={{ plugins: { legend: { position: "bottom" } } }} />
-            </div>
+          <div className="bg-white rounded-xl shadow p-5">
+              <p className="text-black">Pie data</p>
           </div>
         </div>
 
