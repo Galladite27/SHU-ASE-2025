@@ -2,6 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../(components)/DashboardCard";
+import BarChart from "../(components)/BarChart";
+import LineChart from "../(components)/LineChart";
+import PieChart from "../(components)/PieChart";
+
 
 export default function AdminDashboardPage() {
   const [metrics, setMetrics] = useState({
@@ -22,40 +26,27 @@ export default function AdminDashboardPage() {
       });
   }, []);
 
-  const lineData = {
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    datasets: [
-      {
-        label: "Donations",
-        data: [100, 110, 95, 130, 170, 160],
-        borderColor: "#3B82F6",
-        backgroundColor: "rgba(59,130,246,0.2)",
-        tension: 0.25,
-        fill: true,
-      },
-    ],
-  };
-
-  const doughnutData = {
-    labels: ["Completed", "In Progress", "Failed"],
-    datasets: [
-      {
-        data: [70, 20, 10],
-        backgroundColor: [
-          "rgba(34,197,94,0.7)",
-          "rgba(250,204,21,0.7)",
-          "rgba(239,68,68,0.7)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
     { title: "Donations", value: metrics.totalDonations },
     { title: "Items", value: metrics.totalItems },
+  ];
+
+  const data = [
+    { x: 2010, y: 10 },
+    { x: 2011, y: 20 },
+    { x: 2012, y: 15 },
+    { x: 2013, y: 25 },
+    { x: 2014, y: 22 },
+    { x: 2015, y: 30 },
+    { x: 2016, y: 28 },
+  ];
+  
+  const pieData = [
+    { name: "Bob", val: 12 },
+    { name: "Billy", val: 20 },
+    { name: "Brian", val: 7 },
   ];
 
   const donationsData = [
@@ -88,11 +79,11 @@ export default function AdminDashboardPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow p-5">
-            <p className="text-black">Line data</p>
+            <LineChart data={data} label="Continuous things" />
           </div>
 
           <div className="bg-white rounded-xl shadow p-5">
-              <p className="text-black">Pie data</p>
+              <PieChart data={pieData} label="Pie Chart" />
           </div>
         </div>
 
