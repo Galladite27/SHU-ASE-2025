@@ -2,11 +2,14 @@
 Rather than over-complicate things with Jira or Trello, we have decided that the scope of the project and the number of things to do only warrants a simple way of tracking our backlog. Also, this file can be included in the published releases, produced as evidence at the end of each sprint period.
 
 # Todo
+* Page routing for clerk for different user types
+* 
 * Submit photos to charity systems
 * Edit, track and view donated stock (availability & categories)
 * Administrator - access system-wide data
 * Administrator - generate reports
 * Administrator - monitor platform usage
+* Donor page - make donations
 * Donor page - view donation history
 * Donor page - sustainability impact
 * Charity page - upcoming donations
@@ -21,6 +24,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * AI API for categorisation (optional)
 
 # Ongoing (sprint todo)
+* Restrict user management to admin only
 * C4 documentation
 * Link analytics to database
 * Admin analytics - view stock intake & donation trends (for user story)
