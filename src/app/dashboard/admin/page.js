@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../(components)/DashboardCard";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+//ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const backupDonations = [
   { id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
@@ -83,6 +83,13 @@ export default function AdminDashboardPage() {
     { title: "Items", value: metrics.totalItems },
   ];
 
+  const activity = [
+    { id: 1, name: "Frank Castle", role: "Donor", action: "Signed up", time: "2h ago" },
+    { id: 2, name: "Manchester Branch", role: "Charity", action: "Updated stock", time: "5h ago" },
+    { id: 3, name: "Bob Williams", role: "Donor", action: "Made a donation", time: "Yesterday" },
+  ];
+
+
   return (
     <main className="p-6 sm:p-8 bg-gray-100 min-h-screen">
       <div className="max-w-6xl mx-auto space-y-10">
@@ -113,10 +120,10 @@ export default function AdminDashboardPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {donationsData.map((d) => (
+                  {recentDonations.map((d) => (
                     <tr key={d.id} className="border-b last:border-none hover:bg-gray-50">
                       <td className="py-2 px-3 text-gray-900">{d.id}</td>
-                      <td className="py-2 px-3 font-medium text-gray-900">{d.donor}</td>
+                      <td className="py-2 px-3 font-medium text-gray-900">{d.donorName}</td>
                       <td className="py-2 px-3 text-gray-900">{d.branch}</td>
                       <td className="py-2 px-3 text-gray-900">{d.items}</td>
                       <td className="py-2 px-3">
