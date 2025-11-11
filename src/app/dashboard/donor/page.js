@@ -1,27 +1,49 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from "react";
 import DashboardCard from '../(components)/DashboardCard';
-import { getDonationCount,getDonorsHistory } from '@/app/api/getDonorsInfo';
 
 // --- DUMMY DATA FOR DONOR ---
-//const donorSummary = {
-//  totalDonations: 8,
-//  itemsDonated: 42,
-//  co2Saved: 35.7, 
-//};
+const backupSummary = {
+  totalDonations: 0,
+  itemsDonated: 0,
+  co2Saved: 0, 
+};
 
-/*const donationHistory = [
-  { donation_id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
-  { donation_id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },
-  { donation_id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
-  { donation_id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
-  { donation_id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
-];*/
+const backupHistory = [
+  { id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
+  { id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },
+  { id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
+  { id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
+  { id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
+];
 
-
-const donorSummary = await getDonationCount();
-const donationHistory = await getDonorsHistory()
+//const donorSummary = await getDonationCount();
+//const donationHistory = await getDonorsHistory()
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
+    const [metrics, setMetrics] = useState(null);
+    const [history, setHistory] = useState(null);
+
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../api/getDonorsInfo");
+        if (!res.ok) throw new Error("Failed to fetch summary metrics");
+        const data = await res.json();
+        setMetrics(data["donorsInfo"]);
+        setHistory(data["donorsHistory"])
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
+  const donorSummary = metrics || backupSummary
+  const donationHistory = history || backupHistory
+  console.log(donorSummary)
+  console.log(donationHistory)
+
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -49,7 +71,7 @@ export default function DonorDashboardPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {donationHistory.map((donation) => (
-                  <tr key={donation.Donation_ID}>
+                  <tr key={donation.id}>
                     <td className="py-3 px-4 text-gray-600">{donation.Date_Donated}</td>
                     <td className="py-3 px-4 text-gray-800 font-medium">{donation.charityName}</td>
                     <td className="py-3 px-4 text-gray-600">{donation.items}</td>

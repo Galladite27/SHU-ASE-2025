@@ -23,7 +23,7 @@ const fallbackMetrics = {
   totalItems: 0,
 };
 
-const recentDonations = [
+const backupDonations = [
   { id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
   { id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
   { id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
@@ -40,6 +40,7 @@ const userActivity = [
 // --- Component ---
 export default function AdminDashboardPage() {
   const [metrics, setMetrics] = useState(null);
+  const [history, setHistory] = useState(null);
 
   useEffect(() => {
     async function loadMetrics() {
@@ -47,7 +48,8 @@ export default function AdminDashboardPage() {
         const res = await fetch("../../api/getSummaryMetrics");
         if (!res.ok) throw new Error("Failed to fetch summary metrics");
         const data = await res.json();
-        setMetrics(data);
+        setMetrics(data["summaryMetrics"]);
+        setHistory(data["summaryHistory"])
       } catch (err) {
         console.error(err);
       }
@@ -80,6 +82,7 @@ export default function AdminDashboardPage() {
   };
 
   const summaryMetric = metrics || fallbackMetrics;
+  const recentDonations = history || backupDonations;
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
