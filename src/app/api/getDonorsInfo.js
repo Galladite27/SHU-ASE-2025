@@ -1,4 +1,6 @@
-export function getDonationCount() {
+"use server"
+
+export async function getDonationCount() {
 
 	const number = 1
     const Database = require("better-sqlite3");
@@ -13,11 +15,11 @@ export function getDonationCount() {
 	return donorsInfo
 }
 
-export function getDonorsHistory() {
+export async function getDonorsHistory() {
     const number = 1
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
-    const donorHistory = db.prepare("Select donations.donation_id, date_donated,donation_description as items,status,concat('Saved ',sum(co2_emissions),' KG of CO2') as impact,'test' as charityName from Donations inner join clothing on (Donations.donation_id = Clothing.donation_id) where donor_id = " + number + " group by donations.donation_id").all()
+    const donorHistory = db.prepare("Select donations.donation_id, date_donated,donation_description as items,status,concat('Saved ',sum(co2_emissions),' KG of CO2') as impact,'test' as charityName from Donations inner join clothing on (Donations.donation_id = Clothing.donation_id) where donor_id = " + number + " group by donations.donation_id").all() || [];
     db.close()
     console.log(donorHistory)
     return donorHistory

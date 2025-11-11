@@ -15,11 +15,11 @@ import { getDonationCount,getDonorsHistory } from '@/app/api/getDonorsInfo';
   { donation_id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
   { donation_id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
   { donation_id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
-];
-*/
+];*/
 
-const donorSummary = getDonationCount();
-const donationHistory = getDonorsHistory()
+
+const donorSummary = await getDonationCount();
+const donationHistory = await getDonorsHistory()
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
   return (
