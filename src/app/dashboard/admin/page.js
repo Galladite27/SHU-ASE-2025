@@ -3,23 +3,46 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../(components)/DashboardCard";
 
+//ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const backupDonations = [
+  { id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
+  { id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
+  { id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
+  { id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
+  { id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
+];
+
+const userActivity = [
+  { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
+  { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
+  { id: "USR-002", name: "Bob Williams", role: "Donor", activity: "Made a new donation", timestamp: "Yesterday" },
+];
+
+// --- Component ---
 export default function AdminDashboardPage() {
   const [metrics, setMetrics] = useState({
-    totalUsers: 150,
-    activeBranches: 12,
-    totalDonations: 800,
-    totalItems: 2000,
+    totalUsers: 0,
+    activeBranches: 0,
+    totalDonations: 0,
+    totalItems: 0,
   });
 
+  const [history, setHistory] = useState(null);
+
   useEffect(() => {
-    fetch("/api/summary")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data?.[0]) setMetrics(data[0]);
-      })
-      .catch(() => {
-        console.log("Using local fallback metrics");
-      });
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../api/getSummaryMetrics");
+        if (!res.ok) throw new Error("Failed to fetch summary metrics");
+        const data = await res.json();
+        setMetrics(data["summaryMetrics"]);
+        setHistory(data["summaryHistory"])
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
   }, []);
 
   const lineData = {
@@ -51,6 +74,8 @@ export default function AdminDashboardPage() {
     ],
   };
 
+  //const summaryMetric = metrics || fallbackMetrics;
+  const recentDonations = history || backupDonations;
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
@@ -58,19 +83,12 @@ export default function AdminDashboardPage() {
     { title: "Items", value: metrics.totalItems },
   ];
 
-  const donationsData = [
-    { id: "D001", donor: "Steve Johnson", branch: "Manchester", items: "Clothes", status: "Completed" },
-    { id: "D002", donor: "Penny Longing", branch: "London", items: "Books", status: "Completed" },
-    { id: "D003", donor: "Ben Dover", branch: "Sheffield", items: "Toys", status: "Processing" },
-    { id: "D004", donor: "Bruce Wayne", branch: "Manchester", items: "Coats", status: "Completed" },
-    { id: "D005", donor: "Ethan Hunt", branch: "Birmingham", items: "Games", status: "Failed" },
-  ];
-
   const activity = [
     { id: 1, name: "Frank Castle", role: "Donor", action: "Signed up", time: "2h ago" },
     { id: 2, name: "Manchester Branch", role: "Charity", action: "Updated stock", time: "5h ago" },
     { id: 3, name: "Bob Williams", role: "Donor", action: "Made a donation", time: "Yesterday" },
   ];
+
 
   return (
     <main className="p-6 sm:p-8 bg-gray-100 min-h-screen">
@@ -102,10 +120,10 @@ export default function AdminDashboardPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {donationsData.map((d) => (
+                  {recentDonations.map((d) => (
                     <tr key={d.id} className="border-b last:border-none hover:bg-gray-50">
                       <td className="py-2 px-3 text-gray-900">{d.id}</td>
-                      <td className="py-2 px-3 font-medium text-gray-900">{d.donor}</td>
+                      <td className="py-2 px-3 font-medium text-gray-900">{d.donorName}</td>
                       <td className="py-2 px-3 text-gray-900">{d.branch}</td>
                       <td className="py-2 px-3 text-gray-900">{d.items}</td>
                       <td className="py-2 px-3">
