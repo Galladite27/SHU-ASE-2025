@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@clerk/backend": "^2.22.0",
     "@clerk/nextjs": "^6.33.5",
     "better-sqlite3": "^12.4.1",
     "chart.js": "^4.5.1",

@@ -1,5 +1,8 @@
 import React from 'react';
 
+// admin role check. 
+// if !role.admin -> redirect to /dashboard
+
 export default function AdminLayout({ children }) {
   // This function must be the default export and must accept { children } as a prop.
   return (
