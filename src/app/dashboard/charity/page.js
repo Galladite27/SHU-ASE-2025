@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from "react";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
@@ -25,6 +26,22 @@ const stockLevels = [
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
+    const [metrics, setMetrics] = useState(null);
+      const [history, setHistory] = useState(null);
+  
+    useEffect(() => {
+      async function loadMetrics() {
+        try {
+          const res = await fetch("../../api/getCharityInfo");
+          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          const data = await res.json();
+          //setMetrics(data["donorsInfo"]);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      loadMetrics();
+    }, []);
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
