@@ -1,0 +1,27 @@
+{
+  "name": "new_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@clerk/backend": "^2.22.0",
+    "@clerk/nextjs": "^6.35.1",
+    "better-sqlite3": "^12.4.1",
+    "chart.js": "^4.5.1",
+    "next": "16.0.3",
+    "react": "19.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "tailwindcss": "^4"
+  }
+}
