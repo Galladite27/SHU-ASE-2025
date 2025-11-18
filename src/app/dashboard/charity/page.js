@@ -4,9 +4,9 @@ import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
 const charitySummary = {
-  pendingDonations: 3,
-  itemsInStock: 256,
-  donorsThisMonth: 18,
+  pendingDonations: 0,
+  itemsInStock: 0,
+  donorsThisMonth: 0,
 };
 
 const incomingDonations = [
