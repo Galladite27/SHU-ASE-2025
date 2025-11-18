@@ -27,7 +27,7 @@ const stockLevels = [
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
     const [metrics, setMetrics] = useState(null);
-      const [history, setHistory] = useState(null);
+    const [history, setHistory] = useState(null);
   
     useEffect(() => {
       async function loadMetrics() {

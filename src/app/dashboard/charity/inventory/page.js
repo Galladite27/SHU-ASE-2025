@@ -1,20 +1,32 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from "react";
 import DashboardCard from '../../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
-const stockLevels = [
-  { id: 'STK-01', itemName: 'Children\'s Books', quantity: 72, category: 'Books' },
-  { id: 'STK-02', itemName: 'Winter Coats (Adult)', quantity: 25, category: 'Clothing' },
-  { id: 'STK-03', itemName: 'Board Games', quantity: 50, category: 'Toys' },
-  { id: 'STK-04', itemName: 'T-Shirts (Mixed Sizes)', quantity: 109, category: 'Clothing' },
-];
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
+  const [metrics, setMetrics] = useState([]);
+  useEffect(() => {
+      async function loadMetrics() {
+        try {
+          const res = await fetch("../../../api/getStockLevel");
+          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          const data = await res.json();
+
+          setMetrics(data);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      loadMetrics();
+    }, []);
+  const stockLevels = metrics 
+
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-      
+
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Manchester Piccadilly Branch</h1>
           <p className="text-gray-600 mt-1">Manage inventory for this branch.</p>
