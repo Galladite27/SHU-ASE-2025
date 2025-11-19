@@ -3,14 +3,18 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Todo
 * 
-* Submit photos to charity systems
-* Edit stock levels of charity items on charity page. 
+* Submit photos to charity systems (Alex)
+
+* 
 * 
 * Administrator - access system-wide data
 * Administrator - generate reports (Ryan)
 * Administrator - monitor platform usage (ask what that means.)
+* 
 * Donor page - sustainability impact (Theo)
 * Charity page - upcoming donations (Theo)
+* * Edit stock levels of charity items on Charity page. (Theo)
+
 * Charity page - distribution levels (for stores) - simple
 * 
 * LSEPI (Everyone adds there contribution - penertration testing.)
@@ -23,10 +27,9 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Ongoing (sprint todo)
 * C4 documentation (Laurence)
-* Link analytics to database 
-* Admin analytics - view stock intake & donation trends (for user story)
-* Admin analytics - monitor distribution performance
-* Admin (and donor) analytics - track sustainability metrics
+* Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex)
+* Admin analytics - monitor location performance 
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex)
 * Donor page - make donations (Alex)
 
 
