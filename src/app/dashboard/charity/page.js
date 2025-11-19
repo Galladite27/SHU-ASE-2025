@@ -3,11 +3,6 @@ import React, { useEffect, useState } from "react";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
-const charitySummary = {
-  pendingDonations: 0,
-  itemsInStock: 0,
-  donorsThisMonth: 0,
-};
 
 const incomingDonations = [
   { id: 'INC-101', donorName: 'Alice Johnson', items: '2 bags of clothes', date: '2025-10-16', status: 'Pending Pickup' },
@@ -26,7 +21,7 @@ const stockLevels = [
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
-    const [metrics, setMetrics] = useState(null);
+    const [charitySummary, setSummary] = useState({pendingDonations: 0,itemsInStock: 0,donorsThisMonth: 0,});
     const [history, setHistory] = useState(null);
   
     useEffect(() => {
@@ -35,7 +30,8 @@ export default function CharityDashboardPage() {
           const res = await fetch("../../api/getCharityInfo");
           if (!res.ok) throw new Error("Failed to fetch summary metrics");
           const data = await res.json();
-          //setMetrics(data["donorsInfo"]);
+          console.log(data)
+          setSummary(data);
         } catch (err) {
           console.error(err);
         }
