@@ -13,7 +13,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Charity page - upcoming donations (Theo)
 * Charity page - distribution levels (for stores) - simple
 * 
-* LSEPI (Alex and Haris)
+* LSEPI (Everyone adds there contribution)
 * GDPR
 * Video presentation
 * 
