@@ -64,7 +64,7 @@ export default function UsersPageClient({ initialUsers }) {
                   onChange={(e) => updateRole(user.id, e.target.value)}
                 >
                   <option value="none">None</option>
-                  <option value="charity">Member</option>
+                  <option value="charity">Charity</option>
                   <option value="donor">Donor</option>
                   <option value="admin">Admin</option>
                 </select>
