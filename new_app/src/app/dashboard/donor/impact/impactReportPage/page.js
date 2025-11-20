@@ -6,7 +6,6 @@ import BarChart from "../../../(components)/BarChart";
 import LineChart from "../../../(components)/LineChart";
 import PieChart from "../../../(components)/PieChart";
 
-
 // --- DUMMY DATA FOR DONOR ---
 const donorSummary = {
   totalDonations: 8,

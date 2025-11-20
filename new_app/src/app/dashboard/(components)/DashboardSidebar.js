@@ -9,23 +9,9 @@ export default function DashboardSidebar() {
     {
       role: 'Donor',
       links: [
-        { href: '/dashboard/donor', label: 'Donation History' },
-        { href: '/dashboard/donor/impact/impactReportPage', label: 'Impact Report' },
-        { href: '/dashboard/donor/impact/donationPage', label: 'Donation Page' }
-      ]
-    },
-    {
-      role: 'Charity',
-      links: [
-        { href: '/dashboard/charity', label: 'Donations' },
-        { href: '/dashboard/charity/inventory', label: 'Inventory' }
-      ]
-    },
-    {
-      role: 'Admin',
-      links: [
-        { href: '/dashboard/admin', label: 'Dashboard' },
-        { href: '/dashboard/admin/users', label: 'User Management' }
+        { href: '/dashboard/donor', label: 'Dashboard' },
+        { href: '/dashboard/donor/impact/impactReportPage', label: 'Our Impact' },
+        { href: '/dashboard/donor/impact/donationPage', label: 'New Donation' }
       ]
     }
   ];

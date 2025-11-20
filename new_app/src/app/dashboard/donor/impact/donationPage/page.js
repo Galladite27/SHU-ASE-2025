@@ -39,6 +39,92 @@ export default function DonationPage() {
               required
             />
           </div>
+
+          {/* Description of item */}
+          {/* brief description of item, could limit to a certain number of characters?? */}
+          <div>
+            <label className="block font-medium mb-1">Description</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              rows={4}
+              required
+            />
+          </div>
+
+          {/* Gender Section*/}
+          {/* Selecting the gender of their item to help with correct distribution */}
+          <div>
+            <label className="block font-medium mb-1">Gender</label>
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </div>
+
+          {/* Material Section*/}
+          {/* Asking the user to provide us with the type of material for their item */}
+          <div>
+            <label className="block font-medium mb-1">Material</label>
+            <input
+              type="text"
+              value={material}
+              onChange={(e) => setMaterial(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            />
+          </div>
+          
+          {/* allowing the user to enter the weight of their item, needed for calculating the carbon savings */}
+          {/* Weight Section */}
+          <div>
+            <label className="block font-medium mb-1">Weight (kg)</label>
+            <input
+              type="number"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              step="0.01"
+              required
+            />
+          </div>
+
+          {/* Photo Upload section*/}
+          {/* Allowing the user to add a photo alongside their donation
+          How will this go into the databse, if it will - ask theo/harris */}
+          <div>
+            <label className="block font-medium mb-1">Photo</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className="w-full"
+            />
+            {photo && (
+              <img
+                src={URL.createObjectURL(photo)}
+                alt="Preview"
+                className="mt-2 h-40 object-contain border rounded"
+              />
+            )}
+          </div>
+          
+          {/* Submitting the form, not connected to the databse */}
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+          >
+            Submit Donation
+          </button>
         </form>
       </div>
     </main>
