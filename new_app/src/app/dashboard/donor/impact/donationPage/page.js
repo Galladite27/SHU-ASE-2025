@@ -33,6 +33,7 @@ export default function DonationPage() {
             <label className="block font-medium mb-1">Title of Item</label>
             <input
               type="text"
+              placeholder="e.g. Levi Jeans"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full border rounded px-3 py-2"
@@ -44,7 +45,7 @@ export default function DonationPage() {
           {/* brief description of item, could limit to a certain number of characters?? */}
           <div>
           <label className="block font-medium mb-1">Description</label>
-          <textarea
+          <textarea placeholder="Enter a brief description of your item"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border rounded px-3 py-2 text-black"
@@ -80,6 +81,7 @@ export default function DonationPage() {
             <label className="block font-medium mb-1">Material</label>
             <input
               type="text"
+              placeholder="e.g. Cotton, Polyester etc."
               value={material}
               onChange={(e) => setMaterial(e.target.value)}
               className="w-full border rounded px-3 py-2"
@@ -91,14 +93,17 @@ export default function DonationPage() {
           {/* Weight Section */}
           <div>
             <label className="block font-medium mb-1">Weight (kg)</label>
+            
             <input
               type="number"
+              placeholder="Select weight"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
               className="w-full border rounded px-3 py-2"
               step="0.01"
               required
             />
+            
           </div>
 
           {/* Photo Upload section*/}

@@ -13,6 +13,20 @@ h1 {
   @apply text-black;
 }
 
+input,
+textarea,
+select {
+  color: black;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: grey;
+  opacity: 1; 
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
