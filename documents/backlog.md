@@ -16,9 +16,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * 
 * Video presentation
 * 
-* Integrate with AI image detection
-* Configure AI to detect category of clothing item uploaded
-* AI API for categorisation (optional)
+
 
 # Ongoing (sprint todo)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex)  
@@ -55,3 +53,13 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 *  C4 documentation (Laurence)
 * GDPR discussion for LSEPI and to be referenced in presentation (Haris)
 
+
+
+
+
+
+
+
+* Integrate with AI image detection
+* Configure AI to detect category of clothing item uploaded
+* AI API for categorisation (optional)
