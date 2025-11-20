@@ -23,9 +23,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex)
 * Donor page - make donations (Alex)
 * Submit photos to charity systems (Alex)
-  
-* LSEPI completed to be reviewed (Alex and Haris)
-
 
 # Done
 * User stories (Alex)
@@ -52,6 +49,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 *  track and view donated stock (availability & categories)
 *  C4 documentation (Laurence)
 * GDPR discussion for LSEPI and to be referenced in presentation (Haris)
+* LSEPI completed to be reviewed (Alex and Haris)
+
 
 
 
