@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+label {
+  @apply text-black;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
