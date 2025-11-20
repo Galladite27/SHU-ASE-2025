@@ -12,7 +12,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Charity page - upcoming donations (Theo)
 * Edit stock levels of charity items on Charity page. (Theo)
 
-* Charity page - distribution levels (for stores) - simple
+* Charity page - store item distribution levels (for stores) - simple
 * 
 * Video presentation (Haris completed slides ready record 7 minute video)
 * 
