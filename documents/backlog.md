@@ -9,9 +9,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * 
 * Administrator - access system-wide data
 * Administrator - generate reports (Ryan)
-* Administrator - monitor platform usage (ask what that means.)
 * 
-* Donor page - sustainability impact (Theo)
+* Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo)
 * Charity page - upcoming donations (Theo)
 * * Edit stock levels of charity items on Charity page. (Theo)
 
@@ -27,7 +26,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Ongoing (sprint todo)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex)
-* Admin analytics - monitor location performance 
+* Admin analytics - monitor location performance
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex)
 * Donor page - make donations (Alex)
 
