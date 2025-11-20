@@ -43,15 +43,19 @@ export default function DonationPage() {
           {/* Description of item */}
           {/* brief description of item, could limit to a certain number of characters?? */}
           <div>
-            <label className="block font-medium mb-1">Description</label>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="w-full border rounded px-3 py-2"
-              rows={4}
-              required
-            />
-          </div>
+          <label className="block font-medium mb-1">Description</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full border rounded px-3 py-2 text-black"
+            rows={4}
+            maxLength={258} // limitting the description field to 258 characters
+            required
+          />
+          <p className="text-sm text-gray-500 mt-1">
+            {description.length} / 258 characters
+          </p>
+        </div>
 
           {/* Gender Section*/}
           {/* Selecting the gender of their item to help with correct distribution */}
@@ -130,3 +134,4 @@ export default function DonationPage() {
     </main>
   );
 }
+
