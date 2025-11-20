@@ -4,25 +4,10 @@ import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
 
-const incomingDonations = [
-  { id: 'INC-101', donorName: 'Alice Johnson', items: '2 bags of clothes', date: '2025-10-16', status: 'Pending Pickup' },
-  { id: 'INC-102', donorName: 'Charlie Brown', items: 'Winter Coats (5)', date: '2025-10-15', status: 'Received' },
-  { id: 'INC-103', donorName: 'Diana Prince', items: 'Box of children\'s books', date: '2025-10-15', status: 'Pending Pickup' },
-  { id: 'INC-104', donorName: 'Bob Williams', items: 'Used toys', date: '2025-10-14', status: 'Received' },
-  { id: 'INC-105', donorName: 'Ethan Hunt', items: 'Board games (1 box)', date: '2025-10-14', status: 'Pending Pickup' },
-];
-
-const stockLevels = [
-  { id: 'STK-01', itemName: 'Children\'s Books', quantity: 72, category: 'Books' },
-  { id: 'STK-02', itemName: 'Winter Coats (Adult)', quantity: 25, category: 'Clothing' },
-  { id: 'STK-03', itemName: 'Board Games', quantity: 50, category: 'Toys' },
-  { id: 'STK-04', itemName: 'T-Shirts (Mixed Sizes)', quantity: 109, category: 'Clothing' },
-];
-
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
     const [charitySummary, setSummary] = useState({pendingDonations: 0,itemsInStock: 0,donorsThisMonth: 0,});
-    const [history, setHistory] = useState(null);
+    const [incomingDonations, setIncoming] = useState([]);
   
     useEffect(() => {
       async function loadMetrics() {
@@ -30,8 +15,9 @@ export default function CharityDashboardPage() {
           const res = await fetch("../../api/getCharityInfo");
           if (!res.ok) throw new Error("Failed to fetch summary metrics");
           const data = await res.json();
-          console.log(data)
-          setSummary(data);
+          console.log(data["charitySummary"]);
+          setSummary(data["charitySummary"]);
+          setIncoming(data["incomingDonations"])
         } catch (err) {
           console.error(err);
         }
@@ -73,7 +59,7 @@ export default function CharityDashboardPage() {
                     <td className="py-3 px-4 text-gray-600">{donation.items}</td>
                     <td className="py-3 px-4">
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                        donation.status === 'Received' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
+                        donation.status === 'Processing' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
                       }`}>
                         {donation.status}
                       </span>
