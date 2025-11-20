@@ -7,7 +7,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Submit photos to charity systems
 * Edit, track and view donated stock (availability & categories)
 * Administrator - access system-wide data
-* Administrator - generate reports
 * Administrator - monitor platform usage
 * Donor page - make donations
 * Donor page - view donation history
@@ -31,6 +30,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin analytics - generate report trends
 * Admin analytics - monitor distribution performance
 * Admin (and donor) analytics - track sustainability metrics
+* Administrator - generate reports - Ryan
 
 # Done
 * User stories (Alex)
