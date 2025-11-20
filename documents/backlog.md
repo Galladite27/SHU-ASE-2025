@@ -16,8 +16,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Charity page - distribution levels (for stores) - simple
 * 
-* LSEPI (Alex started Haris adding a contribution - please anyone add anything you can write about here)
-* GDPR
 * Video presentation
 * 
 * Integrate with AI image detection
@@ -29,6 +27,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin analytics - monitor location performance
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex)
 * Donor page - make donations (Alex)
+* LSEPI completed to be reviewed (Alex and Haris)
 
 
 # Done
@@ -55,4 +54,5 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 *  Charity page - stock levels (Theo)
 *  track and view donated stock (availability & categories)
 *  C4 documentation (Laurence)
+* GDPR discussion for LSEPI and to be referenced in presentation (Haris)
 
