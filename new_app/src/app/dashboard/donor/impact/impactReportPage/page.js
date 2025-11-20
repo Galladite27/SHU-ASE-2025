@@ -49,19 +49,10 @@ export default function DonorDashboardPage() {
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
-        <BarChart data={data} label="Discreet things" />
-        <p>Line chart for increasing donations over time, increasing carbon savings over time, a list of comparisons showing equivalent carbon savings (e.g. plastic cups saved)</p>
-        <LineChart data={data} label="Continuous things" />
-        <PieChart data={pieData} label="Age" />
+        <BarChart data={data} label="Your Donation History" />
+        <p>Line chart for increasing donations over time</p>
+       <break></break>
       </div>
     </main>
   );
 }
-
-/*
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-  <DashboardCard title="Total Donations" value={donorSummary.totalDonations} />
-  <DashboardCard title="Items Donated" value={donorSummary.itemsDonated} />
-  <DashboardCard title="Sustainability Impact" value={`${donorSummary.co2Saved} kg of CO₂ Saved`} />
-</div>
-*/

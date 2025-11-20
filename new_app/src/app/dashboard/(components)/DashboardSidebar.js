@@ -10,7 +10,7 @@ export default function DashboardSidebar() {
       role: 'Donor',
       links: [
         { href: '/dashboard/donor', label: 'Dashboard' },
-        { href: '/dashboard/donor/impact/impactReportPage', label: 'Our Impact' },
+        { href: '/dashboard/donor/impact/impactReportPage', label: 'Your Impact' },
         { href: '/dashboard/donor/impact/donationPage', label: 'New Donation' }
       ]
     }

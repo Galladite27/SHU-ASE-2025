@@ -50,11 +50,12 @@ export default function DonationPage() {
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border rounded px-3 py-2 text-black"
             rows={4}
-            maxLength={258} // limitting the description field to 258 characters
+            maxLength={256
+            } // limitting the description field to 258 characters
             required
           />
           <p className="text-sm text-gray-500 mt-1">
-            {description.length} / 258 characters
+            {description.length} / 256 characters
           </p>
         </div>
 
@@ -103,7 +104,6 @@ export default function DonationPage() {
               step="0.01"
               required
             />
-            
           </div>
 
           {/* Photo Upload section*/}
