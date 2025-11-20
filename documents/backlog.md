@@ -26,7 +26,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * AI API for categorisation (optional)
 
 # Ongoing (sprint todo)
-* C4 documentation (Laurence)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex)
 * Admin analytics - monitor location performance 
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex)
@@ -55,5 +54,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Restrict user management to admin only (Haris)
 *  Donor page - view donation history (Theo)
 *  Charity page - stock levels (Theo)
-*  track and view donated stock (availability & categories) 
+*  track and view donated stock (availability & categories)
+*  C4 documentation (Laurence)
 
