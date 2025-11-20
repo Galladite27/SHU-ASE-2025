@@ -16,7 +16,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Charity page - distribution levels (for stores) - simple
 * 
-* LSEPI (Everyone adds there contribution - penertration testing.)
+* LSEPI (Alex started Haris adding a contribution - please anyone add anything you can write about here)
 * GDPR
 * Video presentation
 * 
