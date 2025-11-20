@@ -13,6 +13,13 @@ export default function DashboardSidebar() {
         { href: '/dashboard/donor/impact/impactReportPage', label: 'Your Impact' },
         { href: '/dashboard/donor/impact/donationPage', label: 'New Donation' }
       ]
+    },
+    {
+      role: 'Admin',
+      links: [
+        { href: '/dashboard/admin', label: 'Dashboard' },
+        { href: '/dashboard/admin/users', label: 'User Management' }
+      ]
     }
   ];
 
