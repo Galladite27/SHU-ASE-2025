@@ -9,14 +9,14 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator - access system-wide data
 * Administrator - generate reports
 * Administrator - monitor platform usage
-* Donor page - make donations
-* Donor page - view donation history
-* Donor page - sustainability impact
+* Donor page - make donations (Alex)
+* Donor page - view donation history (Alex)
+* Donor page - sustainability impact (Alex)
 * Charity page - upcoming donations
 * Charity page - stock levels
 * Charity page - distribution levels (for stores) - simple
 * 
-* LSEPI
+* LSEPI (Alex)
 * GDPR
 * Video presentation
 * Integrate with AI image detection
