@@ -1,7 +1,10 @@
-import React from 'react';
+'use server'
 import DashboardSidebar from './(components)/DashboardSidebar';
+// if no auth session found, redirect to sign-in page
 
-export default function DashboardLayout({ children }) {
+
+export default async function DashboardLayout({ children }) {
+  
   return (
     <div className="flex">
       <DashboardSidebar />

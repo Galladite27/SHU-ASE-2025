@@ -1,29 +1,27 @@
 {
-  "name": "shu-ase-2025",
+  "name": "new_app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.33.5",
+    "@clerk/backend": "^2.22.0",
+    "@clerk/nextjs": "^6.35.1",
     "better-sqlite3": "^12.4.1",
     "chart.js": "^4.5.1",
-    "next": "15.5.4",
-    "react": "19.1.0",
+    "next": "16.0.3",
+    "react": "19.2.0",
     "react-chartjs-2": "^5.3.1",
-    "react-dom": "19.1.0"
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "24.9.1",
-    "@types/react": "19.2.2",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4",
+    "eslint-config-next": "16.0.3",
     "tailwindcss": "^4"
   }
 }
