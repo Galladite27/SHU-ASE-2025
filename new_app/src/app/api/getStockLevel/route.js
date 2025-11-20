@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { getDonationCount } from '@/lib/getDonorsInfo';
+import { getStock } from '@/lib/getStockLevel';
 
 export async function GET() {
-  const rows = getDonationCount();
+  const rows = getStock();
   return NextResponse.json(rows);
 }
