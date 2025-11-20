@@ -15,13 +15,13 @@ export default function DashboardSidebar() {
       ]
     },
     {
-      role: 'Admin',
-      links: [
-        { href: '/dashboard/admin', label: 'Dashboard' },
-        { href: '/dashboard/admin/users', label: 'User Management' }
+        role: 'Admin',
+        links: [
+          { href: '/dashboard/admin/dashboard/page.js', label: 'Admin Dashboard' },
+          { href: '/dashboard/admin/users', label: 'User Management' }
       ]
     }
-  ];
+  ]
 
   return (
     <aside className="w-64 bg-gray-100 p-4">
