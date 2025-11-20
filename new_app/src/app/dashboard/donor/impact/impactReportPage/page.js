@@ -13,28 +13,34 @@ const donorSummary = {
   co2Saved: 35.7, 
 };
 
-const donationHistory = [
-  { id: 'DON-001', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15', impact: 'Saved 15.2 kg of CO₂' },
-  { id: 'DON-002', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-09-21', impact: 'Promoted literacy' },
-  { id: 'DON-003', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Completed', date: '2025-08-10', impact: 'Brought joy to a child' },
-  { id: 'DON-004', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-07-29', impact: 'Saved 20.5 kg of CO₂' },
-  { id: 'DON-005', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Processing', date: '2025-10-16', impact: 'Pending' },
-];
-
 const data = [
-  { x: 2010, y: 10 },
-  { x: 2011, y: 20 },
-  { x: 2012, y: 15 },
-  { x: 2013, y: 25 },
-  { x: 2014, y: 22 },
-  { x: 2015, y: 30 },
-  { x: 2016, y: 28 },
+  { x: "Jan", y: 10 },
+  { x: "Feb", y: 20 },
+  { x: "Mar", y: 15 },
+  { x: "Apr", y: 25 },
+  { x: "May", y: 22 },
+  { x: "Jun", y: 19 },
+  { x: "Jul", y: 5 },
+  { x: "Aug", y: 3 },
+  { x: "Sept", y: 8 },
+  { x: "Oct", y: 12 },
+  { x: "Nov", y: 23 },
+  { x: "Dec", y: 0 },
 ];
 
-const pieData = [
-  { name: "Bob", val: 12 },
-  { name: "Billy", val: 20 },
-  { name: "Brian", val: 7 },
+const carbonSavingsData = [
+  { x: "Jan", y: 2 },
+  { x: "Feb", y: 4 },
+  { x: "Mar", y: 3 },
+  { x: "Apr", y: 7 },
+  { x: "May", y: 5 },
+  { x: "Jun", y: 3.5 },
+  { x: "Jul", y: 1.5 },
+  { x: "Aug", y: 1 },
+  { x: "Sept", y: 1.5},
+  { x: "Oct", y: 2.5 },
+  { x: "Nov", y: 4.5 },
+  { x: "Dec", y: 0 },
 ];
 
 // --- DONOR DASHBOARD COMPONENT ---
@@ -48,9 +54,14 @@ export default function DonorDashboardPage() {
           <p className="text-gray-600 mt-1">Here's a summary of your impact. Thank you for contributing!</p>
         </div>
       </div>
+      <p>You've had a great year! Here are all your donations, month by month.</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
         <BarChart data={data} label="Your Donation History" />
-        <p>Line chart for increasing donations over time</p>
+       <break></break>
+      </div>
+        <p>You've had your ups and downs but each month you've saved lots of Co2 emissions from being released into the environment!</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+        <LineChart data={carbonSavingsData} label="Your Monthly Carbon Savings (g)" />
        <break></break>
       </div>
     </main>
