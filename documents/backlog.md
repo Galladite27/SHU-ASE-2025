@@ -14,7 +14,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Charity page - store item distribution levels (for stores) - simple
 * 
-* Video presentation (Haris completed slides ready record 7 minute video)
+* Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
 * 
 
 
