@@ -1,0 +1,97 @@
+workspace "SHU-ASE-2025" "Group 12"
+
+    !identifiers hierarchical
+
+    model {
+        u = person "User" {
+            tags "Frontend"
+        }
+        ss = softwareSystem "Software System" {
+            fe = container "Frontend" {
+                description "Client-side"
+                tags "Frontend"
+            }
+            be = container "Backend" {
+                description "Server-side"
+                tags "Backend"
+                
+                sc = component "Static content / pages" {
+                    tags "Static"
+                }
+                ssr = component "Server-side rendered content" {
+                    tags "Dynamic"
+                }
+                db = component "Database API" {
+                    tags "Dynamic"
+                }
+            }
+            db = container "Database" {
+                tags "Database" "Backend"
+            }
+        }
+
+        u -> ss.fe "Uses"
+        ss.fe -> ss.be.sc "Interacts with continually"
+        ss.fe -> ss.be.ssr "Fetches content from"
+        ss.be.ssr -> ss.be.db "Queries data and receives data from"
+        ss.be.db -> ss.db "Reads from and writes to"
+    }
+
+    views {
+        systemContext ss "Diagram1" {
+            include *
+            autolayout lr
+        }
+
+        container ss "Diagram2" {
+            include *
+            autolayout lr
+        }
+        
+        component ss.be "Diagram3" {
+            include *
+            autolayout lr
+        }
+
+        styles {
+            element "Element" {
+                color #0773af
+                stroke #0773af
+                strokeWidth 7
+                shape roundedbox
+            }
+            element "Person" {
+                shape person
+            }
+            element "Database" {
+                shape cylinder
+            }
+            element "Boundary" {
+                strokeWidth 5
+            }
+            
+            element "Frontend" {
+                color #66DD66
+                stroke #66DD66
+            }
+            element "Backend" {
+                color #DD6666
+                stroke #DD6666
+            }
+            
+            element "Static" {
+                color #DDDD66
+                stroke #DDDD66
+            }
+            element "Dynamic" {
+                color #CC66CC
+                stroke #CC66CC
+            }
+            
+            relationship "Relationship" {
+                thickness 4
+            }
+        }
+    }
+
+}
