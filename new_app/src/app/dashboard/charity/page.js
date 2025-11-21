@@ -1,5 +1,6 @@
+
 import React from 'react';
-import DashboardCard from '../(components)/DashboardCard';
+import DashboardCard from '../../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
 const charitySummary = {
