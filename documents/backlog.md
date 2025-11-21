@@ -49,7 +49,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 *  track and view donated stock (availability & categories)
 *  C4 documentation (Laurence)
 * GDPR discussion for LSEPI and to be referenced in presentation (Haris)
-* LSEPI completed to be reviewed (Alex and Haris)
+* LSEPI (Alex and Haris)
 
 
 
