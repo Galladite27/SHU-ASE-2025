@@ -13,10 +13,9 @@ export default function CharityDashboardPage() {
       async function loadMetrics() {
         try {
           const res = await fetch("/api/getCharityInfo");
-          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          if (!res.ok) throw new Error("Failed to fetch charitys information");
           const data = await res.json();
           console.log(data)
-          //console.log(data["charitySummary"]);
           setSummary(data["charitySummary"]);
           setIncoming(data["incomingDonations"])
         } catch (err) {

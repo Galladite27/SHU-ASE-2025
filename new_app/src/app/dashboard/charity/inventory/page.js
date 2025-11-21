@@ -6,22 +6,21 @@ import DashboardCard from '../../(components)/DashboardCard';
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
-  const [metrics, setMetrics] = useState([]);
+  const [stockLevels, setStock] = useState([]);
   useEffect(() => {
       async function loadMetrics() {
         try {
           const res = await fetch("../../../api/getStockLevel");
-          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          if (!res.ok) throw new Error("Failed to fetch stock");
           const data = await res.json();
           console.log(data)
-          setMetrics(data);
+          setStock(data);
         } catch (err) {
           console.error(err);
         }
       }
       loadMetrics();
-    }, []);
-  const stockLevels = metrics 
+    }, []); 
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">

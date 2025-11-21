@@ -14,20 +14,6 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const backupDonations = [
-  //{ id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
-  //{ id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
-  //{ id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
-];
-
-const userActivity = [
-  { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
-  { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
-  { id: "USR-002", name: "Bob Williams", role: "Donor", activity: "Made a new donation", timestamp: "Yesterday" },
-];
-
 // --- Component ---
 export default function AdminDashboardPage() {
   const [metrics, setMetrics] = useState({
@@ -37,7 +23,7 @@ export default function AdminDashboardPage() {
     totalItems: 0,
   });
 
-  const [history, setHistory] = useState(null);
+  const [recentDonations, setHistory] = useState([]);
 
   useEffect(() => {
     async function loadMetrics() {
@@ -83,8 +69,6 @@ export default function AdminDashboardPage() {
     ],
   };
 
-  //const summaryMetric = metrics || fallbackMetrics;
-  const recentDonations = history || backupDonations;
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
