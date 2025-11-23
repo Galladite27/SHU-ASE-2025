@@ -12,5 +12,3 @@ export default async function UsersPage() {
   return <UsersPageClient initialUsers={plainUsers} />;
 }
 
-//rp starting admin
-// TO DO: Gain access to Clerk
