@@ -19,7 +19,7 @@ export default function DashboardSidebar() {
         links: [
           { href: '/dashboard/admin/dashboard', label: 'Admin Dashboard' },
           { href: '/dashboard/admin/users', label: 'User Management' },
-          { href: '/dashboard/admin/impactReport', label: 'User Management' }
+          { href: '/dashboard/admin/impactReport', label: 'Impact Report' }
       ]
     }
   ]
