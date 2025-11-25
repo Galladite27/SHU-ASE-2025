@@ -17,7 +17,7 @@ export default function DashboardSidebar() {
     {
       role: 'Charity',
       links: [
-        { href: '/dashboard/charity', label: 'Donations' },
+        { href: '/dashboard/charity/donations', label: 'Donations' },
         { href: '/dashboard/charity/inventory', label: 'Inventory' }
       ]
     },
