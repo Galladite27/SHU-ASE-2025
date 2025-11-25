@@ -1,11 +1,12 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import DashboardCard from '../../(components)/DashboardCard';
-
-// --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
+import { Router } from "next/router";
+import {useRouter} from "next/navigation"
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
+  const test = useRouter()
   const [stockLevels, setStock] = useState([]);
   useEffect(() => {
       async function loadMetrics() {
@@ -21,6 +22,11 @@ export default function CharityDashboardPage() {
       }
       loadMetrics();
     }, []); 
+  
+  const handleClick = (item) => {
+    console.log("Pre-Push item id" , item.id)
+    test.push("/dashboard/charity/inventory/edit",{state : {item_id:item.id},})
+  };
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
@@ -49,6 +55,7 @@ export default function CharityDashboardPage() {
                     <td className="py-3 px-4 text-gray-800 font-medium">{item.itemName}</td>
                     <td className="py-3 px-4 text-gray-600">{item.category}</td>
                     <td className="py-3 px-4 text-gray-800 font-semibold">{item.quantity}</td>
+                    <td className="py-3 px-4 text-gray-800"><button onClick={() => handleClick(item)} className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Edit</button></td>
                   </tr>
                 ))}
               </tbody>
