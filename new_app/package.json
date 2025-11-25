@@ -13,7 +13,6 @@
     "@clerk/nextjs": "^6.35.1",
     "better-sqlite3": "^12.4.1",
     "chart.js": "^4.5.1",
-    "mysql2": "^3.15.3",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-chartjs-2": "^5.3.1",
