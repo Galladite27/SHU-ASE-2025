@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
 import DashboardCard from "../../../(components)/DashboardCard";
 import BarChart from "../../../(components)/BarChart";
@@ -12,21 +12,6 @@ const donorSummary = {
   itemsDonated: 42,
   co2Saved: 35.7, 
 };
-
-const data = [
-  { x: "Jan", y: 10 },
-  { x: "Feb", y: 20 },
-  { x: "Mar", y: 15 },
-  { x: "Apr", y: 25 },
-  { x: "May", y: 22 },
-  { x: "Jun", y: 19 },
-  { x: "Jul", y: 5 },
-  { x: "Aug", y: 3 },
-  { x: "Sept", y: 8 },
-  { x: "Oct", y: 12 },
-  { x: "Nov", y: 23 },
-  { x: "Dec", y: 0 },
-];
 
 const carbonSavingsData = [
   { x: "Jan", y: 2 },
@@ -45,7 +30,53 @@ const carbonSavingsData = [
 
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
+  const [DonationData, setDonations] = useState([
+  { x: "Jan", y: 0 },
+  { x: "Feb", y: 0 },
+  { x: "Mar", y: 0 },
+  { x: "Apr", y: 0 },
+  { x: "May", y: 0 },
+  { x: "Jun", y: 0 },
+  { x: "Jul", y: 0 },
+  { x: "Aug", y: 0 },
+  { x: "Sept", y: 0 },
+  { x: "Oct", y: 0 },
+  { x: "Nov", y: 0 },
+  { x: "Dec", y: 0 },
+]);
+  const [carbonSavingsData, setCarbon] = useState( [
+  { x: "Jan", y: 0 },
+  { x: "Feb", y: 0 },
+  { x: "Mar", y: 0 },
+  { x: "Apr", y: 0 },
+  { x: "May", y: 0 },
+  { x: "Jun", y: 0 },
+  { x: "Jul", y: 0 },
+  { x: "Aug", y: 0 },
+  { x: "Sept", y: 0},
+  { x: "Oct", y: 0 },
+  { x: "Nov", y: 0 },
+  { x: "Dec", y: 0 },
+]);
 
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../../api/getDonorImpactInfo");
+        if (!res.ok) throw new Error("Failed to fetch summary metrics");
+        const data = await res.json();
+        console.log(data)
+        setDonations(data["donationReport"])
+        setCarbon(data["co2_report"])
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
+  console.log("Bonjour")
+  console.log(DonationData)
   return (
     <main className="p-6 sm:p-8 bg-gray-50 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -56,7 +87,7 @@ export default function DonorDashboardPage() {
       </div>
       <p>You've had a great year! Here are all your donations, month by month.</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
-        <BarChart data={data} label="Your Donation History" />
+        <BarChart data={DonationData} label="Your Donation History" />
        <break></break>
       </div>
         <p>You've had your ups and downs but each month you've saved lots of Co2 emissions from being released into the environment!</p>
