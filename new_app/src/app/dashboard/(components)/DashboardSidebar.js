@@ -9,25 +9,19 @@ export default function DashboardSidebar() {
     {
       role: 'Donor',
       links: [
-        { href: '/dashboard/donor', label: 'Donation History' },
-        { href: '/dashboard/donor/impactReport', label: 'Impact Report' }
+        { href: '/dashboard/donor', label: 'Dashboard' },
+        { href: '/dashboard/donor/impact/impactReportPage', label: 'Your Impact' },
+        { href: '/dashboard/donor/impact/donationPage', label: 'New Donation' }
       ]
     },
     {
-      role: 'Charity',
-      links: [
-        { href: '/dashboard/charity', label: 'Donations' },
-        { href: '/dashboard/charity/inventory', label: 'Inventory' }
-      ]
-    },
-    {
-      role: 'Admin',
-      links: [
-        { href: '/dashboard/admin', label: 'Dashboard' },
-        { href: '/dashboard/admin/users', label: 'User Management' }
+        role: 'Admin',
+        links: [
+          { href: '/dashboard/admin/dashboard', label: 'Admin Dashboard' },
+          { href: '/dashboard/admin/users', label: 'User Management' }
       ]
     }
-  ];
+  ]
 
   return (
     <aside className="w-64 bg-gray-100 p-4">

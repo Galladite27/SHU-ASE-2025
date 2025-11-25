@@ -3,6 +3,24 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Todo
 * 
+* Submit photos to charity systems
+* Edit, track and view donated stock (availability & categories)
+* Administrator - access system-wide data
+* Administrator - generate reports
+* Administrator - monitor platform usage
+* Donor page - make donations (Alex)
+* Donor page - view donation history (Alex)
+* Donor page - sustainability impact (Alex)
+* Charity page - upcoming donations
+* Charity page - stock levels
+* Charity page - distribution levels (for stores) - simple
+* 
+* LSEPI (Alex)
+* GDPR
+* Video presentation
+* Integrate with AI image detection
+* Configure AI to detect category of clothing item uploaded
+* AI API for categorisation (optional)
  
 * Administrator - access system-wide data (Laurence)
 * Administrator - generate reports (Ryan)
