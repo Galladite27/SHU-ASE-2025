@@ -7,26 +7,6 @@ import LineChart from "../../../(components)/LineChart";
 import PieChart from "../../../(components)/PieChart";
 
 // --- DUMMY DATA FOR DONOR ---
-const donorSummary = {
-  totalDonations: 8,
-  itemsDonated: 42,
-  co2Saved: 35.7, 
-};
-
-const carbonSavingsData = [
-  { x: "Jan", y: 2 },
-  { x: "Feb", y: 4 },
-  { x: "Mar", y: 3 },
-  { x: "Apr", y: 7 },
-  { x: "May", y: 5 },
-  { x: "Jun", y: 3.5 },
-  { x: "Jul", y: 1.5 },
-  { x: "Aug", y: 1 },
-  { x: "Sept", y: 1.5},
-  { x: "Oct", y: 2.5 },
-  { x: "Nov", y: 4.5 },
-  { x: "Dec", y: 0 },
-];
 
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {

@@ -9,6 +9,7 @@ export default function DonationPage() {
   const [material, setMaterial] = useState("");
   const [weight, setWeight] = useState("");
   const [photo, setPhoto] = useState(null);
+  const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -104,6 +105,21 @@ export default function DonationPage() {
               step="0.01"
               required
             />
+          </div>
+
+          <div>
+            <label className="block font-medium mb-1">Location</label>
+            <select
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            >
+              <option value="">Select Location</option>
+              <option value="Sheffield">Sheffield</option>
+              <option value="Manchester">Manchester</option>
+              <option value="Leeds">Leeds</option>
+            </select>
           </div>
 
           {/* Photo Upload section*/}
