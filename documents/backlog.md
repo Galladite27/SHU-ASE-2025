@@ -4,9 +4,9 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 # Todo
 * 
  
-* Administrator - access system-wide data
+* Administrator - access system-wide data (Laurence)
 * Administrator - generate reports (Ryan)
-* Administrator analytics - monitor location performance
+* Administrator analytics - monitor location performance (Lanrence)
 * 
 * Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo)
 * Charity page - upcoming donations (Theo)
