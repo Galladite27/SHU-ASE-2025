@@ -4,9 +4,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 # Todo
 * 
  
-* Administrator - access system-wide data (Laurence)
-* Administrator - generate reports (Ryan)
-* Administrator analytics - monitor location performance for any branch (Laurence)
 * 
 
 * 
@@ -15,9 +12,16 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Ongoing (sprint todo)
 * Charity page - accepting incoming stock (Theo) 
-
 * Edit stock levels of charity items on Charity page. (Theo) - Friday (text call Theo)
+  
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email)
+
+* Administrator - access system-wide data (Laurence)
+* Administrator analytics - monitor location performance for any branch (Laurence)
+
+* Administrator - generate reports (Ryan)
+
+
 
 # Done
 * User stories (Alex)
