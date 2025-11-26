@@ -3,25 +3,21 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Todo
 * 
- 
-* 
-
-* 
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
 * 
 
 # Ongoing (sprint todo)
-* Charity page - accepting incoming stock (Theo) 
-* Edit stock levels of charity items on Charity page. (Theo) - Friday (text call Theo)
+* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY
+* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
   
-* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email)
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
 
-* Administrator - access system-wide data (Laurence)
-* Administrator analytics - monitor location performance for any branch (Laurence)
+* Administrator - access system-wide data (Laurence) - 
+* Administrator analytics - monitor location performance for any branch (Laurence) -
 
-* Administrator - generate reports (Ryan)
+* Administrator - generate reports (Ryan) 
 
-
+* Fix Sidebar - (Haris) DEADLINE - TODAY
 
 # Done
 * User stories (Alex)
