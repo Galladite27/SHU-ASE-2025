@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { setDonations } from "@/lib/setDonation"
 
 export default function DonationPage() {
   const [title, setTitle] = useState("");
@@ -10,11 +11,15 @@ export default function DonationPage() {
   const [weight, setWeight] = useState("");
   const [photo, setPhoto] = useState(null);
   const [location, setLocation] = useState("");
+  const [quality, setQuality] = useState("");
+  const [size, setSize] = useState("");
 
-  const handleSubmit = (e) => {
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Here you would normally call your backend API to submit the donation
     console.log({ title, description, gender, material, weight, photo });
+    const res = await setDonations({description,gender,material,weight,photo,quality,size})
+    alert(res?.error||res?.success)
     alert("Donation submitted!");
   };
 
@@ -77,6 +82,23 @@ export default function DonationPage() {
             </select>
           </div>
 
+          <div>
+            <label className="block font-medium mb-1">Size</label>
+            <select
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            >
+              <option value="">Select Size</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+
           {/* Material Section*/}
           {/* Asking the user to provide us with the type of material for their item */}
           <div>
@@ -91,6 +113,21 @@ export default function DonationPage() {
             />
           </div>
           
+          <div>
+            <label className="block font-medium mb-1">Quality</label>
+            <select
+              value={quality}
+              onChange={(e) => setQuality(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            >
+              <option value="">Quality</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
           {/* allowing the user to enter the weight of their item, needed for calculating the carbon savings */}
           {/* Weight Section */}
           <div>

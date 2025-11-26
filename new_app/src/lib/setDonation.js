@@ -1,8 +1,30 @@
-export function getSummaryMetrics() {
-	
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const insert1 = db.prepare("insert into donations")
-    const insert = db.prepare("insert into clothings (quality,size,description,gender,material,donation_weight_kg,category_name,co2_emissions").all()
-    db.close()
+"use server";
+
+import Database from "better-sqlite3";
+
+export async function setDonations(data) {
+  try {
+    const db = new Database("SustainWear.db");
+
+    const insert = db.prepare(`
+      INSERT INTO clothing
+      (Quality,Size,Description, Gender, Material, Donation_Weight_KG) 
+      VALUES (?,?, ?, ?, ?, ?)
+    `);
+
+    insert.run(
+        data.size,
+        data.quality,
+        data.description,
+        data.gender,
+        data.material,
+        data.weight,
+    );
+
+    db.close();
+
+    return { success: "Donation saved successfully!" };
+  } catch (err) {
+    return { error: err.message };
+  }
 }
