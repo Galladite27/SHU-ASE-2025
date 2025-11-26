@@ -1,3 +1,6 @@
+"use client"
+import React, { useEffect, useState } from "react";
+
 export default function CharityManagerDonationsPage() {
   const incomingDonations = [
     {
@@ -31,6 +34,22 @@ export default function CharityManagerDonationsPage() {
       description: "Well worn, much-loved. Need these to go to a better home.",
     },
   ];
+
+const [metrics, setMetrics] = useState([]);
+  useEffect(() => {
+      async function loadMetrics() {
+        try {
+          const res = await fetch("../../../api/getStockLevel");
+          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          const data = await res.json();
+          console.log(data)
+          setMetrics(data);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      loadMetrics();
+    }, []);
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen text-gray-800">
