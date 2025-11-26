@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import DashboardCard from "../(components)/DashboardCard";
+import DashboardCard from "../(components)/DashboardSidebar";
 import {
   Chart as ChartJS,
   CategoryScale,
