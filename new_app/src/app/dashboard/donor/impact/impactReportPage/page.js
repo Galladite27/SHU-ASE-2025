@@ -68,12 +68,10 @@ export default function DonorDashboardPage() {
       <p>You've had a great year! Here are all your donations, month by month.</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
         <BarChart data={DonationData} label="Your Donation History" />
-       <break></break>
       </div>
         <p>You've had your ups and downs but each month you've saved lots of Co2 emissions from being released into the environment!</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
         <LineChart data={carbonSavingsData} label="Your Monthly Carbon Savings (g)" />
-       <break></break>
       </div>
     </main>
   );
