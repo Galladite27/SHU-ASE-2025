@@ -50,7 +50,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Donor page - make donations (Alex)
 * Submit photos to charity systems (Alex)
 * Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo / Alex)
-* * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
+* Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
 
 
 
