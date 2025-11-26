@@ -36,9 +36,9 @@ export default function CharityDashboardPage() {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <DashboardCard title="Pending Donations" value={charitySummary.pendingDonations} />
+          {/* <DashboardCard title="Pending Donations" value={charitySummary.pendingDonations} />
           <DashboardCard title="Total Items in Stock" value={charitySummary.itemsInStock} />
-          <DashboardCard title="Donors This Month" value={charitySummary.donorsThisMonth} />
+          <DashboardCard title="Donors This Month" value={charitySummary.donorsThisMonth} /> */}
         </div>
 
         {/* Donations Table */}
