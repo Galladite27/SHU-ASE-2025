@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import DashboardCard from '../(components)/CharitySidebar';
+import DashboardCard from '../(components)/DashboardSidebar';
 
 // --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
 
