@@ -11,3 +11,4 @@ export default async function UsersPage() {
 
   return <UsersPageClient initialUsers={plainUsers} />;
 }
+
