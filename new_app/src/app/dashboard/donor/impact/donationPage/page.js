@@ -13,14 +13,13 @@ export default function DonationPage() {
   const [location, setLocation] = useState("");
   const [quality, setQuality] = useState("");
   const [size, setSize] = useState("");
-
+  const [category, setCategory] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     console.log({ title, description, gender, material, weight, photo });
-    const res = await setDonations({description,gender,material,weight,photo,quality,size})
+    const res = await setDonations({description,gender,material,weight,photo,quality,size,category,title})
     alert(res?.error||res?.success)
-    alert("Donation submitted!");
   };
 
   const handlePhotoChange = (e) => {
@@ -96,6 +95,24 @@ export default function DonationPage() {
               <option value="M">M</option>
               <option value="L">L</option>
               <option value="XL">XL</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block font-medium mb-1">Category</label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full border rounded px-3 py-2"
+              required
+            >
+              <option value="">Select Category</option>
+              <option value="Outerwear">Outerwear</option>
+              <option value="Tops">Tops</option>
+              <option value="Bottoms">Bottoms</option>
+              <option value="Dresses">Dresses</option>
+              <option value="Sweatshirts">Sweatshirts</option>
+              <option value="Accessories">Accessories</option>
             </select>
           </div>
 
