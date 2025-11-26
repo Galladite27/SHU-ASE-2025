@@ -12,12 +12,11 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
   
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
 
-* Administrator - access system-wide data (Laurence) - 
-* Administrator analytics - monitor location performance for any branch (Laurence) -
+* Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY 2-3PM
+* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 2-3PM
 
-* Administrator - generate reports (Ryan) 
+* Administrator - generate reports (Ryan) - DEADLINE SATURDAY
 
-* Fix Sidebar - (Haris) DEADLINE - TODAY
 * Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
 
 # Done
