@@ -1,8 +1,8 @@
 import React from "react";
 import DashboardCard from "../(components)/DashboardCard";
 
-// Temporary mock data for the admin dashboard.
-// These values can be replaced with real database queries later.
+
+
 const adminSummary = {
   totalUsers: 47,
   totalDonations: 112,
