@@ -18,7 +18,7 @@ export default function DonationPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     console.log({ title, description, gender, material, weight, photo });
-    const res = await setDonations({description,gender,material,weight,photo,quality,size,category,title})
+    const res = await setDonations({description,gender,material,weight,photo,quality,size,category,title,location})
     alert(res?.error||res?.success)
   };
 
