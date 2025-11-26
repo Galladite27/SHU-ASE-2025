@@ -13,7 +13,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
 * 
 
-
 # Ongoing (sprint todo)
 * Charity page - accepting incoming stock (Theo) 
 
@@ -40,10 +39,10 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Ensure database is write-protected
 * Page routing for clerk for different user types (Haris)
 * Restrict user management to admin only (Haris)
-*  Donor page - view donation history (Theo)
-*  Charity page - stock levels (Theo)
-*  track and view donated stock (availability & categories)
-*  C4 documentation (Laurence)
+* Donor page - view donation history (Theo)
+* Charity page - stock levels (Theo)
+* track and view donated stock (availability & categories)
+* C4 documentation (Laurence)
 * GDPR discussion for LSEPI and to be referenced in presentation (Haris)
 * LSEPI (Alex and Haris)
 * Charity page - upcoming donations (Theo)
@@ -57,14 +56,16 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 
 
-
-
-
-
-
-
-
-
 * Integrate with AI image detection
 * Configure AI to detect category of clothing item uploaded
 * AI API for categorisation (optional)
+
+ALEX -- AS OF TODAY (NOTES)
+
+* CREATE IMPACT REPORT FOR ADMIN PAGE
+    NEEDS TO INCLUDE GRAPHS
+* CHARITY INCOMING DONATIONS PAGE:
+    USER (name)
+    DESCRIPTION OF ITEM 
+    ACCEPT AND DECLINE BUTTONS
+* MY SLIDES FOR PRESENTATION

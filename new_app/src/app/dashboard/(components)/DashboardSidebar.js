@@ -15,10 +15,18 @@ export default function DashboardSidebar() {
       ]
     },
     {
+      role: 'Charity',
+      links: [
+        { href: '/dashboard/charity/donations', label: 'Donations' },
+        { href: '/dashboard/charity/inventory', label: 'Inventory' }
+      ]
+    },
+    {
         role: 'Admin',
         links: [
           { href: '/dashboard/admin/dashboard', label: 'Admin Dashboard' },
-          { href: '/dashboard/admin/users', label: 'User Management' }
+          { href: '/dashboard/admin/users', label: 'User Management' },
+          { href: '/dashboard/admin/impactReport', label: 'Impact Report' }
       ]
     }
   ]
