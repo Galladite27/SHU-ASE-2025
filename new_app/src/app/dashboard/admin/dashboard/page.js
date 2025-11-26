@@ -48,9 +48,9 @@ export default function CharityDashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <DashboardCard title="New Users today" value={adminSummary.newUsersToday} />
+          {/* <DashboardCard title="New Users today" value={adminSummary.newUsersToday} />
           <DashboardCard title="Total Staff" value={adminSummary.staffMembers} />
-          <DashboardCard title="Donations this month" value={adminSummary.donationsThisMonth} />
+          <DashboardCard title="Donations this month" value={adminSummary.donationsThisMonth} /> */}
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-md">
