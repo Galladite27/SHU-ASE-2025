@@ -18,6 +18,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator - generate reports (Ryan) 
 
 * Fix Sidebar - (Haris) DEADLINE - TODAY
+* Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
 
 # Done
 * User stories (Alex)
