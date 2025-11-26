@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import { setAcceptDonation } from "@/lib/setAccept"
 
 export default function CharityManagerDonationsPage() {
 
@@ -20,10 +21,11 @@ export default function CharityManagerDonationsPage() {
       loadMetrics();
     }, []);
 
-    async function handleAccept(e) {
-        e.preventDefault();
-        console.log(e);
-      };
+  async function testFunction (value,id){
+    console.log({ value,id });
+    const res = await setAcceptDonation({value,id})
+    alert(res?.error||res?.success)
+  }
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen text-gray-800">
@@ -44,10 +46,10 @@ export default function CharityManagerDonationsPage() {
               </div>
 
               <div className="flex gap-3">
-                <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" onClick={handleAccept()}>
+                <button onClick = {() => testFunction("true",donation.id)} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" >
                   Accept
                 </button>
-                <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" onClick = {handleAccept("False")}>
+                <button onClick = {() => testFunction("false",donation.id)} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                   Decline
                 </button>
               </div>

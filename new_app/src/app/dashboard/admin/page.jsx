@@ -15,11 +15,6 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const backupDonations = [
-  //{ id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
-  //{ id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
-  //{ id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
 ];
 
 const userActivity = [
