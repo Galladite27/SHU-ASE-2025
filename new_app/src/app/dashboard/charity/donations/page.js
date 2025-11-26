@@ -2,48 +2,16 @@
 import React, { useEffect, useState } from "react";
 
 export default function CharityManagerDonationsPage() {
-  const incomingDonations = [
-    {
-      id: 1,
-      user: "Alice Johnson",
-      item: "Jeans",
-      description: "Thick Cotton. Only worn a handful of times, like new.",
-    },
-    {
-      id: 2,
-      user: "Charlie Brown",
-      item: "Jumper",
-      description: "Christmas Jumper. Worn many times but still in very good condition.",
-    },
-    {
-      id: 3,
-      user: "Diana Prince",
-      item: "Green Dress",
-      description: "Green dress. Bought for an occasion. Only worn once!",
-    },
-    {
-      id: 4,
-      user: "Bob Williams",
-      item: "Blue Jacket",
-      description: "Bought by my mother-in-law. New, only worn once briefly.",
-    },
-    {
-      id: 5,
-      user: "Ethan Hunt",
-      item: "Grey Jeans",
-      description: "Well worn, much-loved. Need these to go to a better home.",
-    },
-  ];
 
-const [metrics, setMetrics] = useState([]);
-  useEffect(() => {
+  const [incomingDonations, setIncoming] = useState([]);
+    useEffect(() => {
       async function loadMetrics() {
         try {
-          const res = await fetch("../../../api/getStockLevel");
+          const res = await fetch("../../../api/getIncomingDonation");
           if (!res.ok) throw new Error("Failed to fetch summary metrics");
           const data = await res.json();
           console.log(data)
-          setMetrics(data);
+          setIncoming(data);
         } catch (err) {
           console.error(err);
         }
