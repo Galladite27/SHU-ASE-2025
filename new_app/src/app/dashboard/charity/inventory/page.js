@@ -1,12 +1,11 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import DashboardCard from '../../(components)/DashboardCard';
-import { Router } from "next/router";
 import {useRouter} from "next/navigation"
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
-  const test = useRouter()
+  const router = useRouter()
   const [stockLevels, setStock] = useState([]);
   useEffect(() => {
       async function loadMetrics() {
@@ -24,8 +23,8 @@ export default function CharityDashboardPage() {
     }, []); 
   
   const handleClick = (item) => {
-    console.log("Pre-Push item id" , item.id)
-    test.push("/dashboard/charity/inventory/edit",{state : {item_id:item.id},})
+    console.log("Pre-Push item id" , item)
+    router.push(`/dashboard/charity/inventory/edit?item_id=${item.id}`);
   };
 
   return (
