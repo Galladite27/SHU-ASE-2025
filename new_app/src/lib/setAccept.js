@@ -10,7 +10,6 @@ export async function setAcceptDonation(data) {
     else if (!data.value){
         db.prepare("Update donations set Status = 'Rejected' where donation_id = (?) ").run(data.id);
     }
-    console.log(data.value,data.id)
   return { success: "Choice ackknowledged" };
   } catch (err) {
     return { error: err.message };

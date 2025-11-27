@@ -26,8 +26,6 @@ export function getDonorImpact() {
     const found = co2_reportSQL.find(m => m.submission_month === monthNum);
 
     return {x: name,y: found ? found.CO2_Total : 0};});
-
-    console.log(co2_report);
     
     return {donationReport,co2_report}
 

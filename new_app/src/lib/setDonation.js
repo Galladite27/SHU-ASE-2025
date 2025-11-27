@@ -28,7 +28,6 @@ export async function setDonations(data) {
     const getLocationId = db.prepare("SELECT Location_ID from Locations where name = (?)")
     const [locationId] = getLocationId.all(data.location)
 
-    
     const insert3 = db.prepare(`INSERT INTO stock(Location_ID,item_id,Status) VALUES (?,?,'In Warehouse')`);
 
     const result3 = insert3.run(locationId["Location_ID"],result.lastInsertRowid);

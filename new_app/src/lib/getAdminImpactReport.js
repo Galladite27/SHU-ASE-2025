@@ -6,9 +6,7 @@ export function getAdminReport() {
     const [donation_count] = db.prepare("select count(donations.Donation_Id) as donationsPerMonth, sum(co2_emissions) as totalCo2Saved from donations inner join clothing on(donations.donation_id = clothing.donation_id) where date(Date_Donated) between date('now','-7 day') and date('now');").all()
     const weeklyDonations = db.prepare("select date_donated, count(donations.Donation_Id) as donationsPerMonth, sum(co2_emissions) as totalCo2Saved from donations inner join clothing on(donations.donation_id = clothing.donation_id) where date(Date_Donated) between date('now','-6 day') and date('now') group by Date_Donated order by date_donated desc; ").all()
 
-    console.log(weeklyDonations)
     const weeklySummary = Object.assign({},user_count,donation_count)
-    console.log(weeklySummary)
 
 const week_days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -58,7 +56,6 @@ for (let i = 0; i < week_days.length; i++) {
     });
 }
 
-console.log(donationData)
     return {weeklySummary,co2Data,donationData}
 
 }

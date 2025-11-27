@@ -8,7 +8,6 @@ export function getDonationCount() {
     const donorsHistory = db.prepare("Select donations.donation_id as id, date_donated,donation_description as items,donations.status,concat('Saved ',sum(co2_emissions),' KG of CO2') as impact,Locations.name as charityName from Donations inner join clothing on (Donations.donation_id = Clothing.donation_id) inner join Stock on (Stock.Item_ID = Clothing.Item_ID) inner join Locations on (Stock.Location_ID = Locations.Location_ID) where donor_id = " + number + " group by donations.donation_id").all() || [];
     db.close()
     const donorsInfo = Object.assign({},donation,items)
-    console.log(donorsInfo)
 
 	return {donorsInfo,donorsHistory}
 
