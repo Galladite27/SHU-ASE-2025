@@ -35,30 +35,30 @@ export default function CharityDashboardPage() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
           <DashboardCard title="Pending Donations" value={charitySummary.pendingDonations} />
           <DashboardCard title="Total Items in Stock" value={charitySummary.itemsInStock} />
           <DashboardCard title="Donors This Month" value={charitySummary.donorsThisMonth} />
         </div>
 
         {/* Donations Table */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-700 mb-4">Incoming Donations</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-left">
+            <table className="w-full text-left text-sm sm:text-base">
               <thead className="border-b-2 border-gray-200">
                 <tr>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Donor</th>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Items</th>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Status</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Donor</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Items</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {incomingDonations.map((donation) => (
                   <tr key={donation.id}>
-                    <td className="py-3 px-4 text-gray-800 font-medium">{donation.donorName}</td>
-                    <td className="py-3 px-4 text-gray-600">{donation.items}</td>
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-2 sm:px-4 text-gray-800 font-medium">{donation.donorName}</td>
+                    <td className="py-3 px-2 sm:px-4 text-gray-600">{donation.items}</td>
+                    <td className="py-3 px-2 sm:px-4">
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
                         donation.status === 'Processing' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
                       }`}>

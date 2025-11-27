@@ -37,15 +37,15 @@ export default function CharityManagerDonationsPage() {
           {incomingDonations.map((donation) => (
             <div
               key={donation.id}
-              className="bg-white p-5 rounded-xl shadow flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+              className="bg-white p-4 sm:p-5 rounded-xl shadow flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
                 <h2 className="text-xl font-semibold">{donation.item}</h2>
                 <p className="text-sm text-gray-500">Donated by: {donation.user}</p>
-                <p className="mt-2 text-black-700">Description: {donation.description}</p>
+                <p className="mt-2 text-gray-700">Description: {donation.description}</p>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-2 sm:flex-nowrap sm:justify-end">
                 <button onClick = {() => testFunction("true",donation.id)} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" >
                   Accept
                 </button>

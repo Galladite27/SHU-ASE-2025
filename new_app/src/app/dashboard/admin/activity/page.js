@@ -53,7 +53,7 @@ export default function CharityDashboardPage() {
           <DashboardCard title="Donations this month" value={adminSummary.donationsThisMonth} />
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-700 mb-4">New Users</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left">
@@ -69,7 +69,7 @@ export default function CharityDashboardPage() {
                   <tr key={user.id}>
                     <td className="py-3 px-4 text-gray-800 font-medium">{user.donorName}</td>
                     <td className="py-3 px-4 text-gray-600">{user.location}</td>
-                    <td className="py-3 px-4 flex gap-3">
+                    <td className="py-3 px-4 flex flex-wrap gap-2 sm:flex-nowrap">
                       <button
                         onClick={() => openViewModal(user)}
                         className="px-3 py-1 bg-blue-500 text-white rounded-md text-sm"
@@ -92,7 +92,7 @@ export default function CharityDashboardPage() {
 
         {isViewOpen && selectedUser && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-black">
+            <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-md mx-4 text-black">
               <h2 className="text-xl font-bold mb-4">User Details</h2>
               <p><strong>Name:</strong> {selectedUser.donorName}</p>
               <p><strong>Location:</strong> {selectedUser.location}</p>
@@ -111,7 +111,7 @@ export default function CharityDashboardPage() {
 
         {isEditOpen && selectedUser && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-black">
+            <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-md mx-4 text-black">
               <h2 className="text-xl font-bold mb-4">Edit User Details</h2>
 
               <label className="block mb-2 text-sm font-medium">Name</label>

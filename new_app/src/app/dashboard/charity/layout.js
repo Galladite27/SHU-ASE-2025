@@ -5,7 +5,7 @@ export default function AdminLayout({ children }) {
   return (
     <div className="w-full">
 
-      <header className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-200 p-4 sm:p-6 sticky top-0 z-10">
         <h1 className="text-xl font-semibold text-gray-800">
           Charity Panel - Manchester Piccadilly Branch
         </h1>
@@ -14,7 +14,7 @@ export default function AdminLayout({ children }) {
         </p>
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow p-4 sm:p-6">
         {children}
       </main>
     </div>

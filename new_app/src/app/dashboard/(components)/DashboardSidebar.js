@@ -38,7 +38,7 @@ export default function DashboardSidebar() {
   const linksToShow = menuItems[role] || [];
 
   return (
-    <aside className="w-64 bg-gray-100 p-4">
+    <aside className="w-full sm:w-64 bg-gray-100 p-4 sm:h-full sm:min-h-screen">
       <nav>
         <h3 className="font-bold text-gray-500 mb-4">
           {role.charAt(0).toUpperCase() + role.slice(1)} Menu
