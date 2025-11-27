@@ -2,9 +2,10 @@
 Rather than over-complicate things with Jira or Trello, we have decided that the scope of the project and the number of things to do only warrants a simple way of tracking our backlog. Also, this file can be included in the published releases, produced as evidence at the end of each sprint period.
 
 # Todo
-* 
+* Do research into an AI feature we can add but don't actually implement it
+
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
-* 
+
 
 # Ongoing (sprint todo)
 * Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
@@ -16,6 +17,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
+* Mobile First verfication (Ryan) DEADLINE SUNDAY
+
 
 
 # Done
