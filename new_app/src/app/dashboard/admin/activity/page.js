@@ -43,8 +43,8 @@ export default function CharityDashboardPage() {
       <div className="max-w-7xl mx-auto">
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Manchester Piccadilly Branch</h1>
-          <p className="text-gray-600 mt-1">Monitor donations for this branch.</p>
+          <h1 className="text-3xl font-bold text-gray-800">Recent activity</h1>
+          <p className="text-gray-600 mt-1">Monitor recent activity, particularly to do with users.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
