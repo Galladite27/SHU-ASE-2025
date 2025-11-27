@@ -16,11 +16,7 @@ export function getDonorImpact() {
     }
     const found = donationReportSQL.find(m => m.submission_month === monthNum);
 
-    return {
-        x: name,
-        y: found ? found.number : 0
-    };
-    });
+    return {x: name,y: found ? found.number : 0};});
 
     const co2_report = monthNames.map((name, index) => {
     var monthNum = (index + 1).toString()
@@ -29,16 +25,10 @@ export function getDonorImpact() {
     }
     const found = co2_reportSQL.find(m => m.submission_month === monthNum);
 
-    return {
-        x: name,
-        y: found ? found.CO2_Total : 0
-    };
-    });
-
+    return {x: name,y: found ? found.CO2_Total : 0};});
 
     console.log(co2_report);
-
-
+    
     return {donationReport,co2_report}
 
 }

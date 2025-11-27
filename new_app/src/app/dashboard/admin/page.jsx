@@ -14,9 +14,6 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const backupDonations = [
-];
-
 const userActivity = [
   { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
   { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
@@ -32,7 +29,7 @@ export default function AdminDashboardPage() {
     totalItems: 0,
   });
 
-  const [history, setHistory] = useState(null);
+  const [recentDonations, setHistory] = useState([]);
 
   useEffect(() => {
     async function loadMetrics() {
@@ -77,9 +74,6 @@ export default function AdminDashboardPage() {
       },
     ],
   };
-
-  //const summaryMetric = metrics || fallbackMetrics;
-  const recentDonations = history || backupDonations;
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
