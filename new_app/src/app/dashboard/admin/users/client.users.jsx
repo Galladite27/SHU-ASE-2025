@@ -74,7 +74,7 @@ const downloadCsv = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Admin – User Management</h1>
+        <h1 className="text-3xl font-bold">User Management</h1>
 
         <button
           onClick={downloadCsv}
