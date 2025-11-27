@@ -17,7 +17,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
 
-* Create link from Landing page to Dashboard page (Haris) - DEADLINE - 28/11/25 FRIDAY
 
 # Done
 * User stories (Alex)
@@ -51,6 +50,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo / Alex)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
 * SideBar protected - only donor can see there dashboard, charity can see there dashboard etc. (Haris) DEADLINE TODAY 26/11/25
+* Create link from Landing page to Dashboard page (Haris) - DEADLINE - 28/11/25 FRIDAY
 
 
 
