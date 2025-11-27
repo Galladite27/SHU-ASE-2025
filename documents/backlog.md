@@ -11,6 +11,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
   
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
+* Donor page - mandatory fields on donation form (Alex) DEADLINE - FRIDAY
 
 * Administrator - access system-wide data (Laurence) - DEADLINE FRIDAY 28/11/25
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE FRIDAY 28/11/25
