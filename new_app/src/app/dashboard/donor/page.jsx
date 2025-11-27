@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import DashboardCard from '../(components)/DashboardSidebar';
+import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR DONOR ---
 const backupSummary = {
