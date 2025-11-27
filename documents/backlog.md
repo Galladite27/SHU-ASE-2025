@@ -5,7 +5,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Do research into an AI feature we can add but don't actually implement it
 
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
-* Mobile First verfication (Ryan) DEADLINE SUNDAY
 
 
 # Ongoing (sprint todo)
@@ -18,6 +17,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
+* Mobile First verfication (Ryan) DEADLINE SUNDAY
+
 
 
 # Done
