@@ -27,6 +27,7 @@ export default function DashboardSidebar() {
       { href: '/dashboard/charity/inventory', label: 'Inventory' },
     ],
     admin: [
+      { href: '/dashboard/admin/', label: 'Admin Home' },
       { href: '/dashboard/admin/dashboard', label: 'Admin Dashboard' },
       { href: '/dashboard/admin/users', label: 'User Management' },
       { href: '/dashboard/admin/impactReport', label: 'Impact Report' },
