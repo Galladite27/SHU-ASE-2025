@@ -10,6 +10,55 @@ export function getAdminReport() {
     const weeklySummary = Object.assign({},user_count,donation_count)
     console.log(weeklySummary)
 
-    return {weeklySummary,weeklyDonations}
+const week_days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+const co2Data = [];
+for (let i = 0; i < week_days.length; i++) {
+    const dayName = week_days[i];
+    const day_num = i + 1;
+
+    var total_Co2 = 0;
+
+    for (let j = 0; j < weeklyDonations.length; j++) {
+        const entry = weeklyDonations[j];
+        const weekday = new Date(entry.Date_Donated).getDay();
+        const weekday_num = weekday === 0 ? 7 : weekday;
+
+        if (weekday_num === day_num) {
+            total_Co2 = entry.totalCo2Saved;
+        }
+    }
+
+    co2Data.push({
+        x: dayName,
+        y: total_Co2
+    });
+}
+
+const donationData = [];
+for (let i = 0; i < week_days.length; i++) {
+    const dayName = week_days[i];
+    const day_num = i + 1;
+
+    var total_Donation = 0;
+
+    for (let j = 0; j < weeklyDonations.length; j++) {
+        const entry = weeklyDonations[j];
+        const weekday = new Date(entry.Date_Donated).getDay();
+        const weekday_num = weekday === 0 ? 7 : weekday;
+
+        if (weekday_num === day_num) {
+            total_Donation = entry.donationsPerMonth;
+        }
+    }
+
+    donationData.push({
+        x: dayName,
+        y: total_Donation
+    });
+}
+
+console.log(donationData)
+    return {weeklySummary,co2Data,donationData}
 
 }

@@ -7,15 +7,6 @@ import LineChart from "../../(components)/LineChart";
 import PieChart from "../../(components)/PieChart";
 
 // --- DUMMY DATA FOR DONOR ---
-const donationData = [
-  { x: "MON", y: 33 },
-  { x: "TUE", y: 38 },
-  { x: "WED", y: 39 },
-  { x: "THURS", y: 32 },
-  { x: "FRI", y: 39 },
-  { x: "SAT", y: 25 },
-  { x: "SUN", y: 45 },
-];
 
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
@@ -32,6 +23,16 @@ export default function DonorDashboardPage() {
     { x: "FRI", y: 15 },
     { x: "SAT", y: 8 },
     { x: "SUN", y: 19 },])
+
+    const [donationData,setDonation] = useState([
+  { x: "MON", y: 33 },
+  { x: "TUE", y: 38 },
+  { x: "WED", y: 39 },
+  { x: "THURS", y: 32 },
+  { x: "FRI", y: 39 },
+  { x: "SAT", y: 25 },
+  { x: "SUN", y: 45 },
+])
   
     useEffect(() => {
       async function loadMetrics() {
@@ -40,7 +41,8 @@ export default function DonorDashboardPage() {
           if (!res.ok) throw new Error("Failed to fetch summary metrics");
           const data = await res.json();
           setSummary(data["weeklySummary"]);
-          //setCo2(data["co2Data"])
+          setCo2(data["co2Data"])
+          setDonation(data["donationData"])
         } catch (err) {
           console.error(err);
         }

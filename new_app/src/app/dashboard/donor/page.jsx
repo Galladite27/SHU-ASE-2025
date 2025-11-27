@@ -3,21 +3,14 @@ import React, { useEffect, useState } from "react";
 import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR DONOR ---
-const backupSummary = {
-  totalDonations: 0,
-  itemsDonated: 0,
-  co2Saved: 0, 
-};
-
-const backupHistory = [
-];
-
-//const donorSummary = await getDonationCount();
-//const donationHistory = await getDonorsHistory()
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
-    const [metrics, setMetrics] = useState(null);
-    const [history, setHistory] = useState(null);
+    const [donorSummary, setSummary] = useState({
+      totalDonations: 0,
+      itemsDonated: 0,
+      co2Saved: 0, 
+    });
+    const [donationHistory, setHistory] = useState([]);
 
   useEffect(() => {
     async function loadMetrics() {
@@ -25,7 +18,7 @@ export default function DonorDashboardPage() {
         const res = await fetch("../../api/getDonorsInfo");
         if (!res.ok) throw new Error("Failed to fetch summary metrics");
         const data = await res.json();
-        setMetrics(data["donorsInfo"]);
+        setSummary(data["donorsInfo"]);
         setHistory(data["donorsHistory"])
       } catch (err) {
         console.error(err);
@@ -33,11 +26,6 @@ export default function DonorDashboardPage() {
     }
     loadMetrics();
   }, []);
-
-  const donorSummary = metrics || backupSummary
-  const donationHistory = history || backupHistory
-  console.log(donorSummary)
-  console.log(donationHistory)
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
