@@ -8,10 +8,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 
 # Ongoing (sprint todo)
-* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
 * Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 28/11/25
   
-* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
 
 * Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
@@ -54,6 +52,10 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
 * SideBar protected - only donor can see there dashboard, charity can see there dashboard etc. (Haris) DEADLINE TODAY 26/11/25
 * Create link from Landing page to Dashboard page (Haris) - DEADLINE - 28/11/25 FRIDAY
+* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
+
+
 
 
 
