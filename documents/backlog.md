@@ -17,9 +17,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Administrator - generate reports (Ryan) 
 
-* Fix Sidebar - (Haris) DEADLINE - TODAY
-* Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
-
 # Done
 * User stories (Alex)
 * Entity relationship diagram (Ryan)
@@ -51,6 +48,10 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Submit photos to charity systems (Alex)
 * Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo / Alex)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
+* Fix Sidebar - (Haris) DEADLINE - TODAY
+* Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
+
+
 
 
 
