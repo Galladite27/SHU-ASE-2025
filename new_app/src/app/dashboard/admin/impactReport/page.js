@@ -1,25 +1,30 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+
 import BarChart from "../../(components)/BarChart";
 import LineChart from "../../(components)/LineChart";
 import PieChart from "../../(components)/PieChart";
 
 // --- DUMMY DATA FOR DONOR ---
-const donorSummary = {
-  usersPerMonth: 8,
-  donationsPerMonth: 42,
-  totalCo2Saved: 35.7,
-};
 
-const Co2data = [
-  { x: "MON", y: 12 },
-  { x: "TUE", y: 16 },
-  { x: "WED", y: 18 },
-  { x: "THURS", y: 9 },
-  { x: "FRI", y: 15 },
-  { x: "SAT", y: 8 },
-  { x: "SUN", y: 19 },
-];
+// --- DONOR DASHBOARD COMPONENT ---
+export default function DonorDashboardPage() {
+  const [donorSummary, setSummary] = useState({
+    usersPerMonth: 0,
+    donationsPerMonth: 0,
+    totalCo2Saved: 0,
+  });
+  
+    const [Co2data,setCo2] = useState([{ x: "MON", y: 12 },
+    { x: "TUE", y: 16 },
+    { x: "WED", y: 18 },
+    { x: "THURS", y: 9 },
+    { x: "FRI", y: 15 },
+    { x: "SAT", y: 8 },
+    { x: "SUN", y: 19 },])
 
-const donationData = [
+    const [donationData,setDonation] = useState([
   { x: "MON", y: 33 },
   { x: "TUE", y: 38 },
   { x: "WED", y: 39 },
@@ -27,10 +32,23 @@ const donationData = [
   { x: "FRI", y: 39 },
   { x: "SAT", y: 25 },
   { x: "SUN", y: 45 },
-];
-
-// --- DONOR DASHBOARD COMPONENT ---
-export default function DonorDashboardPage() {
+])
+  
+    useEffect(() => {
+      async function loadMetrics() {
+        try {
+          const res = await fetch("../../api/getAdminImpactReport");
+          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          const data = await res.json();
+          setSummary(data["weeklySummary"]);
+          setCo2(data["co2Data"])
+          setDonation(data["donationData"])
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      loadMetrics();
+    }, []);
   return (
     <main className="p-6 sm:p-8 bg-gray-50 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
