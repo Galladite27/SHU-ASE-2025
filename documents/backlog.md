@@ -7,7 +7,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * 
 
 # Ongoing (sprint todo)
-* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY
 * Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
   
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
@@ -50,6 +49,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
 * Fix Sidebar - (Haris) DEADLINE - TODAY
 * Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
+* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY
 
 
 
