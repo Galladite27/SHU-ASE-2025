@@ -210,3 +210,4 @@ export default function DonationPage() {
   );
 }
 
+// make the weight optional but the title and description required
