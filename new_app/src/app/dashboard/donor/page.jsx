@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import DashboardCard from '../(components)/DashboardSidebar';
+import DashboardCard from '../(components)/DashboardCard';
 
 // --- DUMMY DATA FOR DONOR ---
 const backupSummary = {
@@ -47,9 +47,9 @@ export default function DonorDashboardPage() {
           <p className="text-gray-600 mt-1">Welcome back! Here's a summary of your contributions.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {/* <DashboardCard title="Total Donations" value={donorSummary.totalDonations} />
+          <DashboardCard title="Total Donations" value={donorSummary.totalDonations} />
           <DashboardCard title="Items Donated" value={donorSummary.itemsDonated} />
-          <DashboardCard title="Sustainability Impact" value={`${donorSummary.co2Saved} kg of CO₂ Saved`} /> */}
+          <DashboardCard title="Sustainability Impact" value={`${donorSummary.co2Saved} kg of CO₂ Saved`} />
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-700 mb-4">Donation History</h2>
