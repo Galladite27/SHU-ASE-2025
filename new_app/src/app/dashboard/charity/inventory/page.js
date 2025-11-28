@@ -13,7 +13,6 @@ export default function CharityDashboardPage() {
           const res = await fetch("../../../api/getStockLevel");
           if (!res.ok) throw new Error("Failed to fetch stock");
           const data = await res.json();
-          console.log(data)
           setStock(data);
         } catch (err) {
           console.error(err);
