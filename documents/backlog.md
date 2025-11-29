@@ -53,6 +53,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
 * Mobile First verfication (Ryan) DEADLINE SUNDAY
 * Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 28/11/25
+* Mandatory fields in the Donor page (From lecturer feedback) - DEADLINE SATURDAY (Alex) 29/11/25
 
 
 
