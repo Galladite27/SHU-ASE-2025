@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { setDonations } from "@/lib/setDonation"
+import { setDonations } from "@/lib/setDonation";
 
 export default function DonationPage() {
   const [title, setTitle] = useState("");
@@ -17,10 +17,22 @@ export default function DonationPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log({ title, description, gender, material, weight, photo });
-    const res = await setDonations({description,gender,material,weight,photo,quality,size,category,title,location})
-    alert(res?.error||res?.success)
-  };
+
+    const res = await setDonations({
+      description,
+      gender,
+      material,
+      weight,
+      photo,
+      quality,
+      size,
+      category,
+      title,
+      location,
+    });
+
+    alert(res?.error || res?.success);
+  }
 
   const handlePhotoChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -28,14 +40,22 @@ export default function DonationPage() {
     }
   };
 
+  const RequiredLabel = ({ children }) => (
+    <label className="block font-medium mb-1">
+      {children} <span className="text-red-600">*</span>
+    </label>
+  );
+
   return (
     <main className="min-h-screen bg-gray-50 p-6 sm:p-10">
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-bold mb-6">Add a Donation</h1>
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Title Section*/}
+
+          {/* Title */}
           <div>
-            <label className="block font-medium mb-1">Title of Item</label>
+            <RequiredLabel>Title of Item</RequiredLabel>
             <input
               type="text"
               placeholder="e.g. Levi Jeans"
@@ -46,28 +66,26 @@ export default function DonationPage() {
             />
           </div>
 
-          {/* Description of item */}
-          {/* brief description of item, could limit to a certain number of characters?? */}
+          {/* Description */}
           <div>
-          <label className="block font-medium mb-1">Description</label>
-          <textarea placeholder="Enter a brief description of your item"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="w-full border rounded px-3 py-2 text-black"
-            rows={4}
-            maxLength={256
-            } // limitting the description field to 258 characters
-            required
-          />
-          <p className="text-sm text-gray-500 mt-1">
-            {description.length} / 256 characters
-          </p>
-        </div>
+            <RequiredLabel>Description</RequiredLabel>
+            <textarea
+              placeholder="Enter a brief description of your item"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full border rounded px-3 py-2 text-black"
+              rows={4}
+              maxLength={256}
+              required
+            />
+            <p className="text-sm text-gray-500 mt-1">
+              {description.length} / 256 characters
+            </p>
+          </div>
 
-          {/* Gender Section*/}
-          {/* Selecting the gender of their item to help with correct distribution */}
+          {/* Gender */}
           <div>
-            <label className="block font-medium mb-1">Gender</label>
+            <RequiredLabel>Gender</RequiredLabel>
             <select
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -81,8 +99,9 @@ export default function DonationPage() {
             </select>
           </div>
 
+          {/* Size */}
           <div>
-            <label className="block font-medium mb-1">Size</label>
+            <RequiredLabel>Size</RequiredLabel>
             <select
               value={size}
               onChange={(e) => setSize(e.target.value)}
@@ -98,8 +117,9 @@ export default function DonationPage() {
             </select>
           </div>
 
+          {/* Category */}
           <div>
-            <label className="block font-medium mb-1">Category</label>
+            <RequiredLabel>Category</RequiredLabel>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -116,10 +136,9 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* Material Section*/}
-          {/* Asking the user to provide us with the type of material for their item */}
+          {/* Material */}
           <div>
-            <label className="block font-medium mb-1">Material</label>
+            <RequiredLabel>Material</RequiredLabel>
             <input
               type="text"
               placeholder="e.g. Cotton, Polyester etc."
@@ -129,9 +148,10 @@ export default function DonationPage() {
               required
             />
           </div>
-          
+
+          {/* Quality */}
           <div>
-            <label className="block font-medium mb-1">Quality</label>
+            <RequiredLabel>Quality</RequiredLabel>
             <select
               value={quality}
               onChange={(e) => setQuality(e.target.value)}
@@ -145,11 +165,9 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* allowing the user to enter the weight of their item, needed for calculating the carbon savings */}
-          {/* Weight Section */}
+          {/* Weight (optional) */}
           <div>
             <label className="block font-medium mb-1">Weight (kg)</label>
-            
             <input
               type="number"
               placeholder="Select weight"
@@ -157,12 +175,12 @@ export default function DonationPage() {
               onChange={(e) => setWeight(e.target.value)}
               className="w-full border rounded px-3 py-2"
               step="0.01"
-              required
             />
           </div>
 
+          {/* Location */}
           <div>
-            <label className="block font-medium mb-1">Location</label>
+            <RequiredLabel>Location</RequiredLabel>
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -176,16 +194,15 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* Photo Upload section*/}
-          {/* Allowing the user to add a photo alongside their donation
-          How will this go into the databse, if it will - ask theo/harris */}
+          {/* Photo */}
           <div>
-            <label className="block font-medium mb-1">Photo</label>
+            <RequiredLabel>Photo</RequiredLabel>
             <input
               type="file"
               accept="image/*"
               onChange={handlePhotoChange}
               className="w-full"
+              required
             />
             {photo && (
               <img
@@ -195,9 +212,8 @@ export default function DonationPage() {
               />
             )}
           </div>
-          
-          {/* Submitting the form, not connected to the databse */}
-          {/* Submit Button */}
+
+          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
@@ -209,4 +225,3 @@ export default function DonationPage() {
     </main>
   );
 }
-
