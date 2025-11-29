@@ -15,7 +15,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
-* Mobile First verfication (Ryan) DEADLINE SUNDAY
 
 
 
@@ -54,6 +53,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Create link from Landing page to Dashboard page (Haris) - DEADLINE - 28/11/25 FRIDAY
 * Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
+* Mobile First verfication (Ryan) DEADLINE SUNDAY
+
 
 
 

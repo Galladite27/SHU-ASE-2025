@@ -1,27 +1,30 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import DashboardCard from '../../(components)/DashboardCard';
-
-// --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
+import {useRouter} from "next/navigation"
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
-  const [metrics, setMetrics] = useState([]);
+  const router = useRouter()
+  const [stockLevels, setStock] = useState([]);
   useEffect(() => {
       async function loadMetrics() {
         try {
           const res = await fetch("../../../api/getStockLevel");
-          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          if (!res.ok) throw new Error("Failed to fetch stock");
           const data = await res.json();
-          console.log(data)
-          setMetrics(data);
+          setStock(data);
         } catch (err) {
           console.error(err);
         }
       }
       loadMetrics();
-    }, []);
-  const stockLevels = metrics 
+    }, []); 
+  
+  const handleClick = (item) => {
+    console.log("Pre-Push item id" , item)
+    router.push(`/dashboard/charity/inventory/edit?item_id=${item.id}`);
+  };
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
