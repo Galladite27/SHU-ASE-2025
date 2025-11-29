@@ -83,6 +83,14 @@ const downloadCsv = () => {
           Download CSV
         </button>
       </div>
+      <div>
+          <button
+            onClick={() => clerkClient.users.createUser()}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          >
+          Add User
+        </button> 
+      </div>
 
       <div className="space-y-4">
         {users.map((user) => {
@@ -112,6 +120,8 @@ const downloadCsv = () => {
                   <option value="donor">Donor</option>
                   <option value="admin">Admin</option>
                 </select>
+
+                
 
                 {/* Delete */}
                 <button
