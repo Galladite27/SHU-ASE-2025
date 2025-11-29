@@ -1,27 +1,30 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import DashboardCard from '../../(components)/DashboardCard';
-
-// --- DUMMY DATA FOR A SPECIFIC CHARITY BRANCH ---
+import {useRouter} from "next/navigation"
 
 // --- CHARITY DASHBOARD COMPONENT ---
 export default function CharityDashboardPage() {
-  const [metrics, setMetrics] = useState([]);
+  const router = useRouter()
+  const [stockLevels, setStock] = useState([]);
   useEffect(() => {
       async function loadMetrics() {
         try {
           const res = await fetch("../../../api/getStockLevel");
-          if (!res.ok) throw new Error("Failed to fetch summary metrics");
+          if (!res.ok) throw new Error("Failed to fetch stock");
           const data = await res.json();
-          console.log(data)
-          setMetrics(data);
+          setStock(data);
         } catch (err) {
           console.error(err);
         }
       }
       loadMetrics();
-    }, []);
-  const stockLevels = metrics 
+    }, []); 
+  
+  const handleClick = (item) => {
+    console.log("Pre-Push item id" , item)
+    router.push(`/dashboard/charity/inventory/edit?item_id=${item.id}`);
+  };
 
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
@@ -33,23 +36,23 @@ export default function CharityDashboardPage() {
         </div>
 
         {/* Stock Table */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-700 mb-4">Current Stock Levels</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-left">
+            <table className="w-full text-left text-sm sm:text-base">
               <thead className="border-b-2 border-gray-200">
                 <tr>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Item</th>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Category</th>
-                  <th className="py-3 px-4 font-semibold text-gray-600">Quantity</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Item</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Category</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Quantity</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {stockLevels.map((item) => (
                   <tr key={item.id}>
-                    <td className="py-3 px-4 text-gray-800 font-medium">{item.itemName}</td>
-                    <td className="py-3 px-4 text-gray-600">{item.category}</td>
-                    <td className="py-3 px-4 text-gray-800 font-semibold">{item.quantity}</td>
+                    <td className="py-3 px-2 sm:px-4 text-gray-800 font-medium">{item.itemName}</td>
+                    <td className="py-3 px-2 sm:px-4 text-gray-600">{item.category}</td>
+                    <td className="py-3 px-2 sm:px-4 text-gray-800 font-semibold">{item.quantity}</td>
                   </tr>
                 ))}
               </tbody>

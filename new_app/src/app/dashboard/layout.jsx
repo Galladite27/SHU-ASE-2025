@@ -6,7 +6,7 @@ import DashboardSidebar from './(components)/DashboardSidebar';
 export default async function DashboardLayout({ children }) {
   
   return (
-    <div className="flex">
+    <div className="flex flex-col sm:flex-row">
       <DashboardSidebar />
       <main className="flex-grow p-4">
         {children}

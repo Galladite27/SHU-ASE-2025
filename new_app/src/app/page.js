@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 dark:bg-black flex flex-col">
 
 
-      <section className="px-6 py-24 text-center bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+      <section className="px-6 py-16 sm:py-24 text-center bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
         <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-zinc-50">
           Welcome to <span className="text-green-600">SustainWear</span>
         </h1>
@@ -31,10 +31,10 @@ export default function Home() {
           What is SustainWear?
         </h2>
 
-        <div className="grid sm:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto text-center">
 
 
-          <div className="p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <div className="p-6 sm:p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
             <h3 className="text-xl font-semibold text-green-600">Donor</h3>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
               Log donations, upload item photos, and track your sustainable impact.
@@ -48,7 +48,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <div className="p-6 sm:p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
             <h3 className="text-xl font-semibold text-green-600">Charity</h3>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
               Manage donations, track inventory, and support your community.
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
 
-          <div className="p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <div className="p-6 sm:p-8 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
             <h3 className="text-xl font-semibold text-green-600">Admin</h3>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
               Oversee the platform, manage users, and view impact analytics.
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
 
-      <section className="px-6 py-20 text-center bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
+      <section className="px-6 py-16 sm:py-20 text-center bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
         <h2 className="text-3xl font-semibold text-zinc-900 dark:text-zinc-50">
           Ready to make an impact?
         </h2>

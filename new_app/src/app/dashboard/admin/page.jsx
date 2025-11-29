@@ -14,14 +14,6 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const backupDonations = [
-  //{ id: 'DON-001', donorName: 'Steve Johnson', charityName: 'Manchester Piccadilly Branch', items: '2 bags of clothes', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-002', donorName: 'Penny Longing', charityName: 'London Oxford Street Branch', items: 'Box of children\'s books', status: 'Completed', date: '2025-10-15' },
-  //{ id: 'DON-003', donorName: 'Ben Dover', charityName: 'Sheffield City Centre Branch', items: 'Used toys', status: 'Processing', date: '2025-10-14' },
-  //{ id: 'DON-004', donorName: 'Bruce Wayne', charityName: 'Manchester Piccadilly Branch', items: '3 winter coats', status: 'Completed', date: '2025-10-13' },
-  //{ id: 'DON-005', donorName: 'Ethan Hunt', charityName: 'Birmingham Bullring Branch', items: 'Board games', status: 'Failed', date: '2025-10-12' },
-];
-
 const userActivity = [
   { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
   { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
@@ -37,7 +29,7 @@ export default function AdminDashboardPage() {
     totalItems: 0,
   });
 
-  const [history, setHistory] = useState(null);
+  const [recentDonations, setHistory] = useState([]);
 
   useEffect(() => {
     async function loadMetrics() {
@@ -82,9 +74,6 @@ export default function AdminDashboardPage() {
       },
     ],
   };
-
-  //const summaryMetric = metrics || fallbackMetrics;
-  const recentDonations = history || backupDonations;
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
@@ -113,29 +102,29 @@ export default function AdminDashboardPage() {
           ))}
         </div> */}
 
-        <div className="grid xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Recent Donations */}
-          <div className="bg-white p-5 rounded-xl shadow xl:col-span-2">
+          <div className="bg-white p-4 sm:p-5 rounded-xl shadow xl:col-span-2">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Donations</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead>
                   <tr className="border-b">
-                    <th className="py-2 px-3 text-gray-800">ID</th>
-                    <th className="py-2 px-3 text-gray-800">Donor</th>
-                    <th className="py-2 px-3 text-gray-800">Branch</th>
-                    <th className="py-2 px-3 text-gray-800">Items</th>
-                    <th className="py-2 px-3 text-gray-800">Status</th>
+                    <th className="py-2 px-2 sm:px-3 text-gray-800">ID</th>
+                    <th className="py-2 px-2 sm:px-3 text-gray-800">Donor</th>
+                    <th className="py-2 px-2 sm:px-3 text-gray-800">Branch</th>
+                    <th className="py-2 px-2 sm:px-3 text-gray-800">Items</th>
+                    <th className="py-2 px-2 sm:px-3 text-gray-800">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {recentDonations.map((d) => (
                     <tr key={d.id} className="border-b last:border-none hover:bg-gray-50">
-                      <td className="py-2 px-3 text-gray-900">{d.id}</td>
-                      <td className="py-2 px-3 font-medium text-gray-900">{d.donorName}</td>
-                      <td className="py-2 px-3 text-gray-900">{d.branch}</td>
-                      <td className="py-2 px-3 text-gray-900">{d.items}</td>
-                      <td className="py-2 px-3">
+                      <td className="py-2 px-2 sm:px-3 text-gray-900">{d.id}</td>
+                      <td className="py-2 px-2 sm:px-3 font-medium text-gray-900">{d.donorName}</td>
+                      <td className="py-2 px-2 sm:px-3 text-gray-900">{d.branch}</td>
+                      <td className="py-2 px-2 sm:px-3 text-gray-900">{d.items}</td>
+                      <td className="py-2 px-2 sm:px-3">
                         <span
                           className={`px-2 py-1 text-xs font-medium rounded-full ${
                             d.status === "Completed"
@@ -156,7 +145,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* User Activity */}
-          <div className="bg-white p-5 rounded-xl shadow">
+          <div className="bg-white p-4 sm:p-5 rounded-xl shadow">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">User Activity</h2>
             <ul className="space-y-4">
               {activity.map((a) => (
