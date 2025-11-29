@@ -16,7 +16,7 @@ export default function DonorDashboardPage() {
     async function loadMetrics() {
       try {
         const res = await fetch("../../api/getDonorsInfo");
-        if (!res.ok) throw new Error("Failed to fetch summary metrics");
+        if (!res.ok) throw new Error("Failed to fetch donor info");
         const data = await res.json();
         setSummary(data["donorsInfo"]);
         setHistory(data["donorsHistory"])
