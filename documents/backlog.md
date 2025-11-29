@@ -8,9 +8,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 
 # Ongoing (sprint todo)
-* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 28/11/25
   
-
 * Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
@@ -54,6 +52,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
 * Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
 * Mobile First verfication (Ryan) DEADLINE SUNDAY
+* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 28/11/25
+
 
 
 
