@@ -15,7 +15,6 @@ export default function UsersPageClient({ initialUsers }) {
       )
     );
 
-    // Persist via server action
     startTransition(async () => {
       const fd = new FormData();
       fd.append("userId", userId);
@@ -36,9 +35,54 @@ export default function UsersPageClient({ initialUsers }) {
       setUsers((prev) => prev.filter((u) => u.id !== userId));
     });
   };
+
+const downloadCsv = () => {
+    if (!users || users.length === 0) {
+      alert("No users to export.");
+      return;
+    }
+
+    // CSV header
+    const header = ["id", "email", "role"];
+
+    const rows = users.map((u) => [
+      u.id,
+      u.emailAddresses?.[0]?.emailAddress || "No email",
+      u.publicMetadata?.role || "none",
+    ]);
+
+    // Format CSV file
+    const csvString = [header, ...rows]
+      .map((row) =>
+        row.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")
+      )
+      .join("\n");
+
+    // Download
+    const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "users-report.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
-    <div className="p-10 space-y-6">
-      <h1 className="text-3xl font-bold">Clerk Users</h1>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold">User Management</h1>
+
+        <button
+          onClick={downloadCsv}
+          className="text-sm px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+        >
+          Download CSV
+        </button>
+      </div>
 
       <div className="space-y-4">
         {users.map((user) => {
@@ -50,7 +94,7 @@ export default function UsersPageClient({ initialUsers }) {
               className="p-4 border rounded flex items-center justify-between"
             >
               <div>
-                <p className="font-semibold">
+                <p className="font-semibold text-gray-800">
                   {user.emailAddresses?.[0]?.emailAddress || "No email"}
                 </p>
                 <p className="text-sm text-gray-500">{user.id}</p>

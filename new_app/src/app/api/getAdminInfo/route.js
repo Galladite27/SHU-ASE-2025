@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import {getSummaryMetrics } from '@/lib/getSummaryMetrics';
+import { getAllCharityInfo } from '@/lib/getCharityInfo';
 
 export async function GET() {
-  const rows = getSummaryMetrics();
+  const rows = getAllCharityInfo();
   return NextResponse.json(rows);
 }

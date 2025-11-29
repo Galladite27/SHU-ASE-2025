@@ -2,9 +2,14 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from '../(components)/DashboardCard';
 
+// --- DUMMY DATA FOR DONOR ---
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
-    const [donorSummary, setSummary] = useState({totalDonations: 0,itemsDonated: 0,co2Saved: 0,});
+    const [donorSummary, setSummary] = useState({
+      totalDonations: 0,
+      itemsDonated: 0,
+      co2Saved: 0, 
+    });
     const [donationHistory, setHistory] = useState([]);
 
   useEffect(() => {

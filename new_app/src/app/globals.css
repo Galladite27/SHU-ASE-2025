@@ -5,6 +5,29 @@
   --foreground: #171717;
 }
 
+@layer base {
+  label {
+    @apply text-black;
+  }
+
+  h1 {
+    @apply text-black;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply border-black text-black;
+  }
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

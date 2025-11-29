@@ -9,5 +9,12 @@ export default async function UsersPage() {
   // FIX: serialize before passing to the client component
   const plainUsers = structuredClone(users.data);
 
-  return <UsersPageClient initialUsers={plainUsers} />;
+  return (
+    <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <UsersPageClient initialUsers={plainUsers} />
+      </div>
+    </main>
+  );
 }
+

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import DashboardCard from "../(components)/DashboardCard";
+import DashboardCard from "../(components)/DashboardSidebar";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,6 +13,12 @@ import {
 } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const userActivity = [
+  { id: "USR-010", name: "Frank Castle", role: "Donor", activity: "Joined the platform", timestamp: "2 hours ago" },
+  { id: "CHR-003", name: "Manchester Piccadilly Branch", role: "Charity", activity: "Updated stock levels", timestamp: "5 hours ago" },
+  { id: "USR-002", name: "Bob Williams", role: "Donor", activity: "Made a new donation", timestamp: "Yesterday" },
+];
 
 // --- Component ---
 export default function AdminDashboardPage() {
@@ -68,7 +74,6 @@ export default function AdminDashboardPage() {
       },
     ],
   };
-
   const summary = [
     { title: "Users", value: metrics.totalUsers },
     { title: "Branches", value: metrics.activeBranches },
@@ -91,11 +96,11 @@ export default function AdminDashboardPage() {
           <p className="text-gray-700 text-sm mt-1">Overview of platform stats</p>
         </header>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {summary.map((s) => (
             <DashboardCard key={s.title} title={s.title} value={s.value.toLocaleString()} />
           ))}
-        </div>
+        </div> */}
 
         <div className="grid xl:grid-cols-3 gap-8">
           {/* Recent Donations */}
