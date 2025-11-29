@@ -4,11 +4,22 @@ import React, { useEffect, useState } from "react";
 
 export default function EditStockPage() {
   const searchParams = useSearchParams();
-  const itemId = searchParams.get("item_id");
+  //const itemId = searchParams.get("item_id");
+  const [editingId, setEditingId] = useState(null);
+  const [editValues, setEditValues] = useState({ material: "", weight: "" });
+  
+  const handleEditClick = (item) => {
+    setEditingId(item.id);
+    setEditValues({ material: item.material, weight: item.weight });
+  };
 
-  const [stockLevels, setStock] = useState([
-    {id:1,itemName:"Socks",weight:5,material:"bonjour"}
-  ]);
+  const handleSave = (id) => {
+    const updated = stockLevels.map((item) =>item.id === id ? { ...item, ...editValues } : item);
+    setStock(updated);
+    setEditingId(null);
+  };
+
+  const [stockLevels, setStock] = useState([]);
     useEffect(() => {
         async function loadMetrics() {
           try {
@@ -22,6 +33,7 @@ export default function EditStockPage() {
         }
         loadMetrics();
       }, []); 
+
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -41,16 +53,32 @@ export default function EditStockPage() {
                   <th className="py-3 px-4 font-semibold text-gray-600">Item</th>
                   <th className="py-3 px-4 font-semibold text-gray-600">Material</th>
                   <th className="py-3 px-4 font-semibold text-gray-600">Weight</th>
+                  <th className="py-3 px-4 font-semibold text-gray-600">Gender</th>
+                  <th className="py-3 px-4 font-semibold text-gray-600">Quality</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {stockLevels.map((item) => (
                   <tr key={item.id}>
                     <td className="py-3 px-4 text-gray-800 font-medium">{item.itemName}</td>
-                    <td className="py-3 px-4 text-gray-600">{item.material}</td>
-                    <td className="py-3 px-4 text-gray-800 font-semibold">{item.weight}</td>
-                    <td className="py-3 px-4 text-gray-800"><button className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Edit</button></td>
-                    <td className="py-3 px-4 text-gray-800"><button className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Delete</button></td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {editingId === item.id ? (<input type="text" className="border rounded px-2 py-1 w-18" value={editValues.material} onChange={(e) => setEditValues((prev) => ({ ...prev, material: e.target.value }))}/>) : (item.material)}
+                    </td>
+                    <td className="py-3 px-4 text-gray-800 font-semibold">
+                      {editingId === item.id ? (<input type="number" className="border rounded px-2 py-1 w-18" value={editValues.weight}onChange={(e) =>setEditValues((prev) => ({ ...prev, weight: e.target.value }))}/>) : (item.weight)}
+                    </td>
+                    <td className="py-3 px-4 text-gray-800 font-medium">{item.gender}</td>
+                    <td className="py-3 px-4 text-gray-800 font-medium">{item.quality}</td>
+                    <td className="py-3 px-4 text-gray-800">
+                      {editingId === item.id ? (
+                          <button onClick={() => handleSave(item.id)} className="bg-green-400 text-black px-3 py-1 rounded hover:bg-green-600 mr-2">Save</button>
+                      ) : (
+                        <button onClick={() => handleEditClick(item)} className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Edit</button>
+                      )}
+                    </td>
+                    <td className="py-3 px-4 text-gray-800">
+                      <button className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Delete</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
