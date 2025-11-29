@@ -1,6 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { setChangeStock } from "@/lib/setUpdateStock";
 
 export default function EditStockPage() {
   const searchParams = useSearchParams();
@@ -13,10 +14,12 @@ export default function EditStockPage() {
     setEditValues({ material: item.material, weight: item.weight });
   };
 
-  const handleSave = (id) => {
+  async function handleSave(id) {
     const updated = stockLevels.map((item) =>item.id === id ? { ...item, ...editValues } : item);
     setStock(updated);
     setEditingId(null);
+    const res = await setChangeStock({id,weight:editValues.weight,material:editValues.material})
+    alert(res?.error||res?.success)
   };
 
   const [stockLevels, setStock] = useState([]);
