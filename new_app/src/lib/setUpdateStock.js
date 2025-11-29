@@ -12,3 +12,19 @@ export async function setChangeStock(data) {
     return { error: err.message };
   }
 }
+
+export async function setDeleteStock(data) {
+    console.log(data)
+  try {
+    const Database = require("better-sqlite3");
+    const db = new Database("SustainWear.db");
+    console.log(data)
+    db.prepare("delete from stock where item_id = (?)").run(data.id); 
+    db.prepare("delete from clothing where item_id = (?)").run(data.id); 
+  return { success: "Stock Deleted" };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+

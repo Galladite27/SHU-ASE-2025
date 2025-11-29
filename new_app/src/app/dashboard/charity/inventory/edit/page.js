@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { setChangeStock } from "@/lib/setUpdateStock";
+import { setChangeStock, setDeleteStock } from "@/lib/setUpdateStock";
 
 export default function EditStockPage() {
   const searchParams = useSearchParams();
@@ -19,6 +19,14 @@ export default function EditStockPage() {
     setStock(updated);
     setEditingId(null);
     const res = await setChangeStock({id,weight:editValues.weight,material:editValues.material})
+    alert(res?.error||res?.success)
+  };
+
+  async function handleDeleteClick(id) {
+    const updated = stockLevels.map((item) =>item.id === id ? { ...item, ...editValues } : item);
+    setStock(updated);
+    setEditingId(null);
+    const res = await setDeleteStock({id})
     alert(res?.error||res?.success)
   };
 
@@ -80,7 +88,7 @@ export default function EditStockPage() {
                       )}
                     </td>
                     <td className="py-3 px-4 text-gray-800">
-                      <button className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer">Delete</button>
+                      <button className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-600 cursor-pointer" onClick={()=>handleDeleteClick(item.id)}>Delete</button>
                     </td>
                   </tr>
                 ))}
