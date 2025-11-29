@@ -30,7 +30,7 @@ export default function DonationPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 p-6 sm:p-10">
-      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-4 sm:p-6">
         <h1 className="text-2xl font-bold mb-6">Add a Donation</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title Section*/}
@@ -41,7 +41,7 @@ export default function DonationPage() {
               placeholder="e.g. Levi Jeans"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full border rounded px-3 py-2"
+              className="w-full border rounded px-3 py-2 text-sm sm:text-base"
               required
             />
           </div>
@@ -53,7 +53,7 @@ export default function DonationPage() {
           <textarea placeholder="Enter a brief description of your item"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full border rounded px-3 py-2 text-black"
+            className="w-full border rounded px-3 py-2 text-black text-sm sm:text-base"
             rows={4}
             maxLength={256
             } // limitting the description field to 258 characters

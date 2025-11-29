@@ -50,7 +50,7 @@ const downloadCsv = () => {
       u.emailAddresses?.[0]?.emailAddress || "No email",
       u.publicMetadata?.role || "none",
     ]);
-
+ 
     // Format CSV file
     const csvString = [header, ...rows]
       .map((row) =>
@@ -72,8 +72,8 @@ const downloadCsv = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="p-4 sm:p-6 space-y-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-3xl font-bold">User Management</h1>
 
         <button
@@ -91,7 +91,7 @@ const downloadCsv = () => {
           return (
             <div
               key={user.id}
-              className="p-4 border rounded flex items-center justify-between"
+              className="p-4 border rounded flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
                 <p className="font-semibold text-gray-800">
@@ -100,7 +100,7 @@ const downloadCsv = () => {
                 <p className="text-sm text-gray-500">{user.id}</p>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap gap-3 sm:flex-nowrap sm:items-center">
                 {/* Role dropdown */}
                 <select
                   className="border p-2 rounded"

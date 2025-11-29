@@ -48,9 +48,12 @@ export default function DonorDashboardPage() {
           <p className="text-gray-600 mt-1">Here's a summary of your impact. Thank you for contributing!</p>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 px-4 md:px-8 pb-8">
         <BarChart data={data} label="Discreet things" />
-        <p>Line chart for increasing donations over time, increasing carbon savings over time, a list of comparisons showing equivalent carbon savings (e.g. plastic cups saved)</p>
+        <p className="text-gray-700 text-sm sm:text-base lg:col-span-2">
+          Line chart for increasing donations over time, increasing carbon savings over time,
+          and a list of comparisons showing equivalent carbon savings (e.g. plastic cups saved).
+        </p>
         <LineChart data={data} label="Continuous things" />
         <PieChart data={pieData} label="Age" />
       </div>
