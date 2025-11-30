@@ -1,14 +1,24 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { updateUserRoleAction, deleteUserAction } from "./actions";
+import {
+  updateUserRoleAction,
+  deleteUserAction,
+  createUserAction,
+} from "./actions";
 
 export default function UsersPageClient({ initialUsers }) {
   const [users, setUsers] = useState(initialUsers);
   const [isPending, startTransition] = useTransition();
 
+  //NEW USER FORM
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newRole, setNewRole] = useState("donor");
+
+  // UPDATE ROLE
   const updateRole = (userId, newRole) => {
-    // Update UI instantly
     setUsers((prev) =>
       prev.map((u) =>
         u.id === userId ? { ...u, publicMetadata: { role: newRole } } : u
@@ -19,30 +29,25 @@ export default function UsersPageClient({ initialUsers }) {
       const fd = new FormData();
       fd.append("userId", userId);
       fd.append("role", newRole);
-
       await updateUserRoleAction(fd);
     });
   };
 
+  // DELETE USER
   const deleteUser = (userId) => {
     startTransition(async () => {
       const fd = new FormData();
       fd.append("userId", userId);
-
       await deleteUserAction(fd);
 
-      // Remove instantly from UI
       setUsers((prev) => prev.filter((u) => u.id !== userId));
     });
   };
 
-const downloadCsv = () => {
-    if (!users || users.length === 0) {
-      alert("No users to export.");
-      return;
-    }
+  // DOWNLOAD CSV
+  const downloadCsv = () => {
+    if (!users || users.length === 0) return alert("No users to export.");
 
-    // CSV header
     const header = ["id", "email", "role"];
 
     const rows = users.map((u) => [
@@ -50,30 +55,28 @@ const downloadCsv = () => {
       u.emailAddresses?.[0]?.emailAddress || "No email",
       u.publicMetadata?.role || "none",
     ]);
- 
-    // Format CSV file
+
     const csvString = [header, ...rows]
       .map((row) =>
         row.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")
       )
       .join("\n");
 
-    // Download
     const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
 
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "users-report.csv";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "users-report.csv";
+    a.click();
+    a.remove();
     URL.revokeObjectURL(url);
   };
 
   return (
     <div className="p-4 sm:p-6 space-y-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center">
         <h1 className="text-3xl font-bold">User Management</h1>
 
         <button
@@ -83,15 +86,60 @@ const downloadCsv = () => {
           Download CSV
         </button>
       </div>
-      <div>
-          <button
-            onClick={() => clerkClient.users.createUser()}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-          >
-          Add User
-        </button> 
+
+      {/* CREATE USER FORM */}
+      <div className="p-4 border rounded bg-white shadow">
+        <button
+          onClick={() => setShowCreateForm(!showCreateForm)}
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full"
+        >
+          {showCreateForm ? "Close Create User" : "Create New User"}
+        </button>
+
+        {showCreateForm && (
+          <form action={createUserAction} className="space-y-3 mt-4">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Email"
+              className="border p-2 rounded w-full"
+              value={newEmail}
+              onChange={(e) => setNewEmail(e.target.value)}
+            />
+
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="Password"
+              className="border p-2 rounded w-full"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+
+            <select
+              name="role"
+              value={newRole}
+              onChange={(e) => setNewRole(e.target.value)}
+              className="border p-2 rounded w-full"
+            >
+              <option value="donor">Donor</option>
+              <option value="charity">Charity</option>
+              <option value="admin">Admin</option>
+            </select>
+
+            <button
+              type="submit"
+              className="bg-green-600 text-white p-2 rounded hover:bg-green-700 w-full"
+            >
+              Add User
+            </button>
+          </form>
+        )}
       </div>
 
+      {/* USER LIST */}
       <div className="space-y-4">
         {users.map((user) => {
           const role = user.publicMetadata?.role || "none";
@@ -99,17 +147,16 @@ const downloadCsv = () => {
           return (
             <div
               key={user.id}
-              className="p-4 border rounded flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              className="p-4 border rounded flex flex-col sm:flex-row justify-between gap-3"
             >
               <div>
-                <p className="font-semibold text-gray-800">
-                  {user.emailAddresses?.[0]?.emailAddress || "No email"}
+                <p className="font-semibold text-black dark:text-black">
+                  {user.emailAddresses?.[0]?.emailAddress}
                 </p>
                 <p className="text-sm text-gray-500">{user.id}</p>
               </div>
 
-              <div className="flex flex-wrap gap-3 sm:flex-nowrap sm:items-center">
-                {/* Role dropdown */}
+              <div className="flex gap-3 flex-wrap sm:flex-nowrap">
                 <select
                   className="border p-2 rounded"
                   value={role}
@@ -121,9 +168,6 @@ const downloadCsv = () => {
                   <option value="admin">Admin</option>
                 </select>
 
-                
-
-                {/* Delete */}
                 <button
                   onClick={() => deleteUser(user.id)}
                   className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
