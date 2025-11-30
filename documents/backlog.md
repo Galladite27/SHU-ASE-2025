@@ -13,7 +13,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
-* Administrator - edit user details (Ryan) - DEADLINE 1/12/25 MONDAY 
+* Administrator - edit user details (Ryan) - DEADLINE 1/12/25 MONDAY
+* Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
 
 
 
