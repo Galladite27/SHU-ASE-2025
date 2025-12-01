@@ -109,8 +109,8 @@ export default function AdminDashboardPageClient({ initialUsers }) {
   const summaryCards = [
     { title: "Total Users", value: totalUsers },
     { title: "New Users Today", value: newUsersToday },
-    { title: "Total Donations", value: metrics.totalDonations || 0 },
-    { title: "Total Items", value: metrics.totalItems || 0 },
+    { title: "Total Charities", value: totalCharities || 0 },
+    { title: "Total Donors", value: totalDonors || 0 },
   ];
 
   return (
