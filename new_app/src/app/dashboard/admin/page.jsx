@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import DashboardCard from "../(components)/DashboardSidebar";
+import DashboardCard from "../(components)/DashboardCard";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -96,11 +96,11 @@ export default function AdminDashboardPage() {
           <p className="text-gray-700 text-sm mt-1">Overview of platform stats</p>
         </header>
 
-        {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        { <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {summary.map((s) => (
             <DashboardCard key={s.title} title={s.title} value={s.value.toLocaleString()} />
           ))}
-        </div> */}
+        </div> }
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Recent Donations */}
