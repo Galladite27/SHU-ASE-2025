@@ -32,10 +32,12 @@ export default function DonationPage() {
         title,
         location,
       }),
-      credentials: "include", // crucial for sending __session cookie
+      credentials: "include",
     });
 
-    alert(res?.error || res?.success);
+    const res2 = await res.json();
+
+    alert(res2?.error || res2?.success);
   }
 
   const handlePhotoChange = (e) => {
