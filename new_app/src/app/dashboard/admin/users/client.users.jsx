@@ -91,9 +91,9 @@ export default function UsersPageClient({ initialUsers }) {
       <div className="p-4 border rounded bg-white shadow">
         <button
           onClick={() => setShowCreateForm(!showCreateForm)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full"
+          className="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 w-full"
         >
-          {showCreateForm ? "Close Create User" : "Create New User"}
+          {showCreateForm ? "Close (X)" : "Create New User"}
         </button>
 
         {showCreateForm && (
