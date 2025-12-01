@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { setDonations } from "@/lib/setDonation";
 
 export default function DonationPage() {
   const [title, setTitle] = useState("");
@@ -18,17 +17,22 @@ export default function DonationPage() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const res = await setDonations({
-      description,
-      gender,
-      material,
-      weight,
-      photo,
-      quality,
-      size,
-      category,
-      title,
-      location,
+    const res = await fetch("/api/setDonation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        description,
+        gender,
+        material,
+        weight,
+        photo,
+        quality,
+        size,
+        category,
+        title,
+        location,
+      }),
+      credentials: "include", // crucial for sending __session cookie
     });
 
     alert(res?.error || res?.success);
