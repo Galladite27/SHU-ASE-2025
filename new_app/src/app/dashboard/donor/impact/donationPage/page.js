@@ -1,8 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function DonationPage() {
+
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../../api/getLocationNames");
+        if (!res.ok) throw new Error("Failed to fetch donor info");
+        const data = await res.json();
+        setLocations(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [gender, setGender] = useState("");
@@ -195,9 +212,8 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Location</option>
-              <option value="Sheffield">Sheffield</option>
-              <option value="Manchester">Manchester</option>
-              <option value="Leeds">Leeds</option>
+              {locations.map(loc => (
+                <option key={loc.Location_ID} value={loc.Name}>{loc.Name}</option>))}
             </select>
           </div>
 
