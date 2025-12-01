@@ -3,6 +3,7 @@
 import { getAuth } from "@clerk/nextjs/server";
 
 export async function POST(req) {
+  try {
     const { userId } = getAuth(req);
     const body = await req.json();
     var co2_emission = 0
@@ -16,9 +17,6 @@ export async function POST(req) {
       case "Polyurethane": co2_emission = body.weight * 20; break;
       case "Flax linen": co2_emission = body.weight * 15; break;
     }
-    console.log(co2_emission)
-    
-  try {
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
 
