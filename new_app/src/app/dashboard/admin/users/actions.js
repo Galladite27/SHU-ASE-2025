@@ -57,7 +57,7 @@ export async function createFullUserAction(formData) {
     publicMetadata: {
       location: location ?? "",
       role: role === "none" ? null : role,
-      _timestamp: Date.Now(),
+      _timestamp: Date.now(),
     },
   });
 

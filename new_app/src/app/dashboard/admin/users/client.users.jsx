@@ -94,7 +94,7 @@ export default function UsersPageClient({ initialUsers }) {
 
           <button
             onClick={openCreate}
-            className="text-sm px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700"
+            className="text-sm px-4 py-2 rounded bg-purple-700 text-white hover:bg-purple-900"
           >
             New User
           </button>
@@ -197,14 +197,41 @@ export default function UsersPageClient({ initialUsers }) {
                 />
               </div>
 
-              <div>
+              {/* <div>
                 <label className="text-sm font-medium">Location</label>
                 <input
                   name="location"
                   required
                   className="w-full border p-2 rounded text-black"
                 />
+              </div> */}
+
+              <div>
+                <label className="text-sm font-medium">Location</label>
+                <select
+                  name="location"
+                  required
+                  className="w-full border p-2 rounded text-black"
+                >
+                  <option value="">Select a city</option>
+                  <option>London</option>
+                  <option>Manchester</option>
+                  <option>Birmingham</option>
+                  <option>Leeds</option>
+                  <option>Sheffield</option>
+                  <option>Liverpool</option>
+                  <option>Newcastle</option>
+                  <option>Nottingham</option>
+                  <option>Bristol</option>
+                  <option>Cardiff</option>
+                  <option>Glasgow</option>
+                  <option>Edinburgh</option>
+                  <option>Leicester</option>
+                  <option>Coventry</option>
+                  <option>Reading</option>
+                </select>
               </div>
+
 
               <div>
                 <label className="text-sm font-medium">Role</label>
@@ -222,7 +249,7 @@ export default function UsersPageClient({ initialUsers }) {
 
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-2 rounded"
+                className="w-full bg-purple-600 text-white py-2 rounded"
               >
                 Create User
               </button>

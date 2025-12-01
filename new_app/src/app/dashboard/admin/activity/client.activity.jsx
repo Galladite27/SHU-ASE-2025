@@ -177,14 +177,41 @@ export default function ActivityPageClient({ initialUsers }) {
                 />
               </div>
 
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium mb-1">Location</label>
                 <input
                   name="location"
                   defaultValue={selectedUser.location}
                   className="w-full border p-2 rounded text-black"
                 />
+              </div> */}
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Location</label>
+                <select
+                  name="location"
+                  defaultValue={selectedUser.location}
+                  className="w-full border p-2 rounded text-black"
+                >
+                  <option value="">Select a city</option>
+                  <option>London</option>
+                  <option>Manchester</option>
+                  <option>Birmingham</option>
+                  <option>Leeds</option>
+                  <option>Sheffield</option>
+                  <option>Liverpool</option>
+                  <option>Newcastle</option>
+                  <option>Nottingham</option>
+                  <option>Bristol</option>
+                  <option>Cardiff</option>
+                  <option>Glasgow</option>
+                  <option>Edinburgh</option>
+                  <option>Leicester</option>
+                  <option>Coventry</option>
+                  <option>Reading</option>
+                </select>
               </div>
+
 
               <div>
                 <label className="block text-sm font-medium mb-1">Role</label>
