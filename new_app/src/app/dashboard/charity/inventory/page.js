@@ -7,13 +7,15 @@ import {useRouter} from "next/navigation"
 export default function CharityDashboardPage() {
   const router = useRouter()
   const [stockLevels, setStock] = useState([]);
+  const [locationName, setLocationName] = useState("")
   useEffect(() => {
       async function loadMetrics() {
         try {
           const res = await fetch("../../../api/getStockLevel");
           if (!res.ok) throw new Error("Failed to fetch stock");
           const data = await res.json();
-          setStock(data);
+          setStock(data["stockLevels"]);
+          setLocationName(data["locationName"])
         } catch (err) {
           console.error(err);
         }
@@ -30,7 +32,7 @@ export default function CharityDashboardPage() {
       <div className="max-w-7xl mx-auto">
 
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Manchester Piccadilly Branch</h1>
+          <h1 className="text-3xl font-bold text-gray-800">{locationName.Name} Branch</h1>
           <p className="text-gray-600 mt-1">Manage inventory for this branch.</p>
         </div>
 

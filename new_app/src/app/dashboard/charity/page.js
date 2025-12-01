@@ -8,6 +8,7 @@ import DashboardCard from '../(components)/DashboardCard';
 export default function CharityDashboardPage() {
     const [charitySummary, setSummary] = useState({pendingDonations: 0,itemsInStock: 0,donorsThisMonth: 0,});
     const [incomingDonations, setIncoming] = useState([]);
+    const [locationName, setLocationName] = useState("");
   
     useEffect(() => {
       async function loadMetrics() {
@@ -17,6 +18,7 @@ export default function CharityDashboardPage() {
           const data = await res.json();
           setSummary(data["charitySummary"]);
           setIncoming(data["incomingDonations"])
+          setLocationName(data["locationName"])
         } catch (err) {
           console.error(err);
         }
@@ -28,7 +30,7 @@ export default function CharityDashboardPage() {
       <div className="max-w-7xl mx-auto">
       
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Manchester Piccadilly Branch</h1>
+          <h1 className="text-3xl font-bold text-gray-800">{locationName.Name} Branch</h1>
           <p className="text-gray-600 mt-1">Monitor donations for this branch.</p>
         </div>
 
