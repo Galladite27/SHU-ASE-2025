@@ -4,7 +4,6 @@ import { setAcceptDonation } from "@/lib/setAccept"
 
 export default function CharityManagerDonationsPage() {
 
-  const [acceptDonation,setAccept] = useState("")
   const [incomingDonations, setIncoming] = useState([]);
     useEffect(() => {
       async function loadMetrics() {

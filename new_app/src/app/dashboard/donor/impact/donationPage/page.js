@@ -81,7 +81,7 @@ export default function DonationPage() {
             className="w-full border rounded px-3 py-2 text-black text-sm sm:text-base"
             rows={4}
             maxLength={256
-            } // limitting the description field to 258 characters
+            } // limitting the description field to 256 characters
             required
           />
           <p className="text-sm text-gray-500 mt-1">
@@ -100,9 +100,9 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="unisex">Unisex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
             </select>
           </div>
 
