@@ -45,7 +45,6 @@ export default function DonorDashboardPage() {
         const res = await fetch("../../../api/getDonorImpactInfo");
         if (!res.ok) throw new Error("Failed to fetch summary metrics");
         const data = await res.json();
-        console.log(data)
         setDonations(data["donationReport"])
         setCarbon(data["co2_report"])
       } catch (err) {
@@ -55,8 +54,6 @@ export default function DonorDashboardPage() {
     loadMetrics();
   }, []);
 
-  console.log("Bonjour")
-  console.log(DonationData)
   return (
     <main className="p-6 sm:p-8 bg-gray-50 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">

@@ -1,5 +1,4 @@
 export function getStock(userId) {
-    console.log(userId)
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db")
     const [locationID] = db.prepare("select location_id from User_Location inner join user on (user.user_id = user_location.user_id) where clerk_id = ?").all(userId)

@@ -22,7 +22,6 @@ export default function CharityDashboardPage() {
     }, []); 
   
   const handleClick = (item) => {
-    console.log("Pre-Push item id" , item)
     router.push(`/dashboard/charity/inventory/edit?item_id=${item.id}`);
   };
 

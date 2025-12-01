@@ -12,7 +12,6 @@ export default function CharityManagerDonationsPage() {
           const res = await fetch("../../../api/getIncomingDonation");
           if (!res.ok) throw new Error("Failed to fetch IncomingDonation");
           const data = await res.json();
-          console.log(data)
           setIncoming(data);
         } catch (err) {
           console.error(err);
@@ -22,7 +21,6 @@ export default function CharityManagerDonationsPage() {
     }, []);
 
   async function testFunction (value,id){
-    console.log({ value,id });
     const res = await setAcceptDonation({value,id})
     alert(res?.error||res?.success)
   }

@@ -15,7 +15,6 @@ export default function CharityDashboardPage() {
           const res = await fetch("/api/getCharityInfo");
           if (!res.ok) throw new Error("Failed to fetch charitys information");
           const data = await res.json();
-          console.log(data)
           setSummary(data["charitySummary"]);
           setIncoming(data["incomingDonations"])
         } catch (err) {

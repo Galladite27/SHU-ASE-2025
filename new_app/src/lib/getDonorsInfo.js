@@ -1,5 +1,4 @@
 export function getDonationCount(userId) {
-    console.log(userId)
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db")
     const [donorId] = db.prepare("select user_id from user where Clerk_ID = (?)").all(userId)
