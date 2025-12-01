@@ -1,9 +1,8 @@
-export function getDonorImpact() {
-    const number = 1
+export function getDonorImpact(userId) {
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db")
-    const donationReportSQL = db.prepare("select STRFTIME('%m', Date_Donated) AS submission_month ,count(*) as number from donations inner join user on (donations.donor_id = user.user_id) where user_id = " + number + " group by STRFTIME('%m', Date_Donated); ").all();
-    const co2_reportSQL = db.prepare("select STRFTIME('%m', Date_Donated) AS submission_month ,sum(CO2_Emissions) as CO2_Total from donations inner join clothing on (donations.donation_id = clothing.donation_id) inner join user on (donations.donor_id = user.user_id) where user_id = " + number + " group by STRFTIME('%m', Date_Donated); ").all();
+    const donationReportSQL = db.prepare("select STRFTIME('%m', Date_Donated) AS submission_month ,count(*) as number from donations inner join user on (donations.donor_id = user.user_id) where clerk_id = ? group by STRFTIME('%m', Date_Donated); ").all(userId);
+    const co2_reportSQL = db.prepare("select STRFTIME('%m', Date_Donated) AS submission_month ,sum(CO2_Emissions) as CO2_Total from donations inner join clothing on (donations.donation_id = clothing.donation_id) inner join user on (donations.donor_id = user.user_id) where clerk_id = ? group by STRFTIME('%m', Date_Donated); ").all(userId);
     db.close()
 
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 

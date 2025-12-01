@@ -5,7 +5,6 @@ export async function setChangeStock(data) {
     const co2_emission = data.weight * 30
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
-    console.log(data)
     db.prepare("Update clothing set material = (?), donation_weight_kg = (?), co2_Emissions = (?) where item_id = (?) ").run(data.material,data.weight,co2_emission,data.id); 
   return { success: "Stock Updated" };
   } catch (err) {
@@ -14,11 +13,9 @@ export async function setChangeStock(data) {
 }
 
 export async function setDeleteStock(data) {
-    console.log(data)
   try {
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
-    console.log(data)
     db.prepare("delete from stock where item_id = (?)").run(data.id); 
     db.prepare("delete from clothing where item_id = (?)").run(data.id); 
   return { success: "Stock Deleted" };

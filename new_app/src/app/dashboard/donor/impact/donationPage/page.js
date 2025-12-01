@@ -1,9 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { setDonations } from "@/lib/setDonation";
+import React, { useEffect, useState } from "react";
 
 export default function DonationPage() {
+
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../../api/getLocationNames");
+        if (!res.ok) throw new Error("Failed to fetch donor info");
+        const data = await res.json();
+        setLocations(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [gender, setGender] = useState("");
@@ -18,20 +34,27 @@ export default function DonationPage() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const res = await setDonations({
-      description,
-      gender,
-      material,
-      weight,
-      photo,
-      quality,
-      size,
-      category,
-      title,
-      location,
+    const res = await fetch("/api/setDonation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        description,
+        gender,
+        material,
+        weight,
+        photo,
+        quality,
+        size,
+        category,
+        title,
+        location,
+      }),
+      credentials: "include",
     });
 
-    alert(res?.error || res?.success);
+    const res2 = await res.json();
+
+    alert(res2?.error || res2?.success);
   }
 
   const handlePhotoChange = (e) => {
@@ -75,7 +98,7 @@ export default function DonationPage() {
             className="w-full border rounded px-3 py-2 text-black text-sm sm:text-base"
             rows={4}
             maxLength={256
-            } // limitting the description field to 258 characters
+            } // limitting the description field to 256 characters
             required
           />
           <p className="text-sm text-gray-500 mt-1">
@@ -94,9 +117,9 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="unisex">Unisex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
             </select>
           </div>
 
@@ -189,9 +212,8 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Location</option>
-              <option value="Sheffield">Sheffield</option>
-              <option value="Manchester">Manchester</option>
-              <option value="Leeds">Leeds</option>
+              {locations.map(loc => (
+                <option key={loc.Location_ID} value={loc.Name}>{loc.Name}</option>))}
             </select>
           </div>
 
