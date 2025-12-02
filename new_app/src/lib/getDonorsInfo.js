@@ -1,13 +1,66 @@
 export function getDonationCount(userId) {
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [donorId] = db.prepare("select user_id from user where Clerk_ID = (?)").all(userId)
-    const [donation] = db.prepare("SELECT Count(all) as totalDonations FROM Donations Where donor_id = ?").all(donorId.User_ID)
-    const [items] = db.prepare("Select Count(all) as itemsDonated, sum(co2_emissions) as co2Saved From clothing inner join Donations on (clothing.Donation_ID = Donations.Donation_ID) where donor_id = ? group by donor_id").all(donorId.User_ID)
-    const donorsHistory = db.prepare("Select donations.donation_id as id, date_donated,donation_description as items,donations.status,concat('Saved ',sum(co2_emissions),' KG of CO2') as impact,Locations.name as charityName from Donations inner join clothing on (Donations.donation_id = Clothing.donation_id) inner join Stock on (Stock.Item_ID = Clothing.Item_ID) inner join Locations on (Stock.Location_ID = Locations.Location_ID) where donor_id = ? group by donations.donation_id").all(donorId.User_ID);
-    db.close()
-    const donorsInfo = Object.assign({},donation,items)
+  const Database = require("better-sqlite3");
+  const db = new Database("SustainWear.db");
 
-	return {donorsInfo,donorsHistory}
+  const [donorRow] = db
+    .prepare("SELECT User_ID FROM User WHERE Clerk_ID = ?")
+    .all(userId);
 
+  if (!donorRow) {
+    db.close();
+    return {
+      donorsInfo: {
+        totalDonations: 0,
+        itemsDonated: 0,
+        co2Saved: 0,
+      },
+      donorsHistory: [],
+    };
+  }
+
+  const donorId = donorRow.User_ID;
+
+  // Summary metrics for the donor
+  const [donation] = db
+    .prepare(
+      "SELECT COUNT(*) AS totalDonations FROM Donations WHERE Donor_ID = ?"
+    )
+    .all(donorId);
+
+  const [items] = db
+    .prepare(
+      "SELECT COUNT(*) AS itemsDonated FROM Clothing WHERE Donation_ID IN (SELECT Donation_ID FROM Donations WHERE Donor_ID = ?)"
+    )
+    .all(donorId);
+
+  const [impact] = db
+    .prepare(
+      "SELECT COALESCE(SUM(CO2_Emissions), 0) AS co2Saved FROM Clothing WHERE Donation_ID IN (SELECT Donation_ID FROM Donations WHERE Donor_ID = ?)"
+    )
+    .all(donorId);
+
+  const donorsHistory = db
+    .prepare(`
+      SELECT
+        d.Donation_ID AS id,
+        d.Date_Donated,
+        COALESCE(l.Name, 'Unknown') AS charityName,
+        COUNT(c.Item_ID) AS items,
+        COALESCE(SUM(c.CO2_Emissions), 0) AS impact,
+        d.Status
+      FROM Donations d
+      LEFT JOIN Clothing c ON c.Donation_ID = d.Donation_ID
+      LEFT JOIN Stock s ON s.Item_ID = c.Item_ID
+      LEFT JOIN Locations l ON s.Location_ID = l.Location_ID
+      WHERE d.Donor_ID = ?
+      GROUP BY d.Donation_ID
+      ORDER BY d.Date_Donated DESC
+    `)
+    .all(donorId);
+
+  db.close();
+
+  const donorsInfo = Object.assign({}, donation, items, impact);
+
+  return { donorsInfo, donorsHistory };
 }

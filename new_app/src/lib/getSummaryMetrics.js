@@ -1,14 +1,43 @@
 export function getSummaryMetrics() {
-	
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [users] = db.prepare("SELECT Count(all) as totalUsers FROM User").all()
-    const [branches] = db.prepare("SELECT Count(all) as activeBranches FROM Locations").all()
-    const [donations] = db.prepare("SELECT Count(all) as totalDonations FROM Donations").all()
-    const [items] = db.prepare("SELECT Count(all) as totalItems FROM Clothing").all()
-    const summaryMetrics = Object.assign({},users,branches,donations,items)
-    const summaryHistory = db.prepare("SELECT Donations.Donation_ID as id, concat(F_name,' ',L_name) as donorName, Locations.name as branch,Donations.Donation_Description as items, donations.Status as status FROM User inner join Donations on (User.User_ID = Donor_ID) inner join Clothing on (Clothing.Donation_ID = Donations.Donation_ID) inner join Stock on (Stock.Item_ID = Clothing.Item_ID) inner join Locations on (Locations.Location_ID = Stock.Location_ID) GROUP BY Donations.Donation_ID order By date_donated desc Limit 5").all()
-    db.close()
+  const Database = require("better-sqlite3");
+  const db = new Database("SustainWear.db");
 
-	return {summaryMetrics,summaryHistory}
+  const [users] = db
+    .prepare("SELECT COUNT(*) AS totalUsers FROM User")
+    .all();
+  const [branches] = db
+    .prepare("SELECT COUNT(*) AS activeBranches FROM Locations")
+    .all();
+  const [donations] = db
+    .prepare("SELECT COUNT(*) AS totalDonations FROM Donations")
+    .all();
+  const [items] = db
+    .prepare("SELECT COUNT(*) AS totalItems FROM Clothing")
+    .all();
+
+  const summaryMetrics = Object.assign({}, users, branches, donations, items);
+
+  const summaryHistory = db
+    .prepare(`
+      SELECT
+        d.Donation_ID AS id,
+        u.F_Name || ' ' || u.L_Name AS donorName,
+        COALESCE(l.Name, 'Unknown') AS branch,
+        COUNT(c.Item_ID) AS items,
+        COALESCE(d.Status, 'Processing') AS status,
+        d.Date_Donated AS dateDonated
+      FROM Donations d
+      JOIN User u ON d.Donor_ID = u.User_ID
+      LEFT JOIN Clothing c ON c.Donation_ID = d.Donation_ID
+      LEFT JOIN Stock s ON s.Item_ID = c.Item_ID
+      LEFT JOIN Locations l ON s.Location_ID = l.Location_ID
+      GROUP BY d.Donation_ID
+      ORDER BY d.Date_Donated DESC
+      LIMIT 5
+    `)
+    .all();
+
+  db.close();
+
+  return { summaryMetrics, summaryHistory };
 }

@@ -4,13 +4,25 @@ export async function setAcceptDonation(data) {
   try {
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
-    if (data.value){
-        db.prepare("Update donations set Status = 'Completed' where donation_id = (?) ").run(data.id); 
+
+    const isAccept =
+      data.value === true ||
+      data.value === "true" ||
+      data.value === 1 ||
+      data.value === "1";
+
+    if (isAccept) {
+      db.prepare(
+        "UPDATE Donations SET Status = 'Completed' WHERE Donation_ID = ?"
+      ).run(data.id);
+    } else {
+      db.prepare(
+        "UPDATE Donations SET Status = 'Rejected' WHERE Donation_ID = ?"
+      ).run(data.id);
     }
-    else if (!data.value){
-        db.prepare("Update donations set Status = 'Rejected' where donation_id = (?) ").run(data.id);
-    }
-  return { success: "Choice acknowledged" };
+
+    db.close();
+    return { success: "Choice acknowledged" };
   } catch (err) {
     return { error: err.message };
   }

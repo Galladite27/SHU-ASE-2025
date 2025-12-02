@@ -1,16 +1,98 @@
 export function getAllCharityInfo(userId) {
-	const number = 2
-    const Database = require("better-sqlite3");
-    const db = new Database("SustainWear.db")
-    const [locationID] = db.prepare("select location_id from User_Location inner join user on (user.user_id = user_location.user_id) where clerk_id = ?").all(userId)
-    const [locationName] = db.prepare("select name from locations where location_id = ?").all(locationID.Location_ID)
-    const [donorsHistory] = db.prepare("select count(all) as pendingDonations from Donations inner join clothing on (clothing.donation_id = donations.donation_id) inner join Stock on (clothing.item_id = stock.stock_id) where location_id = ? and donations.status = 'Processing'").all(locationID.Location_ID);
-    const [clothesStock] = db.prepare("select count(all) as itemsInStock from Stock where location_id = 1 and status <> 'IN WAREHOUSE'").all();
-    const [donorCount] = db.prepare("select count(distinct user.user_id) as donorsThisMonth from user inner join donations on (donations.donor_id = user.user_id) inner join clothing on (clothing.donation_id = donations.donation_id) inner join stock on (stock.stock_id = clothing.item_id) where stock.location_id = ? and date(Date_Donated) between date('now','-1 month') and date('now');").all(locationID.Location_ID);
-    const incomingDonations = db.prepare("select donations.donation_id as id, concat(F_Name , ' ' , L_Name) as donorName, description as items,donations.status as status from Donations inner join user on (donor_id = user_id) inner join clothing on (donations.donation_id = clothing.donation_id) inner join stock on (stock.stock_id = clothing.item_id) where location_id = ?").all(locationID.Location_ID)
-    db.close()
-    const charitySummary = Object.assign({},clothesStock,donorsHistory,donorCount)
+  const Database = require("better-sqlite3");
+  const db = new Database("SustainWear.db");
 
-	return {charitySummary,incomingDonations,locationName}
+  const [locationRow] = db
+    .prepare(`
+      SELECT ul.Location_ID
+      FROM User u
+      JOIN User_Location ul ON u.User_ID = ul.User_ID
+      WHERE u.Clerk_ID = ?
+    `)
+    .all(userId);
 
+  if (!locationRow) {
+    db.close();
+    return {
+      charitySummary: {
+        pendingDonations: 0,
+        itemsInStock: 0,
+        donorsThisMonth: 0,
+      },
+      incomingDonations: [],
+      // Keep the shape { Name: string } so the React code still works
+      locationName: { Name: "Unknown" },
+    };
+  }
+
+  const locationId = locationRow.Location_ID;
+
+  // Branch name
+  const [locationName] = db
+    .prepare("SELECT Name FROM Locations WHERE Location_ID = ?")
+    .all(locationId);
+
+  // Pending donations (Processing)
+  const [pendingDonations] = db
+    .prepare(`
+      SELECT COUNT(DISTINCT d.Donation_ID) AS pendingDonations
+      FROM Donations d
+      JOIN Clothing c ON c.Donation_ID = d.Donation_ID
+      JOIN Stock s ON s.Item_ID = c.Item_ID
+      WHERE s.Location_ID = ?
+        AND d.Status = 'Processing'
+    `)
+    .all(locationId);
+
+  // Items currently in stock at this location
+  const [itemsInStock] = db
+    .prepare(`
+      SELECT COUNT(*) AS itemsInStock
+      FROM Stock
+      WHERE Location_ID = ?
+        AND Status <> 'Distributed'
+    `)
+    .all(locationId);
+
+  // Unique donors who donated to this branch in the last month
+  const [donorsThisMonth] = db
+    .prepare(`
+      SELECT COUNT(DISTINCT d.Donor_ID) AS donorsThisMonth
+      FROM Donations d
+      JOIN Clothing c ON c.Donation_ID = d.Donation_ID
+      JOIN Stock s ON s.Item_ID = c.Item_ID
+      WHERE s.Location_ID = ?
+        AND d.Date_Donated BETWEEN date('now','-1 month') AND date('now')
+    `)
+    .all(locationId);
+
+  // Table of incoming donations
+  const incomingDonations = db
+    .prepare(`
+      SELECT
+        d.Donation_ID AS id,
+        u.F_Name || ' ' || u.L_Name AS donorName,
+        COUNT(c.Item_ID) AS items,
+        d.Status AS status
+      FROM Donations d
+      JOIN User u ON d.Donor_ID = u.User_ID
+      JOIN Clothing c ON c.Donation_ID = d.Donation_ID
+      JOIN Stock s ON s.Item_ID = c.Item_ID
+      WHERE s.Location_ID = ?
+        AND d.Status = 'Processing'
+      GROUP BY d.Donation_ID
+      ORDER BY d.Date_Donated DESC
+    `)
+    .all(locationId);
+
+  db.close();
+
+  const charitySummary = Object.assign(
+    {},
+    pendingDonations,
+    itemsInStock,
+    donorsThisMonth
+  );
+
+  return { charitySummary, incomingDonations, locationName };
 }
