@@ -16,6 +16,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
 * Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
+* Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
+* Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
 
 
 
