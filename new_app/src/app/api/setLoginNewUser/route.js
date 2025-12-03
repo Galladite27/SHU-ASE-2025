@@ -16,10 +16,10 @@ export async function POST(req) {
     const [getUser] = db.prepare("select user_id from user where Clerk_ID = ?").all(userId)
     if (getUser === undefined){
         const user = await clerkClient.users.getUser(userId)
-        console.log(user.firstName,user.lastName)
-        db.prepare("insert into user(F_Name,L_Name,Email,Date_Created,Role,Clerk_ID) values (?,?,?,date('now'),'Donor',?)").run(user.firstName,user.lastName,user.emailAddresses,userId)
+        console.log(user.firstName,user.lastName,user.emailAddresses[0].emailAddress,userId)
+        db.prepare("insert into user(F_Name,L_Name,Email,Date_Created,Role,Clerk_ID) values (?,?,?,date('now'),'Donor',?)").run(user.firstName,user.lastName,user.emailAddresses[0].emailAddress,userId)
     }
-    return new Response(JSON.stringify({ success: "User Created/ AlreadyCreated" }));
+    return new Response(JSON.stringify({ success: "User Created/AlreadyCreated" }));
   } catch (err) {
     return new Response(JSON.stringify({ error: err.message }));
   }

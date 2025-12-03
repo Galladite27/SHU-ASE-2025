@@ -202,8 +202,8 @@ export default function DonationPage() {
 
           {/* Weight (optional) */}
           <div>
-            <label className="block font-medium mb-1">Weight (kg) </label>
-            <p>If you do not know enter 0 and we will use an approximation</p>
+            <RequiredLabel>Weight (kg) </RequiredLabel>
+            <p className="text-gray-600 text-sm sm:text-base">If you do not know enter 0 and we do an average weight of a piece of clothing</p>
             <input
               type="number"
               placeholder="Select weight"
@@ -211,6 +211,7 @@ export default function DonationPage() {
               onChange={(e) => setWeight(e.target.value)}
               className="w-full border rounded px-3 py-2"
               step="0.01"
+              required
             />
           </div>
 
