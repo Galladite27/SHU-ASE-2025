@@ -23,7 +23,6 @@ export async function setNewUser(data) {
 
 export async function setDeleteUser(data) {
   try {
-    console.log(data)
     const Database = require("better-sqlite3");
     const db = new Database("SustainWear.db");
     const [user_id] = db.prepare("select User_ID from user where clerk_id = ?").all(data.userId)
