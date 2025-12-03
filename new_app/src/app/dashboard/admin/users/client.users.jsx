@@ -128,10 +128,10 @@ export default function UsersPageClient({ initialUsers }) {
                     updateRole(user.id, e.target.value)
                   }
                 >
-                  <option value="none">None</option>
-                  <option value="donor">Donor</option>
-                  <option value="charity">Charity</option>
-                  <option value="admin">Admin</option>
+                  <option value="None">None</option>
+                  <option value="Donor">Donor</option>
+                  <option value="Charity">Charity</option>
+                  <option value="Admin">Admin</option>
                 </select>
 
                 {/* Delete */}

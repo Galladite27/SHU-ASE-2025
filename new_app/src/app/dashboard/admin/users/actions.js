@@ -2,6 +2,7 @@
 
 import { createClerkClient } from "@clerk/backend";
 import { revalidatePath } from "next/cache";
+import { setNewUser } from "@/lib/setNewUser"
 
 const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY,
@@ -49,7 +50,7 @@ export async function createFullUserAction(formData) {
   const location = formData.get("location");
   const role = formData.get("role");
 
-  await clerkClient.users.createUser({
+  const user = await clerkClient.users.createUser({
     emailAddress: [email],
     password,
     firstName,
@@ -60,6 +61,15 @@ export async function createFullUserAction(formData) {
       _timestamp: Date.now(),
     },
   });
+    
+  const data = {id : user.id, 
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    location: formData.get("location"),
+    role: formData.get("role")}
+  setNewUser(data)
+
 
   revalidatePath("/dashboard/admin/users");
 }
