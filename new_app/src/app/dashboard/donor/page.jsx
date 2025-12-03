@@ -27,6 +27,15 @@ export default function DonorDashboardPage() {
     loadMetrics();
   }, []);
 
+  async function newUser(){
+    const res = await fetch("/api/setLoginNewUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+  }
+  newUser();
+
   return (
     <main className="p-6 sm:p-8 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
