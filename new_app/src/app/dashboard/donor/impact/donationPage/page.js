@@ -163,14 +163,25 @@ export default function DonationPage() {
           {/* Material */}
           <div>
             <RequiredLabel>Material</RequiredLabel>
-            <input
-              type="text"
-              placeholder="e.g. Cotton, Polyester etc."
+            <select
               value={material}
               onChange={(e) => setMaterial(e.target.value)}
               className="w-full border rounded px-3 py-2"
               required
-            />
+            >
+              <option value="">Select Material</option>
+              <option value="Acrylic">Acrylic</option>
+              <option value="Cotton">Cotton</option>
+              <option value="Denim">Denim</option>
+              <option value="Flax linen">Flax linen</option>
+              <option value="Leather">Leather</option>
+              <option value="Polyester">Polyester</option>
+              <option value="Polyurethane">Polyurethane</option>
+              <option value="Silk">Silk</option>
+              <option value="Viscose">Viscose</option>
+              <option value="Wool">Wool</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
 
           {/* Quality */}
@@ -191,7 +202,8 @@ export default function DonationPage() {
 
           {/* Weight (optional) */}
           <div>
-            <label className="block font-medium mb-1">Weight (kg)</label>
+            <RequiredLabel>Weight (kg) </RequiredLabel>
+            <p className="text-gray-600 text-sm sm:text-base">If you do not know enter 0 and we do an average weight of a piece of clothing</p>
             <input
               type="number"
               placeholder="Select weight"
@@ -199,6 +211,7 @@ export default function DonationPage() {
               onChange={(e) => setWeight(e.target.value)}
               className="w-full border rounded px-3 py-2"
               step="0.01"
+              required
             />
           </div>
 

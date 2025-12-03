@@ -5,6 +5,7 @@ import DashboardCard from '../(components)/DashboardCard';
 // --- DUMMY DATA FOR DONOR ---
 // --- DONOR DASHBOARD COMPONENT ---
 export default function DonorDashboardPage() {
+
     const [donorSummary, setSummary] = useState({
       totalDonations: 0,
       itemsDonated: 0,
@@ -15,6 +16,11 @@ export default function DonorDashboardPage() {
   useEffect(() => {
     async function loadMetrics() {
       try {
+        await fetch("/api/setLoginNewUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        });
         const res = await fetch("../../api/getDonorsInfo");
         if (!res.ok) throw new Error("Failed to fetch donor info");
         const data = await res.json();

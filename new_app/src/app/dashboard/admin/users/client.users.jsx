@@ -1,13 +1,31 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useEffect, useTransition } from "react";
 import {
   updateUserRoleAction,
   deleteUserAction,
   createFullUserAction,
 } from "./actions";
 
+
+
 export default function UsersPageClient({ initialUsers }) {
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../../api/getLocationNames");
+        if (!res.ok) throw new Error("Failed to fetch donor info");
+        const data = await res.json();
+        setLocations(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
   const [users, setUsers] = useState(initialUsers);
   const [isPending, startTransition] = useTransition();
 
@@ -128,10 +146,10 @@ export default function UsersPageClient({ initialUsers }) {
                     updateRole(user.id, e.target.value)
                   }
                 >
-                  <option value="none">None</option>
-                  <option value="donor">Donor</option>
-                  <option value="charity">Charity</option>
-                  <option value="admin">Admin</option>
+                  <option value="None">None</option>
+                  <option value="Donor">Donor</option>
+                  <option value="Charity">Charity</option>
+                  <option value="Admin">Admin</option>
                 </select>
 
                 {/* Delete */}
@@ -209,29 +227,16 @@ export default function UsersPageClient({ initialUsers }) {
               <div>
                 <label className="text-sm font-medium">Location</label>
                 <select
-                  name="location"
-                  required
-                  className="w-full border p-2 rounded text-black"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full border p-2 rounded text-black"
+                required
                 >
-                  <option value="">Select a city</option>
-                  <option>London</option>
-                  <option>Manchester</option>
-                  <option>Birmingham</option>
-                  <option>Leeds</option>
-                  <option>Sheffield</option>
-                  <option>Liverpool</option>
-                  <option>Newcastle</option>
-                  <option>Nottingham</option>
-                  <option>Bristol</option>
-                  <option>Cardiff</option>
-                  <option>Glasgow</option>
-                  <option>Edinburgh</option>
-                  <option>Leicester</option>
-                  <option>Coventry</option>
-                  <option>Reading</option>
+                <option value="">Select Location</option>
+                {locations.map(loc => (
+                  <option key={loc.Location_ID} value={loc.Name}>{loc.Name}</option>))}
                 </select>
               </div>
-
 
               <div>
                 <label className="text-sm font-medium">Role</label>
