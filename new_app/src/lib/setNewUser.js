@@ -20,3 +20,18 @@ export async function setNewUser(data) {
     return { error: err.message };
   }
 }
+
+export async function setDeleteUser(data) {
+  try {
+    console.log(data)
+    const Database = require("better-sqlite3");
+    const db = new Database("SustainWear.db");
+    const [user_id] = db.prepare("select User_ID from user where clerk_id = ?").all(data.userId)
+    db.prepare("delete from user_location where user_id = ?").run(user_id.User_ID)
+    db.prepare("delete from user where user_id = ?").run(user_id.User_ID)
+  return { success: "Stock Updated" };
+  } catch (err) {
+    console.log(err)
+    return { error: err.message };
+  }
+}

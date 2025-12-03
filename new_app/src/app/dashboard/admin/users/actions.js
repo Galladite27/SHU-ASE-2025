@@ -2,7 +2,7 @@
 
 import { createClerkClient } from "@clerk/backend";
 import { revalidatePath } from "next/cache";
-import { setNewUser } from "@/lib/setNewUser"
+import { setNewUser, setDeleteUser } from "@/lib/setNewUser"
 
 const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY,
@@ -23,6 +23,8 @@ export async function deleteUserAction(formData) {
   const userId = formData.get("userId");
 
   await clerkClient.users.deleteUser(userId);
+
+  setDeleteUser({userId: userId})
 
   revalidatePath("/dashboard/admin/users");
 }
