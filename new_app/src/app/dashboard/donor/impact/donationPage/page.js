@@ -160,7 +160,7 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* Selecting the gender of their item to help with correct distribution */}
+          {/* Material */}
           <div>
             <RequiredLabel>Material</RequiredLabel>
             <select
