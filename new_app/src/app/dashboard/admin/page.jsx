@@ -107,11 +107,11 @@ export default function AdminDashboardPage() {
           <p className="text-gray-700 text-sm mt-1">Overview of platform stats</p>
         </header>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {summary.map((s) => (
             <DashboardCard key={s.title} title={s.title} value={s.value.toLocaleString()} />
           ))}
-        </div>
+        </div> */}
 
         <div className="grid xl:grid-cols-3 gap-8">
           {/* Recent Donations */}

@@ -72,9 +72,9 @@ const downloadCsv = () => {
   };
 
   return (
-    <div className="p-10 space-y-6">
+    <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Admin – User Management</h1>
+        <h1 className="text-3xl font-bold">User Management</h1>
 
         <button
           onClick={downloadCsv}
@@ -94,7 +94,7 @@ const downloadCsv = () => {
               className="p-4 border rounded flex items-center justify-between"
             >
               <div>
-                <p className="font-semibold">
+                <p className="font-semibold text-gray-800">
                   {user.emailAddresses?.[0]?.emailAddress || "No email"}
                 </p>
                 <p className="text-sm text-gray-500">{user.id}</p>
