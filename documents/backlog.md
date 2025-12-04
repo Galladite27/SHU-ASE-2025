@@ -8,7 +8,31 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 
 # Ongoing (sprint todo)
+
+* Ensure the Graphs are not all the same colour - (Alex)
   
+* Ensure the spacing within the pages is managed correctly - (Alex)
+  
+* Adopt a new colour scheme (system-wide). - Needs input from all group members to come up with colour that we are all happy with using.
+  
+* The "Role" section in the top right hand corner needs adapting so that is shows either the role or the name of the user. - (PROBABLY HARIS IS BEST FOR THIS)
+
+* Adapt the Charity accept/decline section so that is displays a confirmation box - (Alex)
+
+* Clean up the donation page - (Alex as this was initially the page that I worked on)
+
+* Remove the duplicated entry within the charity dashboard page - (Theo)
+
+* Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
+
+* Come up with some text to fill out the pages better for the users (Laurie)
+
+* Include a section stating how many previous donations a user has made on the incoming donations page for the charity user - (Alex)
+
+* Add a pie chart for the inventory page which shows the split between men's donations and women's donations - (Laurie OR Alex)
+
+* Add more in-depth descriptions to the items that the user donates for the data that we have - (Theo)
+
 * Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
 
