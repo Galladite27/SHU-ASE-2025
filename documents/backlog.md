@@ -20,11 +20,7 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Adapt the Charity accept/decline section so that is displays a confirmation box - (Alex)
 
 * Clean up the donation page - (Alex as this was initially the page that I worked on)
-
-* Remove the duplicated entry within the charity dashboard page - (Theo)
-
-* Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
-
+  
 * Come up with some text to fill out the pages better for the users (Laurie)
 
 * Include a section stating how many previous donations a user has made on the incoming donations page for the charity user - (Alex)
@@ -40,9 +36,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
 * Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
-* Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
-* Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
-
 
 
 # Done
@@ -85,6 +78,11 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Mandatory fields in the Donor page (From lecturer feedback) - DEADLINE SATURDAY (Alex) 29/11/25
 * CRUD for Admin user management - add remove edit user roles on admin user management page (Haris) DEADLINE - MONDAY 1/12/25
 * Administrator - edit user details (Haris) - DEADLINE 1/12/25 MONDAY
+* Remove the duplicated entry within the charity dashboard page - (Theo) /Theo comment - Someone uploaded the same cap case error twice which made it look like a duplicate but isnt
+* Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
+* Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
+* Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
+* 
 
 
 
