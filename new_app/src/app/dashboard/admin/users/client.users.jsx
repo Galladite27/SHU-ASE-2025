@@ -11,6 +11,7 @@ import {
 
 export default function UsersPageClient({ initialUsers }) {
   const [locations, setLocations] = useState([]);
+  const [location, setLocation] = useState("");
 
   useEffect(() => {
     async function loadMetrics() {
