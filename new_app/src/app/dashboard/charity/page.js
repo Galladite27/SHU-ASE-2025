@@ -50,6 +50,7 @@ export default function CharityDashboardPage() {
                 <tr>
                   <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Donor</th>
                   <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Items</th>
+                  <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Description</th>
                   <th className="py-3 px-2 sm:px-4 font-semibold text-gray-600">Status</th>
                 </tr>
               </thead>
@@ -58,6 +59,7 @@ export default function CharityDashboardPage() {
                   <tr key={donation.id}>
                     <td className="py-3 px-2 sm:px-4 text-gray-800 font-medium">{donation.donorName}</td>
                     <td className="py-3 px-2 sm:px-4 text-gray-600">{donation.items}</td>
+                    <td className="py-3 px-2 sm:px-4 text-gray-600">{donation.description}</td>
                     <td className="py-3 px-2 sm:px-4">
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
                         donation.status === 'Processing' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
