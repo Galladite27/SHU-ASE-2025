@@ -21,7 +21,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
   
 * The "Role" section in the top right hand corner needs adapting so that is shows either the role or the name of the user. - (PROBABLY HARIS IS BEST FOR THIS)
 
-* Adapt the Charity accept/decline section so that is displays a confirmation box - (Alex)
 
 * Clean up the donation page - (Alex as this was initially the page that I worked on)
   
@@ -86,7 +85,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
 * Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
 * Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
-* 
+* * Adapt the Charity accept/decline section so that is displays a confirmation box - (Theo)
+
 
 
 
