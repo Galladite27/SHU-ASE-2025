@@ -9,6 +9,10 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Ongoing (sprint todo)
 
+
+- Script done by this afternoon. (Laurence) - DEADLINE 5pm TODAY
+- Record - DEADLINE 11am THURSDAY
+ 
 * Ensure the Graphs are not all the same colour - (Alex)
   
 * Ensure the spacing within the pages is managed correctly - (Alex)
