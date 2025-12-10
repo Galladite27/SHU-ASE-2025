@@ -12,17 +12,12 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 - Script done by this afternoon. (Laurence) - DEADLINE 5pm TODAY
 - Record - DEADLINE 11am THURSDAY
- 
-* Ensure the Graphs are not all the same colour - (Alex)
   
 * Ensure the spacing within the pages is managed correctly - (Alex)
   
 * Adopt a new colour scheme (system-wide). - Needs input from all group members to come up with colour that we are all happy with using.
   
 * The "Role" section in the top right hand corner needs adapting so that is shows either the role or the name of the user. - (PROBABLY HARIS IS BEST FOR THIS)
-
-
-* Clean up the donation page - (Alex as this was initially the page that I worked on)
   
 * Come up with some text to fill out the pages better for the users (Laurie)
 
@@ -86,6 +81,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
 * Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
 * * Adapt the Charity accept/decline section so that is displays a confirmation box - (Theo)
+* Ensure the Graphs are not all the same colour - (Alex)
+* Clean up the donation page - (Alex as this was initially the page that I worked on)
 
 
 
