@@ -91,7 +91,7 @@ export default function DonationPage() {
 
           {/* Description */}
           <div>
-          <label className="block font-medium mb-1">Description</label>
+            <RequiredLabel>Description</RequiredLabel>
           <textarea placeholder="Enter a brief description of your item"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -203,7 +203,7 @@ export default function DonationPage() {
           {/* Weight (optional) */}
           <div>
             <RequiredLabel>Weight (kg) </RequiredLabel>
-            <p className="text-gray-600 text-sm sm:text-base">If you do not know enter 0 and we do an average weight of a piece of clothing</p>
+            <p className="text-gray-600 text-sm sm:text-base">If you are unsure, enter 0</p>
             <input
               type="number"
               placeholder="Select weight"

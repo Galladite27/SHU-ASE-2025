@@ -19,7 +19,7 @@ export default function BarChart({ data, label }) {
           {
             label: label,
             data: data.map((row) => row.y),
-            backgroundColor: "rgba(75, 192, 192, 0.5)",
+            backgroundColor: "rgba(144, 238, 144, 1)",
             borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 1,
           },

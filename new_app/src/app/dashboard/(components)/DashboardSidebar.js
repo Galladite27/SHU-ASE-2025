@@ -38,27 +38,30 @@ export default function DashboardSidebar() {
   const linksToShow = menuItems[role] || [];
 
   return (
-    <aside className="w-full sm:w-64 bg-gray-100 p-4 sm:h-full sm:min-h-screen">
+    <aside className="w-full sm:w-64 bg-gray-100 p-4 sm:h-full sm:min-h-screen border-r">
       <nav>
-        <h3 className="font-bold text-gray-500 mb-4">
+        <h3 className="font-bold text-gray-400 uppercase tracking-wide mb-4 text-sm cursor-default select-none">
           {role.charAt(0).toUpperCase() + role.slice(1)} Menu
         </h3>
 
-        {linksToShow.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`block py-2 ${
-              pathname === link.href
-                ? 'text-blue-600 font-semibold'
-                : 'text-gray-700'
-            }`}
-          >
-            {link.label}
-          </Link>
-        ))}
+        {linksToShow.map((link) => {
+          const isActive = pathname === link.href;
+
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block py-2 px-3 rounded-md transition ${
+                isActive
+                  ? 'bg-blue-100 text-blue-700 font-semibold cursor-default'
+                  : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+              }`}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );
 }
-
