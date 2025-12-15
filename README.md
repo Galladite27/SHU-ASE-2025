@@ -8,9 +8,11 @@ Group members:
 * Theo Richards
 * Ryan Parsons
 
-To add here:
-* Introducing the master document as what ties together the documentation of our work
-* Instructions on using the software (website)
+## To run out application:
+1. Ensure your working directory is `new_app`
+2. Run `npm install`
+3. Run `npm run dev`
+4. Navigate to `localhost:3000` (or whatever URL the server tells you)
 
 ## Required Github practices (for our reference)
 Branches:
