@@ -2,28 +2,19 @@
 Rather than over-complicate things with Jira or Trello, we have decided that the scope of the project and the number of things to do only warrants a simple way of tracking our backlog. Also, this file can be included in the published releases, produced as evidence at the end of each sprint period.
 
 # Todo
-* Do research into an AI feature we can add but don't actually implement it
-
+* Do research into an AI feature we can add but don't actually implement it 
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
 
+* Mobile First verfication (Ryan) DEADLINE SUNDAY 
 
 # Ongoing (sprint todo)
-
-
-- Script done by this afternoon. (Laurence) - DEADLINE 5pm TODAY
-- Record - DEADLINE 11am THURSDAY
+* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
   
-* Ensure the spacing within the pages is managed correctly - (Alex)
-  
-* Adopt a new colour scheme (system-wide). - Needs input from all group members to come up with colour that we are all happy with using.
-  
-* The "Role" section in the top right hand corner needs adapting so that is shows either the role or the name of the user. - (PROBABLY HARIS IS BEST FOR THIS)
-  
-* Come up with some text to fill out the pages better for the users (Laurie)
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
+* Donor page - mandatory fields on donation form (Alex) DEADLINE - FRIDAY
 
-* Include a section stating how many previous donations a user has made on the incoming donations page for the charity user - (Alex)
-
-* Add a pie chart for the inventory page which shows the split between men's donations and women's donations - (Laurie OR Alex)
+* Administrator - access system-wide data (Laurence) - DEADLINE FRIDAY 28/11/25
+* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE FRIDAY 28/11/25
 
 * Add more in-depth descriptions to the items that the user donates for the data that we have - (Theo)
 
@@ -34,7 +25,6 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
 * Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
-
 
 # Done
 * User stories (Alex)
