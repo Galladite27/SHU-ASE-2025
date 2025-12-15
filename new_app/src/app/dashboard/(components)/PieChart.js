@@ -35,8 +35,8 @@ export default function PieChart({ data, label }) {
   }, [data]);
 
   return (
-    <div className="w-full h-80">
-      <canvas ref={canvasRef} />
+    <div className="w-full h-56 sm:h-64 md:h-80 lg:h-96">
+      <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );
 }

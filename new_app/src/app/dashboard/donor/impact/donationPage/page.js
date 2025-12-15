@@ -1,9 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { setDonations } from "@/lib/setDonation"
+import React, { useEffect, useState } from "react";
 
 export default function DonationPage() {
+
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    async function loadMetrics() {
+      try {
+        const res = await fetch("../../../api/getLocationNames");
+        if (!res.ok) throw new Error("Failed to fetch donor info");
+        const data = await res.json();
+        setLocations(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMetrics();
+  }, []);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [gender, setGender] = useState("");
@@ -17,10 +33,29 @@ export default function DonationPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log({ title, description, gender, material, weight, photo });
-    const res = await setDonations({description,gender,material,weight,photo,quality,size,category,title,location})
-    alert(res?.error||res?.success)
-  };
+
+    const res = await fetch("/api/setDonation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        description,
+        gender,
+        material,
+        weight,
+        photo,
+        quality,
+        size,
+        category,
+        title,
+        location,
+      }),
+      credentials: "include",
+    });
+
+    const res2 = await res.json();
+
+    alert(res2?.error || res2?.success);
+  }
 
   const handlePhotoChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -28,35 +63,42 @@ export default function DonationPage() {
     }
   };
 
+  const RequiredLabel = ({ children }) => (
+    <label className="block font-medium mb-1">
+      {children} <span className="text-red-600">*</span>
+    </label>
+  );
+
   return (
     <main className="min-h-screen bg-gray-50 p-6 sm:p-10">
-      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-4 sm:p-6">
         <h1 className="text-2xl font-bold mb-6">Add a Donation</h1>
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Title Section*/}
+
+          {/* Title */}
           <div>
-            <label className="block font-medium mb-1">Title of Item</label>
+            <RequiredLabel>Title of Item</RequiredLabel>
             <input
               type="text"
               placeholder="e.g. Levi Jeans"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full border rounded px-3 py-2"
+              className="w-full border rounded px-3 py-2 text-sm sm:text-base"
               required
             />
           </div>
 
-          {/* Description of item */}
-          {/* brief description of item, could limit to a certain number of characters?? */}
+          {/* Description */}
           <div>
-          <label className="block font-medium mb-1">Description</label>
+            <RequiredLabel>Description</RequiredLabel>
           <textarea placeholder="Enter a brief description of your item"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full border rounded px-3 py-2 text-black"
+            className="w-full border rounded px-3 py-2 text-black text-sm sm:text-base"
             rows={4}
             maxLength={256
-            } // limitting the description field to 258 characters
+            } // limitting the description field to 256 characters
             required
           />
           <p className="text-sm text-gray-500 mt-1">
@@ -67,7 +109,7 @@ export default function DonationPage() {
           {/* Gender Section*/}
           {/* Selecting the gender of their item to help with correct distribution */}
           <div>
-            <label className="block font-medium mb-1">Gender</label>
+            <RequiredLabel>Gender</RequiredLabel>
             <select
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -75,14 +117,15 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="unisex">Unisex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
             </select>
           </div>
 
+          {/* Size */}
           <div>
-            <label className="block font-medium mb-1">Size</label>
+            <RequiredLabel>Size</RequiredLabel>
             <select
               value={size}
               onChange={(e) => setSize(e.target.value)}
@@ -98,8 +141,9 @@ export default function DonationPage() {
             </select>
           </div>
 
+          {/* Category */}
           <div>
-            <label className="block font-medium mb-1">Category</label>
+            <RequiredLabel>Category</RequiredLabel>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -116,22 +160,33 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* Material Section*/}
-          {/* Asking the user to provide us with the type of material for their item */}
+          {/* Material */}
           <div>
-            <label className="block font-medium mb-1">Material</label>
-            <input
-              type="text"
-              placeholder="e.g. Cotton, Polyester etc."
+            <RequiredLabel>Material</RequiredLabel>
+            <select
               value={material}
               onChange={(e) => setMaterial(e.target.value)}
               className="w-full border rounded px-3 py-2"
               required
-            />
+            >
+              <option value="">Select Material</option>
+              <option value="Acrylic">Acrylic</option>
+              <option value="Cotton">Cotton</option>
+              <option value="Denim">Denim</option>
+              <option value="Flax linen">Flax linen</option>
+              <option value="Leather">Leather</option>
+              <option value="Polyester">Polyester</option>
+              <option value="Polyurethane">Polyurethane</option>
+              <option value="Silk">Silk</option>
+              <option value="Viscose">Viscose</option>
+              <option value="Wool">Wool</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
-          
+
+          {/* Quality */}
           <div>
-            <label className="block font-medium mb-1">Quality</label>
+            <RequiredLabel>Quality</RequiredLabel>
             <select
               value={quality}
               onChange={(e) => setQuality(e.target.value)}
@@ -145,11 +200,10 @@ export default function DonationPage() {
             </select>
           </div>
 
-          {/* allowing the user to enter the weight of their item, needed for calculating the carbon savings */}
-          {/* Weight Section */}
+          {/* Weight (optional) */}
           <div>
-            <label className="block font-medium mb-1">Weight (kg)</label>
-            
+            <RequiredLabel>Weight (kg) </RequiredLabel>
+            <p className="text-gray-600 text-sm sm:text-base">If you are unsure, enter 0</p>
             <input
               type="number"
               placeholder="Select weight"
@@ -161,8 +215,9 @@ export default function DonationPage() {
             />
           </div>
 
+          {/* Location */}
           <div>
-            <label className="block font-medium mb-1">Location</label>
+            <RequiredLabel>Location</RequiredLabel>
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -170,22 +225,20 @@ export default function DonationPage() {
               required
             >
               <option value="">Select Location</option>
-              <option value="Sheffield">Sheffield</option>
-              <option value="Manchester">Manchester</option>
-              <option value="Leeds">Leeds</option>
+              {locations.map(loc => (
+                <option key={loc.Location_ID} value={loc.Name}>{loc.Name}</option>))}
             </select>
           </div>
 
-          {/* Photo Upload section*/}
-          {/* Allowing the user to add a photo alongside their donation
-          How will this go into the databse, if it will - ask theo/harris */}
+          {/* Photo */}
           <div>
-            <label className="block font-medium mb-1">Photo</label>
+            <RequiredLabel>Photo</RequiredLabel>
             <input
               type="file"
               accept="image/*"
               onChange={handlePhotoChange}
               className="w-full"
+              required
             />
             {photo && (
               <img
@@ -195,9 +248,8 @@ export default function DonationPage() {
               />
             )}
           </div>
-          
-          {/* Submitting the form, not connected to the databse */}
-          {/* Submit Button */}
+
+          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
@@ -210,3 +262,4 @@ export default function DonationPage() {
   );
 }
 
+// make the weight optional but the title and description required

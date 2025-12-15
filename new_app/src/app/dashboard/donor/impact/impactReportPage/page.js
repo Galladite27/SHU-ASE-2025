@@ -45,7 +45,6 @@ export default function DonorDashboardPage() {
         const res = await fetch("../../../api/getDonorImpactInfo");
         if (!res.ok) throw new Error("Failed to fetch summary metrics");
         const data = await res.json();
-        console.log(data)
         setDonations(data["donationReport"])
         setCarbon(data["co2_report"])
       } catch (err) {
@@ -55,8 +54,6 @@ export default function DonorDashboardPage() {
     loadMetrics();
   }, []);
 
-  console.log("Bonjour")
-  console.log(DonationData)
   return (
     <main className="p-6 sm:p-8 bg-gray-50 text-gray-800 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -65,12 +62,16 @@ export default function DonorDashboardPage() {
           <p className="text-gray-600 mt-1">Here's a summary of your impact. Thank you for contributing!</p>
         </div>
       </div>
-      <p>You've had a great year! Here are all your donations, month by month.</p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+      <p className="text-gray-700 mt-4 mb-4 max-w-7xl mx-auto text-sm sm:text-base">
+        You've had a great year! Here are all your donations, month by month.
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 px-4 md:px-8 mb-8">
         <BarChart data={DonationData} label="Your Donation History" />
       </div>
-        <p>You've had your ups and downs but each month you've saved lots of Co2 emissions from being released into the environment!</p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+      <p className="text-gray-700 mt-4 mb-4 max-w-7xl mx-auto text-sm sm:text-base">
+        You've had your ups and downs but each month you've saved lots of Co₂ emissions from being released into the environment!
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 px-4 md:px-8 mb-8">
         <LineChart data={carbonSavingsData} label="Your Monthly Carbon Savings (g)" />
       </div>
     </main>

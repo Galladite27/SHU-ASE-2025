@@ -19,7 +19,7 @@ export default function BarChart({ data, label }) {
           {
             label: label,
             data: data.map((row) => row.y),
-            backgroundColor: "rgba(75, 192, 192, 0.5)",
+            backgroundColor: "rgba(144, 238, 144, 1)",
             borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 1,
           },
@@ -38,8 +38,8 @@ export default function BarChart({ data, label }) {
   }, [data]);
 
   return (
-    <div className="w-full h-80">
-      <canvas ref={canvasRef} />
+    <div className="w-full h-56 sm:h-64 md:h-80 lg:h-96">
+      <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );
 }

@@ -16,7 +16,15 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator - access system-wide data (Laurence) - DEADLINE FRIDAY 28/11/25
 * Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE FRIDAY 28/11/25
 
-* Administrator - generate reports (Ryan) 
+* Add more in-depth descriptions to the items that the user donates for the data that we have - (Theo)
+
+* Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
+* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
+
+* Connect every page up with the database no more dummy data. Make sure it all works correctly (Theo) - DEADLINE WEDNESDAY 3/12/25
+
+* Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
+* Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
 
 # Done
 * User stories (Alex)
@@ -49,9 +57,25 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Submit photos to charity systems (Alex)
 * Donor page - sustainability impact - same as graph or style of data from admin page but just for the user/donor. (Theo / Alex)
 * Admin analytics - view stock intake & donation trends any graph users per month,donations per month (anything) (Theo and Alex) - Tuesday (text at 4pm)
-* Fix Sidebar - (Haris) DEADLINE - TODAY
-* Create link from Landing page to Dashboard page (Haris) - DEADLINE - FRIDAY
-* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY
+* SideBar protected - only donor can see there dashboard, charity can see there dashboard etc. (Haris) DEADLINE TODAY 26/11/25
+* Create link from Landing page to Dashboard page (Haris) - DEADLINE - 28/11/25 FRIDAY
+* Charity page - accepting incoming stock (Theo) - DEADLINE - TODAY 26/11/25
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY 26/11/25
+* Mobile First verfication (Ryan) DEADLINE SUNDAY
+* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 28/11/25
+* Mandatory fields in the Donor page (From lecturer feedback) - DEADLINE SATURDAY (Alex) 29/11/25
+* CRUD for Admin user management - add remove edit user roles on admin user management page (Haris) DEADLINE - MONDAY 1/12/25
+* Administrator - edit user details (Haris) - DEADLINE 1/12/25 MONDAY
+* Remove the duplicated entry within the charity dashboard page - (Theo) /Theo comment - Someone uploaded the same cap case error twice which made it look like a duplicate but isnt
+* Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
+* Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
+* Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
+* * Adapt the Charity accept/decline section so that is displays a confirmation box - (Theo)
+* Ensure the Graphs are not all the same colour - (Alex)
+* Clean up the donation page - (Alex as this was initially the page that I worked on)
+
+
+
 
 
 
