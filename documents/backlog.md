@@ -3,28 +3,8 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 
 # Todo
 * Do research into an AI feature we can add but don't actually implement it 
-* Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
-
-* Mobile First verfication (Ryan) DEADLINE SUNDAY 
 
 # Ongoing (sprint todo)
-* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
-  
-* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
-* Donor page - mandatory fields on donation form (Alex) DEADLINE - FRIDAY
-
-* Administrator - access system-wide data (Laurence) - DEADLINE FRIDAY 28/11/25
-* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE FRIDAY 28/11/25
-
-* Add more in-depth descriptions to the items that the user donates for the data that we have - (Theo)
-
-* Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
-* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
-
-* Connect every page up with the database no more dummy data. Make sure it all works correctly (Theo) - DEADLINE WEDNESDAY 3/12/25
-
-* Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
-* Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
 
 # Done
 * User stories (Alex)
@@ -70,30 +50,18 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Ensure the inventory page aligns with the number of donations stated within the dashboard for teh charity user (Theo)
 * Replace the fake names in the DB with the real names for each Clerk user (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
 * Update the user-insert logic so Clerk’s actual first/last name gets saved into the User table (Theo - or theo delegates) DEADLINE THURSDAY 4/12/25
-* * Adapt the Charity accept/decline section so that is displays a confirmation box - (Theo)
+* Adapt the Charity accept/decline section so that is displays a confirmation box - (Theo)
 * Ensure the Graphs are not all the same colour - (Alex)
 * Clean up the donation page - (Alex as this was initially the page that I worked on)
-
-
-
-
-
-
-
-
-
-
-
-* Integrate with AI image detection
-* Configure AI to detect category of clothing item uploaded
-* AI API for categorisation (optional)
-
-ALEX -- AS OF TODAY (NOTES)
-
-* CREATE IMPACT REPORT FOR ADMIN PAGE
-    NEEDS TO INCLUDE GRAPHS
-* CHARITY INCOMING DONATIONS PAGE:
-    USER (name)
-    DESCRIPTION OF ITEM 
-    ACCEPT AND DECLINE BUTTONS
-* MY SLIDES FOR PRESENTATION
+* Edit stock levels of charity items on Charity page. (Theo) - DEADLINE FRIDAY (text call Theo) 
+* Admin (and donor) analytics - track sustainability metrics (copy and paste from admin - Alex) - Tuesday (Wait for email) DEADLINE - TODAY
+* Donor page - mandatory fields on donation form (Alex) DEADLINE - FRIDAY
+* Administrator - access system-wide data (Laurence) - DEADLINE FRIDAY 28/11/25
+* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE FRIDAY 28/11/25
+* Add more in-depth descriptions to the items that the user donates for the data that we have - (Theo)
+* Administrator - access system-wide data (Laurence) - DEADLINE THURSDAY  2-3PM
+* Administrator analytics - monitor location performance for any branch (Laurence) - DEADLINE THURSDAY 27/11/25 2-3PM
+* Connect every page up with the database no more dummy data. Make sure it all works correctly (Theo) - DEADLINE WEDNESDAY 3/12/25
+* Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
+* Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
+* Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
