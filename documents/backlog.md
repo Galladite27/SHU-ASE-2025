@@ -2,7 +2,6 @@
 Rather than over-complicate things with Jira or Trello, we have decided that the scope of the project and the number of things to do only warrants a simple way of tracking our backlog. Also, this file can be included in the published releases, produced as evidence at the end of each sprint period.
 
 # Todo
-* Do research into an AI feature we can add but don't actually implement it 
 
 # Ongoing (sprint todo)
 
@@ -65,3 +64,4 @@ Rather than over-complicate things with Jira or Trello, we have decided that the
 * Administrator - generate reports (Ryan) - DEADLINE 29/11/25 SATURDAY
 * Make sure all the dummy data on every page is connected to the database, the donation page submission is actually saved on the database. (Theo) - DEADLINE MONDAY 1/12/25
 * Video presentation (Haris completed slides ready record 7 minute video, please add your names as you have completed it here - when everyone has done I will move it to Done)
+* Do research into an AI feature we can add but don't actually implement it because there isn't time
