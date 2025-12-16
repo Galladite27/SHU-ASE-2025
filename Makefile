@@ -1,4 +1,4 @@
-FILES := README.md documents/backlog.md documents/master-document.odt new_app/
+FILES := README.md documents/backlog.md documents/master-document.docx new_app/
 DATE := `date +%F`
 
 doc:
